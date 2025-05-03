@@ -59,6 +59,7 @@ int main() {
   - The loop iterates through all elements once.And for "n" no. of elements it will run "n" times
   - As the array size n increases, execution time linearly increases.
   - No nested loops or extra computations—just one full traversal.
+    
 **O(n^2)**
 ----------
 # Space complexity #
