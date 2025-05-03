@@ -32,6 +32,9 @@ int main() {
     return 0;
 }
 ```
+- The operation num & 1 is constant time (O(1)) since it performs a single bitwise AND operation.
+- It does not depend on the size of the number or involve loops or recursion. So timecoplexity is O(1), as even though input is 10^6 still the if condition will get execute for once only.
+
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
