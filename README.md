@@ -63,7 +63,7 @@ int main() {
 **O($n^2$) **
 --------------------------
 
-- Bubble Sort algorithm in C
+- Example: Bubble Sort algorithm in C
 
 ```
 #include <stdio.h>
@@ -106,7 +106,7 @@ int main() {
 -------------
 ![image](https://github.com/user-attachments/assets/c5ad209e-fe06-4278-a2ee-e4f7d9b27984)
 
-- Nested Loops (Matrix Multiplication)
+- Example: Nested Loops (Matrix Multiplication)
 ```
 #include <stdio.h>
 
