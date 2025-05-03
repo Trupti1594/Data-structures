@@ -60,7 +60,7 @@ int main() {
   - As the array size n increases, execution time linearly increases.
   - No nested loops or extra computations—just one full traversal.
     
-**O($n^2$) and O($n^3$)**
+**O($n^2$) **
 --------------------------
 
 - Bubble Sort algorithm in C
@@ -72,9 +72,12 @@ int main() {
     int arr[] = {64, 34, 25, 12, 22, 11, 90};  
     int n = sizeof(arr) / sizeof(arr[0]);  
 
-    for (int i = 0; i < n - 1; i++) {  
-        for (int j = 0; j < n - i - 1; j++) {  
-            if (arr[j] > arr[j + 1]) {  
+    for (int i = 0; i < n - 1; i++)
+    {  
+        for (int j = 0; j < n - i - 1; j++)
+        {  
+            if (arr[j] > arr[j + 1])
+            {  
                 // Swap arr[j] and arr[j+1]
                 int temp = arr[j];  
                 arr[j] = arr[j + 1];  
@@ -91,12 +94,50 @@ int main() {
     return 0;
 }
 ```
-Why is Bubble Sort O(n²)?
-- Nested loops: The outer loop runs (n-1) times, and the inner loop runs (n-i-1) times.
+**Why is Bubble Sort O(n²)?**
+- Nested loops: The outer loop runs (n-1) times we can consider it as n times only, and the inner loop runs (n-i-1) times.
 - Worst case: If the array is reverse sorted, every element must be compared and swapped, leading to O(n²) complexity.
 - Not efficient for large datasets, but useful for small or nearly sorted arrays.
+![image](https://github.com/user-attachments/assets/0d055179-d93c-4414-b649-03a145f97fba)
 
+![image](https://github.com/user-attachments/assets/a384104a-2bd3-4d11-a850-ced34092e189)
 
+**O($n^3$)**
+-------------
+![image](https://github.com/user-attachments/assets/c5ad209e-fe06-4278-a2ee-e4f7d9b27984)
+
+- Nested Loops (Matrix Multiplication)
+```
+#include <stdio.h>
+
+#define N 3  // Matrix size
+
+int main() {
+    int A[N][N] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int B[N][N] = {{9, 8, 7}, {6, 5,4}, {3, 2, 1}};
+    int C[N][N] = {0};  // Result matrix initialized to zero
+
+    // Triple nested loop (O(n³))
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < N; k++) {
+                C[i][j] += A[i][k] * B[k][j];  // Matrix multiplication
+            }
+        }
+    }
+
+    // Print result matrix
+    printf("Resultant Matrix:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", C[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
