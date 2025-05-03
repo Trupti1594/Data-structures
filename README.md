@@ -60,8 +60,43 @@ int main() {
   - As the array size n increases, execution time linearly increases.
   - No nested loops or extra computations—just one full traversal.
     
-**O($n^2$)**
-----------
+**O($n^2$) and O($n^3$)**
+--------------------------
+
+- Bubble Sort algorithm in C
+
+```
+#include <stdio.h>
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};  
+    int n = sizeof(arr) / sizeof(arr[0]);  
+
+    for (int i = 0; i < n - 1; i++) {  
+        for (int j = 0; j < n - i - 1; j++) {  
+            if (arr[j] > arr[j + 1]) {  
+                // Swap arr[j] and arr[j+1]
+                int temp = arr[j];  
+                arr[j] = arr[j + 1];  
+                arr[j + 1] = temp;  
+            }
+        }
+    }
+
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {  
+        printf("%d ", arr[i]);  
+    }
+
+    return 0;
+}
+```
+Why is Bubble Sort O(n²)?
+- Nested loops: The outer loop runs (n-1) times, and the inner loop runs (n-i-1) times.
+- Worst case: If the array is reverse sorted, every element must be compared and swapped, leading to O(n²) complexity.
+- Not efficient for large datasets, but useful for small or nearly sorted arrays.
+
+
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
