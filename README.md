@@ -35,6 +35,31 @@ int main() {
 - The operation num & 1 is constant time (O(1)) since it performs a single bitwise AND operation.
 - It does not depend on the size of the number or involve loops or recursion. So timecoplexity is O(1), as even though input is 10^6 still the if condition will get execute for once only.
 
+**O(n) linear time complexity**
+--------------------------------
+
+- Example: Print the elements of an array
+```
+#include <stdio.h>
+
+int main() {
+    int arr[] = {5, 10, 15, 20, 25};  
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    for (int i = 0; i < n; i++)
+    {  // Loop runs 'n' times
+        printf("%d ", arr[i]);
+    }
+    
+    return 0;
+}
+```
+
+- Why is this O(n)?
+  - The loop iterates through all elements once.
+  - As the array size n increases, execution time linearly increases.
+  - No nested loops or extra computations—just one full traversal.
+
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
