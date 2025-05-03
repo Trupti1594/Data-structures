@@ -60,7 +60,7 @@ int main() {
   - As the array size n increases, execution time linearly increases.
   - No nested loops or extra computations—just one full traversal.
     
-**O(n^2)**
+**O($n^2$)**
 ----------
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
