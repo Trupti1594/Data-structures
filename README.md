@@ -16,9 +16,8 @@ As the values of timecomplexity go near y axis the algo beacomes the worst.
 **O(1)**
 ----------
 - Example: Check Even/Odd Using Bitwise AND
-  ```
+```
 #include <stdio.h>
-
 void checkEvenOdd(int num) {
     if (num & 1)  // Bitwise AND with 1 (O(1) operation)
         printf("%d is Odd\n", num);
@@ -32,8 +31,7 @@ int main() {
 
     return 0;
 }
-
-  ```
+```
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
