@@ -1,5 +1,7 @@
 # Data-structures #
 lectures: https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/video_galleries/lecture-videos/
+- Time complexity reference
+https://www.youtube.com/watch?v=PwKv8fOcriM&t=544s
 # Time complexity #
 - Time complexity is not the time taken by an algorithm to run on a machine.
 - Rate at which the time taken increases wrt the input size.It is the time taken by an algo/operation as a function of input size(n).
@@ -143,7 +145,7 @@ int main() {
 -------------
 ![image](https://github.com/user-attachments/assets/ef501634-0c90-4ec7-a9ee-c249e3c3896b)
 
-- Example: Binary search(applied only on sorted array otherwise dont apply)
+- Example: **Binary search(applied only on sorted array otherwise dont apply)**
 
 ```
 Certainly! Binary Search is an efficient algorithm for searching a sorted array, with a time complexity of O(log n). It works by repeatedly dividing the search range in half.
@@ -179,12 +181,20 @@ int main() {
     return 0;
 }
 ```
-Why is Binary Search O(log n)?
-- Each iteration divides the array in half, reducing the search space exponentially.
+Why is Binary Search O(logn)?
+- **Each iteration divides the array in half**, reducing the search space exponentially.
 - If the array has n elements, binary search completes in log₂(n) steps.
 - More efficient than linear search (O(n)), especially for large datasets.
 
 Would you like an example with recursion instead of loops? 
+
+**O(nlogn)**
+------------
+- Seen in optimized sorting algoes like merge sort,quick sort(average time complexity case)
+  
+![image](https://github.com/user-attachments/assets/042acfc7-5021-4487-afc0-50b5216fafaf)
+
+
 
 
 # Space complexity #
