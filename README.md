@@ -1,4 +1,5 @@
 - [TimeComplexity](#TimeComplexity)
+- [NestedLoops](#NestedLoops)
 
 
 # Data-structures #
@@ -198,7 +199,10 @@ Would you like an example with recursion instead of loops?
 ![image](https://github.com/user-attachments/assets/042acfc7-5021-4487-afc0-50b5216fafaf)
 
 
-# Space complexity #
+# NestedLoops #
+
+
+
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
   - Example arr[] is an input array, so the quesn is like store the square of each element of input array (arr[]) to the squar[]. so if arr will have 10 elements so squar will also have squared value of 10 elements. so space complexityu for squar[] is O(n).
