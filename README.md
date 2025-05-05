@@ -1,8 +1,11 @@
+- [TimeComplexity](#TimeComplexity)
+
+
 # Data-structures #
 lectures: https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/video_galleries/lecture-videos/
 - Time complexity reference
 https://www.youtube.com/watch?v=PwKv8fOcriM&t=544s
-# Time complexity #
+# TimeComplexity #
 - Time complexity is not the time taken by an algorithm to run on a machine.
 - Rate at which the time taken increases wrt the input size.It is the time taken by an algo/operation as a function of input size(n).
 - Time complexity is represented in **BIG O notation**. This represents the worst case senario or upper bound.For **average case theta()**. For **best case omega**.
@@ -193,8 +196,6 @@ Would you like an example with recursion instead of loops?
 - Seen in optimized sorting algoes like merge sort,quick sort(average time complexity case)
   
 ![image](https://github.com/user-attachments/assets/042acfc7-5021-4487-afc0-50b5216fafaf)
-
-
 
 
 # Space complexity #
