@@ -138,6 +138,55 @@ int main() {
     return 0;
 }
 ```
+
+**O(logn)**
+-------------
+![image](https://github.com/user-attachments/assets/ef501634-0c90-4ec7-a9ee-c249e3c3896b)
+
+- Example: Binary search(applied only on sorted array otherwise dont apply)
+
+```
+Certainly! Binary Search is an efficient algorithm for searching a sorted array, with a time complexity of O(log n). It works by repeatedly dividing the search range in half.
+C Code for Binary Search (O(log n))
+#include <stdio.h>
+
+int binarySearch(int arr[], int left, int right, int target) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;  // Calculate middle index
+
+        if (arr[mid] == target)  
+            return mid;  // Found the target, return index
+        else if (arr[mid] < target)  
+            left = mid + 1;  // Search right half
+        else  
+            right = mid - 1;  // Search left half
+    }
+    return -1;  // Target not found
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50, 60, 70};  // Sorted array
+    int n = sizeof(arr) / sizeof(arr[0]);  
+    int target = 40;
+
+    int result = binarySearch(arr, 0, n - 1, target);
+    
+    if (result != -1)
+        printf("Element found at index %d\n", result);
+    else
+        printf("Element not found\n");
+
+    return 0;
+}
+```
+Why is Binary Search O(log n)?
+- Each iteration divides the array in half, reducing the search space exponentially.
+- If the array has n elements, binary search completes in log₂(n) steps.
+- More efficient than linear search (O(n)), especially for large datasets.
+
+Would you like an example with recursion instead of loops? 
+
+
 # Space complexity #
 - Amount of space taken by an algo as a function of input size (n).Its not the actual space taken by the program.
 - Our code consist of input and auxilary input so space complexity is calculated for auxilary input not for actual input.
