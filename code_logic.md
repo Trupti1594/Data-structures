@@ -84,3 +84,48 @@ printf("reverse = %d",reverse);
     return 0;
 }
 ```
+# Check if a number is Palindrome or Not #
+
+- A palindrome is a number that reads the same backward as forward. For example, 121, 1331, and 4554 are palindromes because they remain the same when their digits are reversed.
+  
+**Algorithm**
+
+Step 1:Initialise an integer revNum to 0. This variable will store the reverse of the number.
+
+Step 2: Make a duplicate of the original number and store it in an integer dup for later comparison.
+
+Step 3: Run a while loop with the condition n>0 to reverse the number and at each iteration:
+ - Get the last digit of n by using the modulus operator % with 10 and store it in a temporary variable ld.
+ - Update the revNum by multiplying it by 10 and adding the last digit ld.
+ - Update n by integer division with 10 effectively removing the last digit.
+   
+Step 4: After the loop, check if the original number dup is equal to the reversed number revNum.
+ - If they are equal, return true indicating the number is a palindrome.
+ - If they are not equal, return false indicating that the number is not a palindrome.
+
+```
+int main() {
+int n;
+int lastdigit,reverse = 0;
+int nbackup;
+printf("enter the value \n");
+scanf("%d",&n);
+nbackup = n;
+while(n!=0)
+{
+lastdigit = n%10; //extracting the digit
+reverse = (reverse *10) +lastdigit;
+n=n/10; //
+}
+printf("reverse = %d : number = %d\n",reverse,nbackup);
+if (reverse == nbackup)
+{
+    printf("no. is pallindrome \n");
+}
+else
+{
+    printf("no. is not pallindrome \n");
+}
+    return 0;
+}
+```
