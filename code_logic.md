@@ -160,3 +160,32 @@ Step 4: After the loop, check if the original input number is equal to the sum o
 
   - If they are equal, return true indicating the number is an Armstrong number.
   - If they are not equal, return false indicating that the number is not an Armstrong number.
+
+```
+int main()
+{
+int n;
+int num;
+int old =0;
+printf("enter the value \n");
+scanf("%d",&n);
+int nbackup = n;
+while(n!=0)
+{
+ num = n%10; //extracting the digit
+old = (num*num*num) +old;
+n=n/10; //
+}
+printf("nbackup = %d : finalnumber = %d\n",nbackup,old);
+if (old == nbackup)
+{
+    printf("no. is armstrong \n");
+}
+else
+{
+    printf("no. is not armstrong \n");
+}
+    return 0;
+}
+
+```
