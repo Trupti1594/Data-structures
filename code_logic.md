@@ -54,7 +54,7 @@ printf("count = %d",count);
 
 **Time Complexity:** whenever no. of iteration depends on division then we can see logarithmic time complexity at that time O(log10N + 1)
 
-# reverse the number #
+# 2) reverse the number #
 
 **Algorithm**
 
@@ -89,7 +89,7 @@ printf("reverse = %d",reverse);
     return 0;
 }
 ```
-# Check if a number is Palindrome or Not #
+# 3) Check if a number is Palindrome or Not #
 
 - A palindrome is a number that reads the same backward as forward. For example, 121, 1331, and 4554 are palindromes because they remain the same when their digits are reversed.
   
@@ -141,7 +141,7 @@ else
 }
 ```
 
-# Armstrong Number or not #
+# 4) Armstrong Number or not #
 
 **logic**
 
@@ -206,7 +206,7 @@ else
 
 ```
 
-# Print all Divisors of a given Number #
+# 5) Print all Divisors of a given Number #
 
 - A divisor of an integer N is a positive integer that divides N without leaving a remainder. In other words, if N is divisible by another integer without any remainder, then that integer is considered a divisor of N.
 
@@ -281,7 +281,7 @@ for(i =1;**i*i<=n**;i++)  **//i*i<=n shows squareroot(36) ie 6 <= n**
 
 ```
 
-# Check if a number is prime or not #
+# 6) Check if a number is prime or not #
 
   - A prime number is a number that exactly has 2 factors i.e 1 and itself.
 
@@ -382,3 +382,44 @@ printf("number is not prime");
 ```
 
 # Recursion #
+  - when a funtion calls itself until a specific condition is met
+
+# Print Name N times using Recursion #
+
+**logic**
+
+Since in this problem, there is no count that can be incremented each time we call a function, how can we keep a track of how many times we have printed the name?
+
+For this problem, we’re going to be using a function along with parameters in which we can keep track of the number of times we’ve printed something.
+
+```
+void print_name(int n,int count)
+{
+    if(count > n)
+    {
+        return;
+    }
+    printf("trupti\n");
+    print_name(n,count+1);
+}
+
+int main() {
+
+int n;
+int count =1;
+printf("enter the value \n");
+scanf("%d",&n);
+print_name(n,count);
+    return 0;
+}
+
+
+```
+
+we first call the function when the value of i is 1 and then print the name and increment i by 1 inside the parameter of the function and make a call again. But, we know that this will go on forever as i will be increasing continuously after every function call. So, to avoid this we put a base condition that if i exceeds n, then simply terminate the current recursive call and return to the previous call.
+
+![image](https://github.com/user-attachments/assets/ea901a9a-eedf-4b86-bd7a-5a0d465f515a)
+
+**Time Complexity:** O(N) { Since the function is being called n times, and for each function, we have only one printable line that takes O(1) time, so the cumulative time complexity would be O(N) }
+
+Space Complexity: O(N) { In the worst case, the recursion stack space would be full with all the function calls waiting to get completed and that would make it an O(N) recursion stack space }
