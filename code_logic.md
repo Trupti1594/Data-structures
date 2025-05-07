@@ -2,7 +2,7 @@ Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-co
 
 # BasicMaths #
 
-# Count digits in a number #
+# 1) Count digits in a number #
 
 **logic**
 
