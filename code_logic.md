@@ -1,5 +1,6 @@
 # Count digits in a number #
 **logic**
+
 TThe modulus operator % computes the remainder when a number is divided by another number. When we perform N % 10 we get the last digit of the number N.
 
 Eg. N = 7789, then N%10 results in 9 which is the last digit.
@@ -12,7 +13,7 @@ Together with these operators we can effectively extract digits from right to le
 
 ![image](https://github.com/user-attachments/assets/4913c9da-93f4-42e9-b997-670ef7c93373)
 
-Algorithm
+**Algorithm**
 Step 1:Initialise an empty vector ans to store the extracted digits.
 
 Step 2: While N is greater than 0, execute the following:
