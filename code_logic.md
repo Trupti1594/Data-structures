@@ -348,3 +348,31 @@ If the the number of factors is greater than 2 then it is a composite number, re
 **Time Complexity:** O(sqrt(N))where N is the input number. The loop iterates up to the square root of n performing constant time operations at each step.
 
 Space Complexity : O(1) as the space complexity remains constant and independent of the input size. Only a fixed amount of memory is required to store the integer variables.
+
+```
+int main() {
+int i;
+int n;
+int count =0;
+printf("enter the value \n");
+scanf("%d",&n);
+for(i =1;i*i<=n;i++)  //i*i<=n shows squareroot(36) ie 6 <= n
+{
+ if(n%i == 0)
+ {
+    count++;
+    if((n/i)!=i)
+    {
+        count++;
+    }
+ }
+}
+printf("count = %d\n",count);
+if(count == 2)
+printf("number is prime");
+else
+printf("number is not prime");
+    return 0;
+}
+
+```
