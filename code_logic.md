@@ -63,3 +63,24 @@ Step 2: Using a while loop we iterate while n is greater than 0 and at each iter
   - Remove the last digit of the number by dividing it by 10.
     
 Step 3: After exiting the while loop, return the reversed number.
+
+```
+#include <stdio.h>
+
+int main() {
+int n;
+int lastdigit,reverse = 0;
+int count =0;
+printf("enter the value \n");
+scanf("%d",&n);
+while(n!=0)
+{
+lastdigit = n%10; //extracting the digit
+reverse = (reverse *10) +lastdigit;
+count++; //counting the no. of digit and increment by 1 in each run
+n=n/10; //
+}
+printf("reverse = %d",reverse);
+    return 0;
+}
+```
