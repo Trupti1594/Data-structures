@@ -197,7 +197,7 @@ else
 ***1 Brute force approach***
 A brute force approach would be to iterate from 1 to n checking each value if it divides n without leaving a remainder. For each divisor found, store it in an array and a count of divisors is maintained. After iterating through all possible values, the size of the array is updated with the count of divisors and the array is returned.
 
-  **Algorithm:**
+  - **Algorithm:**
 
   Step 1:Initialise an array to store the divisors.
 
