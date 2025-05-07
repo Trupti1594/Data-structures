@@ -26,6 +26,27 @@ Step 3: Reverse the vector ans as the digits have been added from right to left 
 
 Step 4: Return the ans vector.
 
+```
+#include <stdio.h>
+
+int main() {
+int n;
+int rem;
+int count =0;
+printf("enter the value \n");
+scanf("%d",&n);
+while(n!=0)
+{
+rem = n%10; //extracting the digit
+count++; //counting the no. of digit and increment by 1 in each run
+n=n/10; //
+}
+printf("count = %d",count);
+    return 0;
+}
+
+```
+
 **Time Complexity:** whenever no. of iteration depends on division then we can see logarithmic time complexity at that time O(log10N + 1)
 
 # reverse the number #
