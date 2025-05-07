@@ -21,6 +21,7 @@ Step 2: While N is greater than 0, execute the following:
   - Get the last digit of the N by taking N%10 and store it in a variable lastDigit.
   - Add lastDigit to the ans vector.
   - Update N by removing its last digit by performing a modulo 10 (%10) operation on it.
+
 Step 3: Reverse the vector ans as the digits have been added from right to left and we need to return them in the order left to right.
 
 Step 4: Return the ans vector.
