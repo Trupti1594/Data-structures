@@ -386,7 +386,7 @@ printf("number is not prime");
 
 # Print Name N times using Recursion #
 
-**logic**
+**Algorithm**
 
 Since in this problem, there is no count that can be incremented each time we call a function, how can we keep a track of how many times we have printed the name?
 
@@ -423,3 +423,28 @@ we first call the function when the value of i is 1 and then print the name and 
 **Time Complexity:** O(N) { Since the function is being called n times, and for each function, we have only one printable line that takes O(1) time, so the cumulative time complexity would be O(N) }
 
 Space Complexity: O(N) { In the worst case, the recursion stack space would be full with all the function calls waiting to get completed and that would make it an O(N) recursion stack space }
+
+# Print 1 to N using Recursion #
+
+```
+void print_name(int start,int n)
+{
+    if(start > n)
+    {
+        return;
+    }
+    printf("%d\n",start);
+    print_name(start+1,n);
+}
+
+int main() {
+
+int n;
+int start =1;
+printf("enter the value \n");
+scanf("%d",&n);
+print_name(start,n);
+return 0;
+}
+
+```
