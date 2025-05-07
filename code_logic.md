@@ -104,6 +104,12 @@ Step 4: After the loop, check if the original number dup is equal to the reverse
  - If they are equal, return true indicating the number is a palindrome.
  - If they are not equal, return false indicating that the number is not a palindrome.
 
+**Time Complexity:** O(log10N + 1) where N is the input number. The time complexity is determined by the number of digits in the input integer N. In the worst case when N is a multiple of 10 the number of digits in N is log10 N + 1.
+
+In the while loop we divide N by 10 until it becomes 0 which takes log10N iterations.
+In each iteration of the while loop we perform constant time operations like modulus and division and pushing elements into the vector.
+Space Complexity: O(1) as only a constant amount of additional memory for the reversed number regardless of size of the input number.
+
 ```
 int main() {
 int n;
@@ -222,7 +228,7 @@ int i;
 int n;
 printf("enter the value \n");
 scanf("%d",&n);
-for(i =1;i<=n;i++)
+for(i =1;**i<=n**;i++)
 {
  if(n%i == 0)
  {
@@ -236,3 +242,35 @@ for(i =1;i<=n;i++)
 
 **Optimal approach**
 
+![image](https://github.com/user-attachments/assets/a63a9b05-e535-4720-afd4-1fd7a3f1f2d2)
+
+  - We can optimise the previous approach by using the property that for any non-negative integer n, if d is a divisor of n then n/d is also a divisor of n.
+
+  - This property is symmetric about the square root of n by traversing just the first half we can avoid redundant iteration and computations improving the efficiency of the algorithm.
+
+  - But this approach prints aaray in unsorted order. Sorting algo needs to be applied
+  - **Time Complexity(without sorting algo)** - O(sqrt(n))
+
+```
+#include <stdio.h>
+#include <math.h>
+int main() {
+int i;
+int n;
+printf("enter the value \n");
+scanf("%d",&n);
+for(i =1;**i*i<=n**;i++)  **//i*i<=n shows squareroot(36) ie 6 <= n**
+{
+ if(n%i == 0)
+ {
+    printf("%d\t",i);
+ }
+ if((n/i)!=i)
+ {
+     printf("%d\t",n/i);
+ }
+}
+    return 0;
+}
+
+```
