@@ -25,6 +25,7 @@ Step 2: While N is greater than 0, execute the following:
 Step 3: Reverse the vector ans as the digits have been added from right to left and we need to return them in the order left to right.
 
 Step 4: Return the ans vector.
+
 **Time Complexity:** whenever no. of iteration depends on division then we can see logarithmic time complexity at that time O(log10N + 1)
 
 # reverse the number #
@@ -39,4 +40,5 @@ Step 2: Using a while loop we iterate while n is greater than 0 and at each iter
   - Calculate the last digit of the number using the modulus operator (N%10) and store it in a variable last digit.
   - Update the reversed number by multiplying it with 10 and adding the last digit. This effectively appends the last digit to the end of the reversed number.
   - Remove the last digit of the number by dividing it by 10.
+    
 Step 3: After exiting the while loop, return the reversed number.
