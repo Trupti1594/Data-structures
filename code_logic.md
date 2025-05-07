@@ -244,6 +244,8 @@ for(i =1;**i<=n**;i++)
 
 ![image](https://github.com/user-attachments/assets/a63a9b05-e535-4720-afd4-1fd7a3f1f2d2)
 
+![image](https://github.com/user-attachments/assets/2e7e6dee-2291-494a-a72d-5184059cd6be)
+
   - We can optimise the previous approach by using the property that for any non-negative integer n, if d is a divisor of n then n/d is also a divisor of n.
 
   - This property is symmetric about the square root of n by traversing just the first half we can avoid redundant iteration and computations improving the efficiency of the algorithm.
@@ -274,3 +276,22 @@ for(i =1;**i*i<=n**;i++)  **//i*i<=n shows squareroot(36) ie 6 <= n**
 }
 
 ```
+
+# Check if a number is prime or not #
+
+  - A prime number is a number that exactly has 2 factors i.e 1 and itself.
+
+We can iterate through numbers from 1 to n, counting how many of these numbers divide n without a remainder. If exactly two numbers do, so n is prime otherwise it is not prime.
+
+**Algorithm:**
+
+Step 1:Initialise a variable cnt to count the number of factors and set it to 0.
+
+Step 2:Start a loop from 1 to n, iterating through each number i. Inside the loop:
+
+  - Check if n is divisible by i without any remainder.
+  - If it is, increment the counter variable by 1.
+    
+Step 3:After the loop if the number of divisors is equal to 2, return true indicating the number is prime.
+
+If the number of divisors is not equal to 2 (but greater), return false indicating that the number is not prime.
