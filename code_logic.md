@@ -1,5 +1,7 @@
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
+# BasicMaths #
+
 # Count digits in a number #
 
 **logic**
@@ -378,3 +380,5 @@ printf("number is not prime");
 }
 
 ```
+
+# Recursion #
