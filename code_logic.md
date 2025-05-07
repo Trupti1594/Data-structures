@@ -10,6 +10,7 @@ Eg. N = 7789 then N/10 results in 778, removing the last digit.
 
 Together with these operators we can effectively extract digits from right to left by repeatedly taking the last digit using % and then removing it using / until the number has been broken down into individual digits and only 0 is left.
 
+![image](https://github.com/user-attachments/assets/4913c9da-93f4-42e9-b997-670ef7c93373)
 
 Algorithm
 Step 1:Initialise an empty vector ans to store the extracted digits.
