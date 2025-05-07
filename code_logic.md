@@ -144,6 +144,7 @@ Number of digits: 3, 153 = 13+53+33
 We extract the digits of the number, raise each digit to the power of the total number of digits in the number. Sum up all the results obtained and check if the sum equals to the original number.
 
 **Algorithm**
+
 Step 1:Calculate the number of digits in the input number and store it in k. Read more about this Approach here: Count Digits
 
 Step 2: Initialise a variable sum to 0. This variable will store the sum of each digit raised to the power of number of digits in number.
