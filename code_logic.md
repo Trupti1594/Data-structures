@@ -527,7 +527,7 @@ return 0;
 
 # Sum of first N Natural Numbers #
 
-**Algorithm using recursion but printing in recursion function and recursive function not returning sum**
+**1) Algorithm using recursion but printing in recursion function and recursive function not returning sum**
 
 In this approach, instead of using a global variable for calculating the sum, we pass the sum in the parameters of the function each time we add an integer to it during the function call. The sum gets incremented by an ith integer and i get decremented by 1 in each function call. At the end when i becomes less than 1, we simply return the calculated sum until that point.
 
@@ -559,7 +559,7 @@ return 0;
 
 ```
 
-**Algorithm using recursion but recursive function returning sum**
+**2) Algorithm using recursion but recursive function returning sum**
 
 This approach is a lot simpler than the parameterized recursion. We can visualize the sum of n natural numbers in the following way as shown below:
 
@@ -590,7 +590,7 @@ return 0;
 }
 
 ```
-**Algorithm using formula**
+**3) Algorithm using formula**
 
 We can use the formula for the sum of N numbers, i.e N(N+1)/2.
   - Take a variable sum.
