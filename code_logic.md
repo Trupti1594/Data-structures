@@ -698,7 +698,7 @@ return 0;
 }
 ```
 
-# Check if the given String is Palindrome or not #
+# using recursion Check if the given String is Palindrome or not #
 
 **Algorithm**
 
@@ -706,6 +706,10 @@ return 0;
   - If they’re the same then we simply call recursion for the next elements (start+1, end-1) and so on until the start becomes greater than or equal to the end. 
   - If at any point the start and the end differ, we return false stating that the string is not a palindrome.
   - Otherwise, if the base condition is reached, then the string is obviously a palindrome and we return true.
+
+**Time Complexity:** O(N) { Precisely, O(N/2) as we compare the elements N/2 times and swap them}.
+
+Space Complexity: O(1) { The elements of the given array are swapped in place so no extra space is required}.
 
 ```
 #include <stdio.h>
@@ -741,4 +745,5 @@ else
     printf("string pallindrome\n");
 return 0;
 }
+
 ```
