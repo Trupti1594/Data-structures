@@ -747,3 +747,111 @@ return 0;
 }
 
 ```
+
+# Print Fibonacci Series up to Nth term without recursion #
+
+**Algorithm**
+
+For calculating the ith term we only need the last and second last term i.e (i-1)th and (i-2)th term, so Take two variables last and secondLast for storing (i-1)th and (i-2)th term.
+Now iterate from 2 to n and calculate the ith term. ith term is last + secondLast term.
+Then update secondLast term to the last term and the last term to ith term as we iterate.
+
+**Time Complexity:** O(N).As we are iterating over just one for a loop.
+
+Space Complexity: O(1).
+
+```
+int main() 
+{
+int n,cur;
+printf("enter the number\n");
+scanf("%d",&n);
+int last =0;
+int secondlast = 1;
+printf("%d\t %d\t",last,secondlast);
+for(int i =2;i<n;i++)
+{
+    cur=secondlast+last;
+    printf("%d\t",cur);
+    last =secondlast;
+    secondlast = cur;
+}
+
+return 0;
+}
+```
+
+# Print Fibonacci Series up to Nth term with recursion #
+
+**Time Complexity**: O($2^N$) { This problem involves two function calls for each iteration which further expands to 4 function calls and so on which makes worst-case time complexity to be exponential in nature }.
+
+Space Complexity: O(N) { At maximum there could be N function calls waiting in the recursion stack since we need to calculate the Nth Fibonacci number for which we also need to calculate (N-1) Fibonacci numbers before it }.
+
+**example**
+  - Let's take n = 6 as our example value and walk through the memoized recursive Fibonacci function step by step.
+  - Step-by-Step Execution for fibonacci(6, memo)
+    - Initialization : We create an array memo[n]
+    - Recursive Flow
+      - 1️⃣ Call fibonacci(6, memo)
+          - memo[6] == -1, so we compute fibonacci(5, memo) + fibonacci(4, memo)
+
+      -  2️⃣ Call fibonacci(5, memo)
+          - memo[5] == -1, compute fibonacci(4, memo) + fibonacci(3, memo)
+
+      - 3️⃣ Call fibonacci(4, memo)
+          - memo[4] == -1, compute fibonacci(3, memo) + fibonacci(2, memo)
+
+      - 4️⃣ Call fibonacci(3, memo)
+          - memo[3] == -1, compute fibonacci(2, memo) + fibonacci(1, memo)
+
+      - 5️⃣ Call fibonacci(2, memo)
+          - memo[2] == -1, compute fibonacci(1, memo) + fibonacci(0, memo)
+
+      -  6️⃣ Base Cases Reached
+        - fibonacci(1) = 1 ✅ (Base case)
+        - fibonacci(0) = 0 ✅ (Base case)
+
+
+    - Memoization Storage
+      -  Now, we compute backwards while storing results:
+          - memo[2] = fibonacci(1) + fibonacci(0) = 1 + 0 = 1
+          - memo[3] = fibonacci(2) + fibonacci(1) = 1 + 1 = 2
+          - memo[4] = fibonacci(3) + fibonacci(2) = 2 + 1 = 3
+          - memo[5] = fibonacci(4) + fibonacci(3) = 3 + 2 = 5
+          - memo[6] = fibonacci(5) + fibonacci(4) = 5 + 3 = 8
+
+
+  -  🚀 Final Memoization Table
+    -  After execution, memo[] contains:
+      -  memo = {0, 1, 1, 2, 3, 5, 8}
+
+
+```
+int fibo(int n,int arr[])
+{
+    if(n<=1)
+    {
+        arr[n] =n;
+        return n;
+    }
+    arr[n] = fibo(n-1,arr)+fibo(n-2,arr);
+    return arr[n];
+}
+
+
+int main() 
+{
+int n;
+printf("enter the number of fibonachi terms\n");
+scanf("%d",&n);
+int arr[n];
+fibo(n,arr);
+
+printf("fibonachi series for %d terms is\n",n);
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+return 0;
+}
+```
