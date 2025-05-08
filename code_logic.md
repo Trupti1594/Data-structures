@@ -597,3 +597,148 @@ We can use the formula for the sum of N numbers, i.e N(N+1)/2.
   - Initialize it with N(N+1)/2, where N is a given number.
   - Time Complexity: O(1)
   - Space Complexity: O(1)
+
+
+# Factorial of a Number using Recursive #
+
+**Algorithm**
+
+The Factorial of a number N can be calculated by multiplying all the natural numbers till the number N. Through this approach, we can visualize the factorial of n natural numbers in the following way as shown below:
+
+factorial(N) = N * factorial(N-1);
+
+The Factorial of N natural numbers is the Nth integer multiplied by the Factorial of (N-1) natural numbers. The base case can be visualized as if n decreases to 0, then we return 1 because the factorial of 0 is 1 only. Here, we’ve just broken the problem into 2 subparts and the answers of both would be multiplied together and stored in the factorial(n) function which would then be printed at last.
+
+**Time Complexity:** O(N) { Since the function is being called n times, and for each function, we have only one printable line that takes O(1) time, so the cumulative time complexity would be O(N) }
+
+Space Complexity: O(N) { In the worst case, the recursion stack space would be full with all the function calls waiting to get completed and that would make it an O(N) recursion stack space }
+![image](https://github.com/user-attachments/assets/6c90390a-7f35-4d65-aef8-99c117a161ad)
+
+```
+int print_factorial(int n)
+{
+        if(n == 1)
+        {
+            return 1;
+        }
+        return(n * print_factorial(n - 1));
+}
+
+int main() {
+
+int n;
+printf("enter the value \n");
+scanf("%d",&n);
+int factorial = print_factorial(n);
+printf("factorial = %d\n",factorial);
+return 0;
+}
+
+```
+
+# Reverse a given Array using recursion#
+  - methods
+    - using recursion
+    - using 2 pointers
+    - using one extra array
+      
+ **Array basics**
+ 
+   - its ok to write array as int arr[] = {1,2,3,4,5,6}; instead of int arr[10] = {1,2,3,4,5,6};
+   - while passing array as an function argument pass it like reverse(arr); not like reverse(arr[]) because In C, array arguments are passed by reference, and the array name decays into a pointer to the first element.
+   - In function defination array should be collected as reverse(int arr[]) not as reverse(int arr) becuase reverse(int arr[]) is actually treated as reverse(int *arr) internally.The arr name itself represents the memory address of the first element, so specifying arr[] in a function call is unnecessary.But in function calls, C only requires the array name (which acts as a pointer), so arr[] becomes invalid syntax.
+
+**alogorithm using recursion**
+
+  - Create a function that takes an array, ,temp,start index, and end index of the array as parameters.
+Swap the elements present  at the start and end index
+  - The portion of the array left to be reversed is arr[start+1,end-1]. Make a recursive call to reverse the rest of the array. While calling recursion pass start +1  and ends - 1 as parameters for the shrunk array. Repeat step 2.
+  - Continue recursion as long as the ‘start < end’ condition is satisfied. This is the base case for our recursion.
+```
+void reverse(int arr[],int temp,int start,int end)
+{
+    if(start>=end)
+    {
+        return;
+    }
+    temp = arr[end];
+    arr[end] = arr[start];
+    arr[start] = temp;
+    reverse(arr,temp,start+1,end-1);
+}
+
+int main() {
+
+int n;
+printf("enter the no. of elemets in an array \n");
+scanf("%d",&n);
+int arr[n]; //this will work for c99 and above compiler but for others it may give error
+printf("enter the array elements\n");
+for(int i = 0;i<n;i++)
+{
+    scanf("%d",&arr[i]);
+    
+}
+printf("\noriginal aray\n");
+for(int i = 0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+    
+}
+int temp,start =0;
+int end = sizeof(arr)/sizeof(arr[0]); //to calculate no. of element
+reverse(arr,temp,start,end -1);
+printf("\nreverse aray\n");
+for(int i = 0;i<end;i++)
+{
+    printf("%d\t",arr[i]);
+    
+}
+return 0;
+}
+```
+
+# Check if the given String is Palindrome or not #
+
+**Algorithm**
+
+  - In this approach, we check the string using functional recursion where firstly, the letters on the two ends of the string (start, end) are compared to see if they’re the same or not.
+  - If they’re the same then we simply call recursion for the next elements (start+1, end-1) and so on until the start becomes greater than or equal to the end. 
+  - If at any point the start and the end differ, we return false stating that the string is not a palindrome.
+  - Otherwise, if the base condition is reached, then the string is obviously a palindrome and we return true.
+
+```
+#include <stdio.h>
+#include <stdbool.h>
+
+bool pallin(char arr[],int end,int start)
+{
+    if(start>=end)
+    {
+        return 1;
+    }
+    if(arr[start] != arr[end])
+    {
+        return 0;
+    }
+    return pallin(arr,end-1,start+1);
+}
+
+
+int main() 
+{
+
+char arr[] = "madame";
+int temp,start =0;
+int end = sizeof(arr)/sizeof(arr[0]); //to calculate no. of element
+printf("%s\n",arr);
+bool val = pallin(arr,end-2,start);
+if(val == 0)
+{
+    printf("string not pallindrome\n");
+}
+else
+    printf("string pallindrome\n");
+return 0;
+}
+```
