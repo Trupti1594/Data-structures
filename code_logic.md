@@ -488,9 +488,10 @@ return 0;
 }
 
 ```
+**Below will work for both if N is -ve and +ve**
 
 ```
-**This will work for both if N is -ve and +ve**
+
 void print_name(int i,int n)
 {
     if(n>=0)
@@ -523,3 +524,76 @@ print_name(i,n);
 return 0;
 }
 ```
+
+# Sum of first N Natural Numbers #
+
+**Algorithm using recursion but printing in recursion function and recursive function not returning sum**
+
+In this approach, instead of using a global variable for calculating the sum, we pass the sum in the parameters of the function each time we add an integer to it during the function call. The sum gets incremented by an ith integer and i get decremented by 1 in each function call. At the end when i becomes less than 1, we simply return the calculated sum until that point.
+
+we first call the function when the value of sum is 0 and then we increment the value of sum by i (initially i is n) and decrement i by 1 inside the parameter of the function and make a call again. But, we know that this will go on forever as i will be decreasing continuously after every function call. So, to avoid this we put a base condition that if i is less than 1, then simply terminate the current recursive call and return the calculated sum.
+
+![image](https://github.com/user-attachments/assets/b4de73a7-6fb2-4054-a625-a4f773d945ea)
+
+```
+**void** print_sum(int sum,int i)
+{
+        if(i < 1)
+        {
+            **printf("%d\n",sum);**
+            return;
+        }
+        print_sum(sum+i,i - 1);
+        
+}
+
+int main() {
+
+int n;
+int sum =0;
+printf("enter the value \n");
+scanf("%d",&n);
+print_sum(sum,n);
+return 0;
+}
+
+```
+
+**Algorithm using recursion but recursive function returning sum**
+
+This approach is a lot simpler than the parameterized recursion. We can visualize the sum of n natural numbers in the following way as shown below:
+
+  - **sumOfNaturalNumbers(N) = N + sumOfNaturalNumbers(N-1);**
+
+The Sum of N natural numbers would just be the Nth integer added to the Sum of (N-1) natural numbers. The base case can be visualized as if n decreases to 0, then we return 0 because the sum of 0 natural numbers is 0 only. Here, we’ve just broken the problem into 2 subparts and the answers of both these subparts would be added and stored in the Sum(n) function which would then be printed at last.
+
+![image](https://github.com/user-attachments/assets/e5e16c62-3538-4d68-969e-48b5c258d7ec)
+
+```
+**int** print_sum(int n)
+{
+        if(n < 1)
+        {
+            return 0;
+        }
+        return(n+print_sum(n-1));
+}
+
+int main() {
+
+int n;
+printf("enter the value \n");
+scanf("%d",&n);
+int sum = print_sum(n);
+**printf("sum = %d",sum);**
+return 0;
+}
+
+```
+**Algorithm using formula**
+
+We can use the formula for the sum of N numbers, i.e N(N+1)/2.
+  - Take a variable sum.
+  - Initialize it with N(N+1)/2, where N is a given number.
+  - Time Complexity: O(1)
+  - Space Complexity: O(1)
