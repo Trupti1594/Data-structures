@@ -392,30 +392,6 @@ Since in this problem, there is no count that can be incremented each time we ca
 
 For this problem, we’re going to be using a function along with parameters in which we can keep track of the number of times we’ve printed something.
 
-```
-void print_name(int n,int count)
-{
-    if(count > n)
-    {
-        return;
-    }
-    printf("trupti\n");
-    print_name(n,count+1);
-}
-
-int main() {
-
-int n;
-int count =1;
-printf("enter the value \n");
-scanf("%d",&n);
-print_name(n,count);
-    return 0;
-}
-
-
-```
-
 we first call the function when the value of i is 1 and then print the name and increment i by 1 inside the parameter of the function and make a call again. But, we know that this will go on forever as i will be increasing continuously after every function call. So, to avoid this we put a base condition that if i exceeds n, then simply terminate the current recursive call and return to the previous call.
 
 ![image](https://github.com/user-attachments/assets/ea901a9a-eedf-4b86-bd7a-5a0d465f515a)
@@ -424,27 +400,126 @@ we first call the function when the value of i is 1 and then print the name and 
 
 Space Complexity: O(N) { In the worst case, the recursion stack space would be full with all the function calls waiting to get completed and that would make it an O(N) recursion stack space }
 
-# Print 1 to N using Recursion #
-
 ```
-void print_name(int start,int n)
+void print_name(int n,int i)
 {
-    if(start > n)
+    if(i > n)
     {
         return;
     }
-    printf("%d\n",start);
-    print_name(start+1,n);
+    printf("trupti\n");
+    print_name(n,i+1);
 }
 
 int main() {
 
 int n;
-int start =1;
+int i =1;
 printf("enter the value \n");
 scanf("%d",&n);
-print_name(start,n);
+print_name(n,i);
+    return 0;
+}
+
+```
+
+# Print 1 to N using Recursion #
+
+**Algorithm**
+
+For this problem, we’re going to be using a function along with parameters that get incremented with each function call through which we can keep track of the integer count while printing.
+
+we first call the function when the value of i is 1 and then print the value of i and increment i by 1 inside the parameter of the function and make a call again. But, we know that this will go on forever as i will be increasing continuously after every function call. So, to avoid this we put a base condition that if i exceeds n, then simply terminate the current recursive call and return to the previous call.
+
+In this way, all the integers from 1 to N would get printed and as soon as we exceed the count of printing by n, the function terminates
+
+```
+void print_name(int i,int n)
+{
+    if(i > n)
+    {
+        return;
+    }
+    printf("%d\n",i);
+    print_name(i+1,n);
+}
+
+int main() {
+
+int n;
+int i =1;
+printf("enter the value \n");
+scanf("%d",&n);
+print_name(i,n);
 return 0;
 }
 
+```
+
+# Print N to 1 using Recursion #
+
+**Algorithm**
+
+For this problem, we’re going to be using a function along with parameters that get decremented with each function call through which we can keep track of the integer count while printing.
+
+We can clearly see in this pseudocode that we first call the function when the value of i is n and then print the value of i and decrement i by 1 inside the parameter of the function and make a call again. But, we know that this will go on forever as i will be decreasing continuously after every function call. So, to avoid this we put a base condition that if i is less than 1, then simply terminate the current recursive call and return to the previous call.
+
+In this way, all the integers from N to 1 would get printed and as soon as the count becomes less than 1, the function terminates
+
+```
+void print_name(int i,int n)
+{
+    if(n < i)
+    {
+        return;
+    }
+    printf("%d\n",n);
+    print_name(i,n - 1);
+}
+
+int main() {
+
+int n;
+int i =1;
+printf("enter the value \n");
+scanf("%d",&n);
+print_name(i,n);
+return 0;
+}
+
+```
+
+```
+**This will work for both if N is -ve and +ve**
+void print_name(int i,int n)
+{
+    if(n>=0)
+    {
+        if(n <= i)
+        {
+            return;
+        }
+        printf("%d\n",n);
+        print_name(i,n - 1);
+    }
+    else
+    {
+        if(n == 0)
+        {
+            return;
+        }
+        printf("%d\n",n);
+        print_name(i,n + 1);
+    }
+}
+
+int main() {
+
+int n;
+int i =0;
+printf("enter the value \n");
+scanf("%d",&n);
+print_name(i,n);
+return 0;
+}
 ```
