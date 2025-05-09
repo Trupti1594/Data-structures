@@ -866,6 +866,8 @@ return 0;
      
    -  Similarly, the following will be the answers to the given queries
      
- ![image](https://github.com/user-attachments/assets/e2809d1b-e976-4270-9c02-50b80dc5f9e8)
-   - Brute Force approach
-        - As we have learned the ‘for loop’, the first approach that should come to our mind is to use it to solve this problem. For each query, we will iterate over the array using a loop. We will count the number of times the query number appears in that array i.e. increment the counter variable if the array element at that index equals the query number. In terms of function, it will look like the following:
+  ![image](https://github.com/user-attachments/assets/e2809d1b-e976-4270-9c02-50b80dc5f9e8)
+   - **Brute Force approach**
+        - As we have learned the ‘for loop’, the first approach that should come to our mind is to use it to solve this problem. For each query, we will iterate over the array using a loop. We will count the number of times the query number appears in that array i.e. increment the counter variable if the array element at that index equals the query number. In terms of function, it will look like the following
+     ![image](https://github.com/user-attachments/assets/87ad13ce-97b6-49ea-8e2d-858e7541b909)
+
