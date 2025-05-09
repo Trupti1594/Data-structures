@@ -857,7 +857,7 @@ return 0;
 
 ```
 
-# Hashing #
+# Hashing(do later) #
 
 **Theory**
 
@@ -870,7 +870,7 @@ return 0;
      ![image](https://github.com/user-attachments/assets/87ad13ce-97b6-49ea-8e2d-858e7541b909)
         - Now, for each query, we will call the function and it will return the number of times the given query appears in the array.
    - **Time Complexity analysis of the function**
-        - We have learned how to compute the time complexity of any code. The above function contains a for loop that runs for N times. So, the time complexity of the function will be O(N) ignoring the other constant operations.
+        - We have learned how to compute the time complexity of any code. The above function contains a for loop that runs for N times. So, the time complexity of the function will be **O(N)** ignoring the other constant operations.
         - Now, for each query, we are calling this function. So, if the query contains 5 numbers and we call the function 5 times, the total time complexity will be O(5*N). If the number of queries is Q, the time complexity will be O(Q*N). 
 
         - Now, if the length of the query becomes large like 105 and the array size also becomes large like 105, the time complexity will be O(1010).
@@ -878,5 +878,5 @@ return 0;
         - We know from our previous knowledge that 108 operations take 1 second to get executed. So, 1010 operations will take around 100 seconds(1010/108). We cannot say a code is good if it takes 100 seconds to get executed.
      
   - **2) Hashing approach**
-      - Fast Data Access → Hashing enables O(1) average time complexity for searching, making it ideal for real-time applications
+      - Fast Data Access → Hashing enables **O(1) average time complexity** for searching, making it ideal for real-time applications
 
