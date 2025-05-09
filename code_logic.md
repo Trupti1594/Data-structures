@@ -384,7 +384,7 @@ printf("number is not prime");
 # Recursion #
   - when a funtion calls itself until a specific condition is met
 
-# Print Name N times using Recursion #
+# 1) Print Name N times using Recursion #
 
 **Algorithm**
 
@@ -423,7 +423,7 @@ print_name(n,i);
 
 ```
 
-# Print 1 to N using Recursion #
+# 2) Print 1 to N using Recursion #
 
 **Algorithm**
 
@@ -456,7 +456,7 @@ return 0;
 
 ```
 
-# Print N to 1 using Recursion #
+# 3) Print N to 1 using Recursion #
 
 **Algorithm**
 
@@ -525,7 +525,7 @@ return 0;
 }
 ```
 
-# Sum of first N Natural Numbers #
+# 4) Sum of first N Natural Numbers #
 
 **1) Algorithm using recursion but printing in recursion function and recursive function not returning sum**
 
@@ -599,7 +599,7 @@ We can use the formula for the sum of N numbers, i.e N(N+1)/2.
   - Space Complexity: O(1)
 
 
-# Factorial of a Number using Recursive #
+# 4) Factorial of a Number using Recursive #
 
 **Algorithm**
 
@@ -636,7 +636,7 @@ return 0;
 
 ```
 
-# Reverse a given Array using recursion#
+# 5) Reverse a given Array using recursion#
   - methods
     - using recursion
     - using 2 pointers
@@ -698,7 +698,7 @@ return 0;
 }
 ```
 
-# using recursion Check if the given String is Palindrome or not #
+# 6) using recursion Check if the given String is Palindrome or not #
 
 **Algorithm**
 
@@ -748,7 +748,7 @@ return 0;
 
 ```
 
-# Print Fibonacci Series up to Nth term without recursion #
+# 7) Print Fibonacci Series up to Nth term without recursion #
 
 **Algorithm**
 
@@ -781,7 +781,7 @@ return 0;
 }
 ```
 
-# Print Fibonacci Series up to Nth term with recursion #
+# 8) Print Fibonacci Series up to Nth term with recursion #
 
 **Time Complexity**: O($2^N$) { This problem involves two function calls for each iteration which further expands to 4 function calls and so on which makes worst-case time complexity to be exponential in nature }.
 
