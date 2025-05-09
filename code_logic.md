@@ -856,3 +856,8 @@ return 0;
 }
 
 ```
+
+# Hashing #
+
+**Theory**
+    
