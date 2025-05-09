@@ -876,4 +876,4 @@ return 0;
         - Now, if the length of the query becomes large like 105 and the array size also becomes large like 105, the time complexity will be O(1010).
 
         - We know from our previous knowledge that 108 operations take 1 second to get executed. So, 1010 operations will take around 100 seconds(1010/108). We cannot say a code is good if it takes 100 seconds to get executed.
-     
+     - **Hashing approach**
