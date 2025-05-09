@@ -877,4 +877,4 @@ return 0;
 
         - We know from our previous knowledge that 108 operations take 1 second to get executed. So, 1010 operations will take around 100 seconds(1010/108). We cannot say a code is good if it takes 100 seconds to get executed.
      
-     - **Hashing approach**
+  - **Hashing approach**
