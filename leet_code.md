@@ -2,10 +2,11 @@
 
 
 # 383. Ransom Note #
-
+https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - All 3 testcase got passed
     
 ```
+// WITHOUT HASHING
 bool canConstruct(char* ransomNote, char* magazine) 
 {
     int i=0,j=0,count=0,index=-1;
