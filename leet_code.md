@@ -63,9 +63,9 @@ HOW HASHING WORKS IN MY ALGO
 ![image](https://github.com/user-attachments/assets/f2aec970-c7e1-4a6b-958c-3dc2abc12c7e)
 
  - Time Complexity Analysis
-  - Building frequency table (magazine) → O(m)
-  - Checking ransomNote requirements → O(n)
-  - Overall Complexity: O(m + n) (Fast and optimized)
+    - Building frequency table (magazine) → O(m)
+    - Checking ransomNote requirements → O(n)
+    - Overall Complexity: O(m + n) (Fast and optimized)
 - Why Hashing is Efficient
   - Direct Access → No need to search for letters, lookup happens in constant time (O(1)).
   - Avoids Sorting or Nested Loops → Faster than O(n²) brute-force methods.
