@@ -966,20 +966,20 @@ Each pass ensures that the largest unsorted element moves to its correct positio
 
 **Example Walkthrough**
 Initial Array: {5, 2, 9, 1, 6}
-Pass 1 (move the largest element to the end):
-- Compare 5 and 2 → Swap → {2, 5, 9, 1, 6}
-- Compare 5 and 9 → No Swap
-- Compare 9 and 1 → Swap → {2, 5, 1, 9, 6}
-- Compare 9 and 6 → Swap → {2, 5, 1, 6, 9}
-(✔ 9 is now sorted)
-Pass 2 (move the second largest to its place):
-- Compare 2 and 5 → No Swap
-- Compare 5 and 1 → Swap → {2, 1, 5, 6, 9}
-- Compare 5 and 6 → No Swap
-(✔ 6 is now sorted)
-This process continues until the entire array is sorted.
+  - Pass 1 (move the largest element to the end):
+    - Compare 5 and 2 → Swap → {2, 5, 9, 1, 6}
+    - Compare 5 and 9 → No Swap
+    - Compare 9 and 1 → Swap → {2, 5, 1, 9, 6}
+    - Compare 9 and 6 → Swap → {2, 5, 1, 6, 9}
+    -  (✔ 9 is now sorted)
+ - Pass 2 (move the second largest to its place):
+    - Compare 2 and 5 → No Swap
+    - Compare 5 and 1 → Swap → {2, 1, 5, 6, 9}
+    - Compare 5 and 6 → No Swap
+    - ( ✔ 6 is now sorted)
+ - This process continues until the entire array is sorted.
 
-Time Complexity
+**Time Complexity**
 - Worst-case and average-case: O(n²) (because of two nested loops)
 - Best case (already sorted array): O(n) (optimized version)
 
