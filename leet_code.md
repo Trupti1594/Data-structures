@@ -114,27 +114,22 @@ Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum
  - ```for(int j=i+1; j<n; j++)```
     - Inner loop searches for the smallest element from i+1 to n-1.
     - It compares every element arr[j] with arr[min] to find the minimum.
- - if(arr[j] < arr[min]) {
+ - ```if(arr[j] < arr[min]) {
     min = j;
-}
+}```
+    - If arr[j] is smaller than arr[min], update min to j, marking the new smallest element.
+ - Swapping the Minimum Element
+    - ```int temp = arr[min];
+    - arr[min] = arr[i];
+    - arr[i] = temp;```
+    - Once the smallest element is found, swap it with arr[i], placing it in its correct position.
+    - This ensures that the sorted section grows and the unsorted section shrinks in each iteration.
 
-
-- If arr[j] is smaller than arr[min], update min to j, marking the new smallest element.
-
-Swapping the Minimum Element
-int temp = arr[min];
-arr[min] = arr[i];
-arr[i] = temp;
-
-
-- Once the smallest element is found, swap it with arr[i], placing it in its correct position.
-- This ensures that the sorted section grows and the unsorted section shrinks in each iteration.
-
-How Sorting Progresses
-- Iteration 1: Finds the smallest element in the entire array and places it at index 0.
-- Iteration 2: Finds the next smallest element and places it at index 1.
-- Iteration 3: Finds the next smallest element and places it at index 2.
-- …until the entire array is sorted.
+  - How Sorting Progresses
+    - Iteration 1: Finds the smallest element in the entire array and places it at index 0.
+    - Iteration 2: Finds the next smallest element and places it at index 1.
+    - Iteration 3: Finds the next smallest element and places it at index 2.
+    - …until the entire array is sorted.
 
 ```
 
