@@ -983,7 +983,44 @@ Initial Array: {5, 2, 9, 1, 6}
 - Worst-case and average-case: O(n²) (because of two nested loops)
 - Best case (already sorted array): O(n) (optimized version)
 
+```
+int main() {
 
+int arr[] = {13,46,24,52,20,9};
+int n = sizeof(arr)/sizeof(arr[0]);
+//print sorted  array
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+printf("\n");
+//sorting
+for(int i=0;i<n-1;i++)
+{
+    //int large = i;
+    for(int j=0;j<n-1-i;j++)
+    {
+        if(arr[j]>arr[j+1])
+        {
+            //swaping
+            int temp =arr[j+1];
+            arr[j+1]= arr[j];
+            arr[j]=temp;
+            
+        }
+    }
+    
+}
+//print sorted  array
+printf("sorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+    return 0;
+}
+```
 
 
 
