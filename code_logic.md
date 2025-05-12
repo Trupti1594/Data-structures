@@ -1057,22 +1057,22 @@ for(int i=0;i<n;i++)
 
 ![image](https://github.com/user-attachments/assets/a02caa55-8cce-493f-bb5b-51ca54b572cd)
 
-Outer loop iteration 3(selected index i = 2): The selected element at index i=2 is 24. Now, we will try to move leftwards and put 24 in its correct position. Here, the correct position for 24 will be index 1. So, we will insert 24 in between 13 and 46. We will do it by swapping 24 and 46. Now, the subarray up to the third index is sorted.
+- Outer loop iteration 3(selected index i = 2): The selected element at index i=2 is 24. Now, we will try to move leftwards and put 24 in its correct position. Here, the correct position for 24 will be index 1. So, we will insert 24 in between 13 and 46. We will do it by swapping 24 and 46. Now, the subarray up to the third index is sorted.
 
 
 ![image](https://github.com/user-attachments/assets/66579d8a-1852-4283-9427-8113de129307)
 
-Outer loop iteration 4(selected index i = 3):The selected element at index i=3 is 52. Now, we will try to move leftwards and put 52 in its correct position. Here, the correct position for 52 will be index 3. So, we need not swap anything. Now, the subarray up to the fourth index is sorted.
+- Outer loop iteration 4(selected index i = 3):The selected element at index i=3 is 52. Now, we will try to move leftwards and put 52 in its correct position. Here, the correct position for 52 will be index 3. So, we need not swap anything. Now, the subarray up to the fourth index is sorted.
 
 
 ![image](https://github.com/user-attachments/assets/68b06267-1ae7-457d-aafa-78ca898893ca)
 
-Outer loop iteration 5(selected index i = 4):The selected element at index i=4 is 20. Now, we will try to move leftwards and put 20 in its correct position. Here, the correct position for 20 will be index 1. So, we need to swap adjacent elements until 20 reaches index 1. Now, the subarray up to the fifth index is sorted.
+- Outer loop iteration 5(selected index i = 4):The selected element at index i=4 is 20. Now, we will try to move leftwards and put 20 in its correct position. Here, the correct position for 20 will be index 1. So, we need to swap adjacent elements until 20 reaches index 1. Now, the subarray up to the fifth index is sorted.
 
 
 ![image](https://github.com/user-attachments/assets/367ec960-d158-4be7-a0b6-941fad7abb95)
 
-Outer loop iteration 6(selected index i = 5):The selected element at index i=5 is 9. Now, we will try to move leftwards and put 9 in its correct position. Here, the correct position for 9 will be index 0. So, we need to swap adjacent elements until 9 reaches index 0. Now, the whole array is sorted.
+- Outer loop iteration 6(selected index i = 5):The selected element at index i=5 is 9. Now, we will try to move leftwards and put 9 in its correct position. Here, the correct position for 9 will be index 0. So, we need to swap adjacent elements until 9 reaches index 0. Now, the whole array is sorted.
 
 
 ![image](https://github.com/user-attachments/assets/fa3379bb-03a2-4a6c-a500-b578fdf4742b)
