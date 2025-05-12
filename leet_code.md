@@ -115,8 +115,7 @@ Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum
     - Inner loop searches for the smallest element from i+1 to n-1.
     - It compares every element arr[j] with arr[min] to find the minimum.
  - ```if(arr[j] < arr[min]) {
-    min = j;
-}```
+    min = j;}```
     - If arr[j] is smaller than arr[min], update min to j, marking the new smallest element.
  - Swapping the Minimum Element
     - ```int temp = arr[min];
