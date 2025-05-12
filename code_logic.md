@@ -935,7 +935,7 @@ for(int i=0;i<n;i++)
 ```
 # bubble sort #
 
-Bubble Sort is a simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order. It gradually moves the largest element to the end in each pass, just like bubbles rising to the surface.
+Bubble Sort is a simple sorting algorithm that **repeatedly swaps adjacent elements if they are in the wrong order. It gradually moves the largest element to the end in each pass**, just like bubbles rising to the surface.
 
 **How Bubble Sort Works:**
   - Compare adjacent elements.
@@ -943,6 +943,7 @@ Bubble Sort is a simple sorting algorithm that repeatedly swaps adjacent element
   - Repeat for all elements.
   - Largest element moves to the end after one full pass.
   - Continue until the array is fully sorted.
+  - If given array is already sorted, then their will be no swapping in the 1st iteration of i itself and swap variable will be 0(as swap =1 only during swaping) so i loop willbe broken and for this time conplexity is O(n)
 
 **Step-by-Step Breakdown of Your Code**
   - Let's go through the code with explanations for each part:
@@ -984,6 +985,8 @@ Initial Array: {5, 2, 9, 1, 6}
 - Best case (already sorted array): O(n) (optimized version)
 
 ```
+//Time complexity here is O(n) if given array is in ascending order and already sorted
+
 int main() {
 
 int arr[] = {13,46,24,52,20,9};
@@ -998,7 +1001,7 @@ printf("\n");
 //sorting
 for(int i=0;i<n-1;i++)
 {
-    //int large = i;
+    int swap = 0;
     for(int j=0;j<n-1-i;j++)
     {
         if(arr[j]>arr[j+1])
@@ -1007,8 +1010,13 @@ for(int i=0;i<n-1;i++)
             int temp =arr[j+1];
             arr[j+1]= arr[j];
             arr[j]=temp;
+            swap =1;
             
         }
+    }
+    if(swap == 0)
+    {
+        break;
     }
     
 }
