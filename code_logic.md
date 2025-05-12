@@ -953,11 +953,14 @@ Each pass ensures that the largest unsorted element moves to its correct positio
         - This loop runs n-1-i times because after each pass, the last i elements are already sorted.It compares two adjacent elements (arr[j] and arr[j+1]).
       3)  Swap if elements are in the wrong order
          
-         ``` if(arr[j] > arr[j+1]) {
-         - int temp = arr[j+1];
-         - arr[j+1] = arr[j];
-         - arr[j] = temp;
-         }```
+    ```    
+         if(arr[j] > arr[j+1])
+         {
+           int temp = arr[j+1];
+           arr[j+1] = arr[j];
+           arr[j] = temp;
+         }
+    ```
 
 
 - If the first element is greater than the second, swap them.
