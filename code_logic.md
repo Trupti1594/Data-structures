@@ -961,12 +961,10 @@ Each pass ensures that the largest unsorted element moves to its correct positio
            arr[j] = temp;
          }
     ```
+    - If the first element is greater than the second, swap them.
+    - This moves the larger element one step forward.
 
-
-- If the first element is greater than the second, swap them.
-- This moves the larger element one step forward.
-
-Example Walkthrough
+**Example Walkthrough**
 Initial Array: {5, 2, 9, 1, 6}
 Pass 1 (move the largest element to the end):
 - Compare 5 and 2 → Swap → {2, 5, 9, 1, 6}
