@@ -948,18 +948,15 @@ Bubble Sort is a simple sorting algorithm that repeatedly swaps adjacent element
   - Let's go through the code with explanations for each part:
       1) ``` for(int i=0; i<n-1; i++) //pass through the array multiple times ```
         - This loop runs n-1 times because we need multiple passes to sort the entire array.
-        - Each pass ensures that the largest unsorted element moves to its correct position.
+Each pass ensures that the largest unsorted element moves to its correct position.
       2) ```for(int j=0; j<n-1-i; j++) //compare adjacent elements```
-
-
-- This loop runs n-1-i times because after each pass, the last i elements are already sorted.
-- It compares two adjacent elements (arr[j] and arr[j+1]).
-3. Swap if elements are in the wrong order
-if(arr[j] > arr[j+1]) {
-    int temp = arr[j+1];
-    arr[j+1] = arr[j];
-    arr[j] = temp;
-}
+        - This loop runs n-1-i times because after each pass, the last i elements are already sorted.It compares two adjacent elements (arr[j] and arr[j+1]).
+      3)  Swap if elements are in the wrong order
+         - if(arr[j] > arr[j+1]) {
+         - int temp = arr[j+1];
+         - arr[j+1] = arr[j];
+         - arr[j] = temp;
+         - }
 
 
 - If the first element is greater than the second, swap them.
