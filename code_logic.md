@@ -856,6 +856,152 @@ return 0;
 }
 
 ```
+# selection sort #
+
+Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum element from the unsorted part of the array and swaps it with the first element of the unsorted section. sorted array is in ascending order**. It works by dividing the array into two parts: the sorted portion and the unsorted portion.
+
+**How Selection Sort Works:**
+- Find the smallest element in the unsorted section.
+- Swap it with the first element of the unsorted section.
+- Move the boundary between sorted and unsorted sections one step forward.
+- Repeat until the entire array is sorted.
+
+**Step-by-Step Explanation of Your Selection Sort Logic**
+  - ```for(int i=0; i<=n-2; i++)```
+    - The outer loop iterates through the array from index 0 to n-2.
+    - Why n-2? Because the last element doesn’t need a selection step—once the second-last element is sorted, the last one is automatically in place.
+  - ```int min = i;```
+    - min holds the index of the smallest element found in the unsorted portion of the array.
+    - Initially, we assume the first element of the unsorted section (arr[i]) is the smallest.
+ - ```for(int j=i+1; j<n; j++)```
+    - Inner loop searches for the smallest element from i+1 to n-1.
+    - It compares every element arr[j] with arr[min] to find the minimum.
+ - if(arr[j] < arr[min]){
+    min = j;}   
+    - If arr[j] is smaller than arr[min], update min to j, marking the new smallest element.
+ - Swapping the Minimum Element
+    - Once the smallest element is found, swap it with arr[i], placing it in its correct position.
+    - This ensures that the sorted section grows and the unsorted section shrinks in each iteration.
+
+  - How Sorting Progresses
+    - Iteration 1: Finds the smallest element in the entire array and places it at index 0.
+    - Iteration 2: Finds the next smallest element and places it at index 1.
+    - Iteration 3: Finds the next smallest element and places it at index 2.
+    - …until the entire array is sorted.
+      
+**Time complexity:** O($n^2$), (where N = size of the array), for the best, worst, and average cases.
+Reason: If we carefully observe, we can notice that the outer loop, say i, is running from 0 to n-2 i.e. n-1 times, and for each i, the inner loop j runs from i to n-1. For, i = 0, the inner loop runs n-1 times, for i = 1, the inner loop runs n-2 times, and so on. So, the total steps will be approximately the following: (n-1) + (n-2) + (n-3) + ……..+ 3 + 2 + 1. The summation is approximately the sum of the first n natural numbers i.e. (n*(n+1))/2. The precise time complexity will be O(n2/2 + n/2). Previously, we have learned that we can ignore the lower values as well as the constant coefficients. So, the time complexity is O(n2). Here the value of n is N i.e. the size of the array.
+
+Space Complexity: O(1)
+
+```
+
+int main() {
+
+int arr[] = {13,46,9,52,20,9};
+int n = sizeof(arr)/sizeof(arr[0]);
+//print sorted  array
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+printf("\n");
+//sorting
+for(int i=0;i<=n-2;i++)
+{
+    int min = i;
+    for(int j=i+1;j<n;j++)
+    {
+        if(arr[j]<arr[min])
+        {
+            min = j;
+        }
+    }
+    //swaping
+    int temp =arr[min];
+    arr[min]= arr[i];
+    arr[i]=temp;
+}
+//print sorted  array
+printf("sorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+    return 0;
+}
+
+```
+# bubble sort #
+
+Bubble Sort is a simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order. It gradually moves the largest element to the end in each pass, just like bubbles rising to the surface.
+
+**How Bubble Sort Works:**
+  - Compare adjacent elements.
+  - Swap if the first is greater than the second.
+  - Repeat for all elements.
+  - Largest element moves to the end after one full pass.
+  - Continue until the array is fully sorted.
+
+**Step-by-Step Breakdown of Your Code**
+  - Let's go through the code with explanations for each part:
+      1) ``` for(int i=0; i<n-1; i++) //pass through the array multiple times ```
+        - This loop runs n-1 times because we need multiple passes to sort the entire array.
+        - Each pass ensures that the largest unsorted element moves to its correct position.
+      2) ```for(int j=0; j<n-1-i; j++) //compare adjacent elements```
+
+
+- This loop runs n-1-i times because after each pass, the last i elements are already sorted.
+- It compares two adjacent elements (arr[j] and arr[j+1]).
+3. Swap if elements are in the wrong order
+if(arr[j] > arr[j+1]) {
+    int temp = arr[j+1];
+    arr[j+1] = arr[j];
+    arr[j] = temp;
+}
+
+
+- If the first element is greater than the second, swap them.
+- This moves the larger element one step forward.
+
+Example Walkthrough
+Initial Array: {5, 2, 9, 1, 6}
+Pass 1 (move the largest element to the end):
+- Compare 5 and 2 → Swap → {2, 5, 9, 1, 6}
+- Compare 5 and 9 → No Swap
+- Compare 9 and 1 → Swap → {2, 5, 1, 9, 6}
+- Compare 9 and 6 → Swap → {2, 5, 1, 6, 9}
+(✔ 9 is now sorted)
+Pass 2 (move the second largest to its place):
+- Compare 2 and 5 → No Swap
+- Compare 5 and 1 → Swap → {2, 1, 5, 6, 9}
+- Compare 5 and 6 → No Swap
+(✔ 6 is now sorted)
+This process continues until the entire array is sorted.
+
+Time Complexity
+- Worst-case and average-case: O(n²) (because of two nested loops)
+- Best case (already sorted array): O(n) (optimized version)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Hashing(do later) #
 
