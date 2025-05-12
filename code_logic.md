@@ -857,7 +857,8 @@ return 0;
 
 ```
 # selection sort #
-
+  - Select the minimum value in array and swap.
+    
 Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum element from the unsorted part of the array and swaps it with the first element of the unsorted section. sorted array is in ascending order**. It works by dividing the array into two parts: the sorted portion and the unsorted portion.
 
 **How Selection Sort Works:**
@@ -935,6 +936,8 @@ for(int i=0;i<n;i++)
 ```
 # bubble sort #
 
+- Push maximum value to the last by adjacent swaps.
+  
 Bubble Sort is a simple sorting algorithm that **repeatedly swaps adjacent elements if they are in the wrong order. It gradually moves the largest element to the end in each pass**, just like bubbles rising to the surface.
 
 **How Bubble Sort Works:**
@@ -1029,9 +1032,87 @@ for(int i=0;i<n;i++)
     return 0;
 }
 ```
+# Insertion sort #
+
+- Takes an element and places at its correct position.
+- Always consider 1st elemet as sorted so it starts from index i =1;
+- Insertion Sort is a simple sorting algorithm that works the way you might sort playing cards in your hand. You take one card at a time and place it in the correct position relative to the already sorted cards.
+
+**Step-by-Step Explanation**
+- Start with the first element (considered already sorted).
+- Take the next element and compare it with the sorted part.
+- If it’s smaller, shift larger elements to the right and insert it in the correct position.
+- Repeat for every element in the list until everything is sorted.
+  
+- The purple color represents the unsorted array.
+- The yellow color represents the current element that needs to be placed in the appropriate position.
+- The green color represents the sorted array.
+- Outer loop iteration 1(selected index i = 0): The element at index i=0 is 13 and there is no other element on the left of 13. So, currently, the subarray up to the first index is sorted as it contains only element 13.
 
 
+![image](https://github.com/user-attachments/assets/68542990-65e1-45c2-ba90-133df857c490)
 
+- Outer loop iteration 2(selected index i = 1):The selected element at index i=1 is 46. Now, we will try to move leftwards and put 46 in its correct position. Here, 46 > 13 and so 46 is already in its correct position. Now, the subarray up to the second index is sorted.
+
+
+![image](https://github.com/user-attachments/assets/a02caa55-8cce-493f-bb5b-51ca54b572cd)
+
+Outer loop iteration 3(selected index i = 2): The selected element at index i=2 is 24. Now, we will try to move leftwards and put 24 in its correct position. Here, the correct position for 24 will be index 1. So, we will insert 24 in between 13 and 46. We will do it by swapping 24 and 46. Now, the subarray up to the third index is sorted.
+
+
+![image](https://github.com/user-attachments/assets/66579d8a-1852-4283-9427-8113de129307)
+
+Outer loop iteration 4(selected index i = 3):The selected element at index i=3 is 52. Now, we will try to move leftwards and put 52 in its correct position. Here, the correct position for 52 will be index 3. So, we need not swap anything. Now, the subarray up to the fourth index is sorted.
+
+
+![image](https://github.com/user-attachments/assets/68b06267-1ae7-457d-aafa-78ca898893ca)
+
+Outer loop iteration 5(selected index i = 4):The selected element at index i=4 is 20. Now, we will try to move leftwards and put 20 in its correct position. Here, the correct position for 20 will be index 1. So, we need to swap adjacent elements until 20 reaches index 1. Now, the subarray up to the fifth index is sorted.
+
+
+![image](https://github.com/user-attachments/assets/367ec960-d158-4be7-a0b6-941fad7abb95)
+
+Outer loop iteration 6(selected index i = 5):The selected element at index i=5 is 9. Now, we will try to move leftwards and put 9 in its correct position. Here, the correct position for 9 will be index 0. So, we need to swap adjacent elements until 9 reaches index 0. Now, the whole array is sorted.
+
+
+![image](https://github.com/user-attachments/assets/fa3379bb-03a2-4a6c-a500-b578fdf4742b)
+
+```
+int main() {
+
+//int arr[] = {13,46,24,52,20,9};
+int arr[] = {5,3,1};
+int n = sizeof(arr)/sizeof(arr[0]);
+//print sorted  array
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+printf("\n");
+//sorting
+for(int i=1;i<=n;i++)
+{
+    int j = i;
+    while(arr[j]<arr[j-1] && j>0)
+    {
+            int temp =arr[j-1];
+            arr[j-1]= arr[j];
+            arr[j]=temp;
+            j--;
+    }
+            
+}
+//print sorted  array
+printf("sorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+    return 0;
+}
+
+```
 
 
 
