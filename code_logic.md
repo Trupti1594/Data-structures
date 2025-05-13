@@ -890,10 +890,10 @@ Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum
     - Iteration 3: Finds the next smallest element and places it at index 2.
     - …until the entire array is sorted.
       
-**Time complexity:** O($n^2$), (where N = size of the array), for the best, worst, and average cases.
+****Time complexity:** O($n^2$)**, (where N = size of the array), for the best, worst, and average cases.
 Reason: If we carefully observe, we can notice that the outer loop, say i, is running from 0 to n-2 i.e. n-1 times, and for each i, the inner loop j runs from i to n-1. For, i = 0, the inner loop runs n-1 times, for i = 1, the inner loop runs n-2 times, and so on. So, the total steps will be approximately the following: (n-1) + (n-2) + (n-3) + ……..+ 3 + 2 + 1. The summation is approximately the sum of the first n natural numbers i.e. (n*(n+1))/2. The precise time complexity will be O(n2/2 + n/2). Previously, we have learned that we can ignore the lower values as well as the constant coefficients. So, the time complexity is O(n2). Here the value of n is N i.e. the size of the array.
 
-Space Complexity: O(1)
+**Space Complexity: O(1)**
 
 ```
 
@@ -984,9 +984,9 @@ Initial Array: {5, 2, 9, 1, 6}
  - This process continues until the entire array is sorted.
 
 **Time Complexity**
-- Worst-case and average-case: O(n²) (because of two nested loops)
+- Worst-case and average-case: **O(n²)** (because of two nested loops)
 - Best case (already sorted array): O(n) (optimized version)
-
+**Space Complexity: O(1)**
 ```
 //Time complexity here is O(n) if given array is in ascending order and already sorted
 
@@ -1034,9 +1034,15 @@ for(int i=0;i<n;i++)
 ```
 # Insertion sort #
 
+**How Insertion Sort Works:**
 - Takes an element and places at its correct position.
 - Always consider 1st elemet as sorted so it starts from index i =1;
 - Insertion Sort is a simple sorting algorithm that works the way you might sort playing cards in your hand. You take one card at a time and place it in the correct position relative to the already sorted cards.
+
+**Time complexity: O($n^2$)**, (where N = size of the array), for the worst, and average cases.
+Reason: If we carefully observe, we can notice that the outer loop, say i, is running from 0 to n-1 i.e. n times, and for each i, the inner loop j runs from i to 1 i.e. i times. For, i = 1, the inner loop runs 1 time, for i = 2, the inner loop runs 2 times, and so on. So, the total steps will be approximately the following: 1 + 2 + 3 +......+ (n-2) + (n-1). The summation is approximately the sum of the first n natural numbers i.e. (n*(n+1))/2. The precise time complexity will be O(n2/2 + n/2). Previously, we have learned that we can ignore the lower values as well as the constant coefficients. So, the time complexity is O(n2). Here the value of n is N i.e. the size of the array.
+
+**Space Complexity: O(1)**
 
 **Step-by-Step Explanation**
 - Start with the first element (considered already sorted).
@@ -1114,13 +1120,116 @@ for(int i=0;i<n;i++)
 
 ```
 
+# Merge sort #
+references : https://www.youtube.com/watch?v=jlHkDBEumP0
+- bubble,insertion,selcetion haave time worst case complexity O($n^2$).Merge sort is better then them as it has timecomplexity of O(nlogn) 
+- This is divide and merge algo.For dividing the array we will use recursion
+- Merge Sort is a divide and conquers algorithm, it divides the given array into equal parts     and then merges the 2 sorted parts. 
+- There are 2 main functions :
+  - merge(): This function is used to merge the 2 halves of the array. It assumes that both parts of the array are sorted and merges both of them.
+  - mergeSort(): This function divides the array into 2 parts. low to mid and mid+1 to high where,
+   - low = leftmost index of the array
+   - high = rightmost index of the array
+   - mid = Middle index of the array 
+- We recursively split the array, and go from top-down until all sub-arrays size becomes 1.
 
+**Approach:**
 
+- We will be creating 2 functions mergeSort() and merge().
+- mergeSort(arr[], low, high):
+  - In order to implement merge sort we need to first divide the given array into two halves. Now, if we carefully observe, we need not divide the array and create a separate array, but we will divide the array's range into halves every time. For example, the given range of the array is 0 to 4(0-based indexing). Now on the first go, we will divide the range into half like (0+4)/2 = 2. So, the range of the left half will be 0 to 2 and for the right half, the range will be 3 to 4. Similarly, if the given range is low to high, the range for the two halves will be low to mid and mid+1 to high, where mid = (low+high)/2. This process will continue until the range size becomes.
+  - So, in mergeSort(), we will divide the array around the middle index(rather than creating a separate array) by making the recursive call :
+1. mergeSort(arr,low,mid)   [Left half of the array]
+2. mergeSort(arr,mid+1,high)  [Right half of the array]
+where low = leftmost index of the array, high = rightmost index of the array, and mid = middle index of the array.
+  - Now, in order to complete the recursive function, we need to write the base case as well. We know from step 2.1, that our recursion ends when the array has only 1 element left. So, the leftmost index, low, and the rightmost index high become the same as they are pointing to a single element.
+Base Case: if(low >= high) return;
+  - Pseudocode:
+    ![image](https://github.com/user-attachments/assets/08e430d4-d60c-4174-a62b-511d7b777322)
 
+```
+// Online C compiler to run C program online
+#include <stdio.h>
+void merging(int arr[],int low,int mid,int high)
+{
+    int temp[7];
+    int left = low;
+    int right = mid+1;
+    int k = low;
+    while(left <=mid && right <=high) //iterate over left and right arry 
+    {
+        if(arr[left]<=arr[right])
+        {
+            temp[k] = arr[left];
+            left++;
+            k++;
+        }
+        else
+        { 
+            temp[k] = arr[right];
+            k++;
+            right++;
+        }
+    }
+    if(left>mid) //if left array is smaller then right array then copy the leftover element of an arry to the temp 
+    {
+        while(right<=high)
+        {
+            temp[k] = arr[right];
+            k++;
+            right++;
+        }
+    }
+    else
+    {
+        while(left<=mid) //if right array size is smaller then left array then copy the leftover element of an arry to the temp 
+        {
+            temp[k] = arr[left];
+            k++;
+            left++;
+        }
+    }
+    //copy the elemnts from tem to actual array for printing
+    for(int i=low;i<=high;i++)
+    {
+         arr[i]=temp[i];
+    }
+}
 
+void merge_sort(int arr[],int low,int high)
+{
+    if(low==high)
+    {
+        return;
+    }
+    int mid = (low+high)/2;
+    merge_sort(arr,low,mid);
+    merge_sort(arr,mid+1,high);
+    merging(arr,low,mid,high);
+}
 
+int main() {
 
+int arr[]={3,2,8,5,1,4,23};
+int size = 7;
+int low = 0;
+int high = size -1;
+printf("unsorted array\n");
+for(int i=0;i<size;i++)
+{
+    printf("%d\t",arr[i]);
+}
+//calling merge sorting
+merge_sort(arr,low, high);
+printf("\nsorted array\n");
+for(int i=0;i<size;i++)
+{
+    printf("%d\t",arr[i]);
+}
 
+    return 0;
+}
+```
 
 
 
