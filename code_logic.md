@@ -1144,7 +1144,7 @@ references : https://www.youtube.com/watch?v=jlHkDBEumP0
 where low = leftmost index of the array, high = rightmost index of the array, and mid = middle index of the array.
     - Now, in order to complete the recursive function, we need to write the base case as well. We know from step 2.1, that our recursion ends when the array has only 1 element left. So, the leftmost index, low, and the rightmost index high become the same as they are pointing to a single element.
 Base Case: if(low >= high) return;
-  - Pseudocode:
+  **- Pseudocode:**
     ![image](https://github.com/user-attachments/assets/08e430d4-d60c-4174-a62b-511d7b777322)
 
 - merge(arr[], low, mid, high):
@@ -1279,11 +1279,21 @@ for(int i=0;i<size;i++)
 
   - From the explanation, we can see that after completing the steps, pivot 4 is in its correct position with the left and right subarray unsorted. Now we will apply these two steps on the left subarray and the right subarray recursively. And we will continue this process until the size of the unsorted part becomes 1(as an array with a single element is always sorted).
 
-  - So, from the above intuition, we can get a clear idea that we are going to use recursion in this algorithm.
+  - So, from the above intuition, we can get a clear idea that we are going to use recursion in this algorithm.To summarize, the main intention of this process is to place the pivot, after each recursion call, at its final position, where the pivot should be in the final sorted array.
 
-To summarize, the main intention of this process is to place the pivot, after each recursion call, at its final position, where the pivot should be in the final sorted array.
+**Approach:**
 
+  - Now, let’s understand how we are going to implement the logic of the above steps. In the intuition, we have seen that the given array should be broken down into subarrays. But while implementing, we are not going to break down and create any new arrays. Instead, we will specify the range of the subarrays using two indices or pointers(i.e. low pointer and high pointer) each time while breaking down the array.
 
+  - The algorithm steps are the following for the quickSort() function:
+
+    - Initially, the low points to the first index and the high points to the last index(as the range is n i.e. the size of the array). 
+    - After that, we will get the index(where the pivot should be placed after sorting) while shifting the smaller elements on the left and the larger ones on the right using a partition() function discussed later.Now, this index can be called the partition index as it creates a partition between the left and the right unsorted subarrays.
+    - After placing the pivot in the partition index(within the partition() function specified), we need to call the function quickSort() for the left and the right subarray recursively. So, the range of the left subarray will be [low to (partition index - 1)] and the range of the right subarray will be [(partition index + 1) to high]. 
+This is how the recursion will continue until the range becomes 1.
+
+**Pseudocode:**
+  ![image](https://github.com/user-attachments/assets/d09fdf3c-2602-43fe-8d08-dadd66f4d47a)
 
 
 
