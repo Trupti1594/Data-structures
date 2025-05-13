@@ -1147,16 +1147,35 @@ Base Case: if(low >= high) return;
   - Pseudocode:
     ![image](https://github.com/user-attachments/assets/08e430d4-d60c-4174-a62b-511d7b777322)
 
+- merge(arr[], low, mid, high):
+  - In the merge function, we will use a temp array to store the elements of the two sorted arrays after merging. Here, the range of the left array is low to mid and the range for the right half is mid+1 to high.
+  - Now we will take two pointers left and right, where left starts from low and right starts from mid+1.
+  - Using a while loop( while(left <= mid && right <= high)), we will select two elements, one from each half, and will consider the smallest one among the two. Then, we will insert the smallest element in the temp array.
+  - After that, the left-out elements in both halves will be copied as it is into the temp array.
+  - Now, we will just transfer the elements of the temp array to the range low to high in the original array. The pseudo code will look like the following:
+      ![image](https://github.com/user-attachments/assets/f3d8f153-3889-415a-99ee-2af1a7ec5179)
+
+**Time complexity: O(nlogn)**
+
+  - Reason: At each step, we divide the whole array, for that logn and we assume n steps are taken to get sorted array, so overall time complexity will be nlogn
+
+- Space complexity: O(n)  
+
+  - Reason: We are using a temporary array to store elements in sorted order.
+
+  - Auxiliary Space Complexity: O(n)
+
 ```
 // Online C compiler to run C program online
 #include <stdio.h>
 void merging(int arr[],int low,int mid,int high)
 {
-    int temp[7];
-    int left = low;
-    int right = mid+1;
+    int temp[7]; //temp array
+    int left = low; // starting index of left half of arr
+    int right = mid+1; // starting index of right half of arr
     int k = low;
-    while(left <=mid && right <=high) //iterate over left and right arry 
+     //storing elements in the temporary array in a sorted manner//
+    while(left <=mid && right <=high) 
     {
         if(arr[left]<=arr[right])
         {
@@ -1171,7 +1190,8 @@ void merging(int arr[],int low,int mid,int high)
             right++;
         }
     }
-    if(left>mid) //if left array is smaller then right array then copy the leftover element of an arry to the temp 
+  //  if elements on the right half are still left //
+    if(left>mid) 
     {
         while(right<=high)
         {
@@ -1182,14 +1202,14 @@ void merging(int arr[],int low,int mid,int high)
     }
     else
     {
-        while(left<=mid) //if right array size is smaller then left array then copy the leftover element of an arry to the temp 
+        while(left<=mid)  // if elements on the left half are still left //
         {
             temp[k] = arr[left];
             k++;
             left++;
         }
     }
-    //copy the elemnts from tem to actual array for printing
+    // transfering all elements from temporary to arr //
     for(int i=low;i<=high;i++)
     {
          arr[i]=temp[i];
@@ -1203,9 +1223,9 @@ void merge_sort(int arr[],int low,int high)
         return;
     }
     int mid = (low+high)/2;
-    merge_sort(arr,low,mid);
-    merge_sort(arr,mid+1,high);
-    merging(arr,low,mid,high);
+    merge_sort(arr,low,mid); // left half
+    merge_sort(arr,mid+1,high); / right half
+    merging(arr,low,mid,high); // merging sorted halves
 }
 
 int main() {
