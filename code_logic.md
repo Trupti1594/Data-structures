@@ -1255,13 +1255,15 @@ for(int i=0;i<size;i++)
 - has time complexity of O(nlogn), but space complexity of O(1) as it doesn't need extra temp array like merge sort.
 - Quick Sort is a divide-and-conquer algorithm like the Merge Sort. But unlike Merge sort, this algorithm does not use any extra array for sorting(though it uses an auxiliary stack space). So, from that perspective, Quick sort is slightly better than Merge sort.
 - Note: Here in this tutorial, we have chosen the first element as our pivot. You can choose any element as per your choice.
+  
 **algorithm**
+
 1) pick a pivot elemnt.pivot can be any elemnt in an array it can be the 1st/last/mid/random element in the array
 2) now after picking pivot place it in its correct position in the sorted array.
 3) smaller on the left and larger numbers  on the right of the pivot.
 4) This algorithm is basically a repetition of two simple steps that are the following:
-  - Pick a pivot and place it in its correct place in the sorted array.
-  - Shift smaller elements(i.e. Smaller than the pivot) on the left of the pivot and larger ones to the right.
+    - Pick a pivot and place it in its correct place in the sorted array.
+    - Shift smaller elements(i.e. Smaller than the pivot) on the left of the pivot and larger ones to the right.
 
 - Now, let’s discuss the steps in detail considering the array {4,6,2,5,7,9,1,3}:
 
