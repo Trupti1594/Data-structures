@@ -1250,6 +1250,9 @@ for(int i=0;i<size;i++)
 }
 ```
 
+# Quick sort #
+
+- has time complexity of O(nlogn), but space complexity of O(1) as it doesn't need extra temp array like merge sort
 
 
 
