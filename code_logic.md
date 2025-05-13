@@ -1159,10 +1159,9 @@ Base Case: if(low >= high) return;
 
   - Reason: At each step, we divide the whole array, for that logn and we assume n steps are taken to get sorted array, so overall time complexity will be nlogn
 
-- Space complexity: O(n)  
+**Space complexity: O(n)** 
 
   - Reason: We are using a temporary array to store elements in sorted order.
-
   - Auxiliary Space Complexity: O(n)
 
 ```
