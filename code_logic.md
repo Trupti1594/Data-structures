@@ -1401,6 +1401,14 @@ for(int i=0;i<size;i++)
 
 ```
 
+
+
+
+
+
+
+
+
 # Hashing(do later) #
 
 **Theory**
@@ -1423,4 +1431,5 @@ for(int i=0;i<size;i++)
      
   - **2) Hashing approach**
       - Fast Data Access → Hashing enables **O(1) average time complexity** for searching, making it ideal for real-time applications
+
 
