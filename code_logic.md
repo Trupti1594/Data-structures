@@ -1146,6 +1146,7 @@ where low = leftmost index of the array, high = rightmost index of the array, an
 Base Case: if(low >= high) return;
 
 **Pseudocode:**
+
     ![image](https://github.com/user-attachments/assets/08e430d4-d60c-4174-a62b-511d7b777322)
 
 - merge(arr[], low, mid, high):
@@ -1294,6 +1295,7 @@ for(int i=0;i<size;i++)
 This is how the recursion will continue until the range becomes 1.
 
 **Pseudocode:**
+
   ![image](https://github.com/user-attachments/assets/d09fdf3c-2602-43fe-8d08-dadd66f4d47a)
 
 
