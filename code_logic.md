@@ -1336,6 +1336,68 @@ Time Complexity for the best and average case: O(N*logN)
 Space Complexity: O(1) + O(N) auxiliary stack space.
 
 ```
+int partition(int arr[],int low,int high)
+{
+    int i=low;
+    int j=high;
+    int temp =0;
+    int pivot = arr[low];
+    while(i<j)
+    {
+        while(arr[i]<=pivot && i<=high)
+        {
+            i++;            
+        }
+        while(arr[j]>pivot && j>=low)
+        {
+            j--;
+        }
+        if(i<j)
+        {
+            temp = arr[j];
+            arr[j]= arr[i];
+            arr[i]= temp;
+        }
+    }
+    temp = arr[j];
+    arr[j] = arr[low];
+    arr[low] = temp;
+    return j;
+}
+
+void quick_sort(int arr[],int low,int high)
+{
+    if(low == high)
+    {
+        return  ;     
+    }
+    int partitionvalue = partition(arr,low,high);
+    quick_sort(arr,low,partitionvalue);
+    quick_sort(arr,partitionvalue+1,high);
+    
+}
+
+int main() {
+
+int arr[]={3,2,8,5,1,4,23};
+int size = 7;
+int low = 0;
+int high = size -1;
+printf("unsorted array\n");
+for(int i=0;i<size;i++)
+{
+    printf("%d\t",arr[i]);
+}
+//calling merge sorting
+quick_sort(arr,low, high);
+printf("\nsorted array\n");
+for(int i=0;i<size;i++)
+{
+    printf("%d\t",arr[i]);
+}
+
+    return 0;
+}
 
 ```
 
