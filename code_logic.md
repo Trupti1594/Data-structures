@@ -1298,18 +1298,46 @@ This is how the recursion will continue until the range becomes 1.
 
   - Now, let’s understand how to implement the partition() function to get the partition index.
 
-Inside the function, we will first select the pivot(i.e. arr[low] in our case).
-Now, we will again take two-pointers i and j. The i pointer points to low and the j points to high.
-Now, the pointer i will move forward and find the first element that is greater than the pivot. Similarly, the pointer j will move backward and find the first element that is smaller than the pivot.
+      - Inside the function, we will first select the pivot(i.e. arr[low] in our case).
+      - Now, we will again take two-pointers i and j. The i pointer points to low and the j points to high.
+      - Now, the pointer i will move forward and find the first element that is greater than the pivot. Similarly, the pointer j will move backward and find the first element that is smaller than the pivot.
 Here, we need to add some checks like i <= high-1 and j >= low+1. Because it might happen that i is standing at high and trying to proceed or j is standing at low and trying to exceed.
-Once we find such elements i.e. arr[i] > pivot and arr[j] < pivot, and i < j, we will swap arr[i] and arr[j].
-We will continue step 3 and step 4, until j becomes smaller than i.
+      - Once we find such elements i.e. arr[i] > pivot and arr[j] < pivot, and i < j, we will swap arr[i] and arr[j].
+      - We will continue step 3 and step 4, until j becomes smaller than i.
 Finally, we will swap the pivot element(i.e. arr[low]) with arr[j] and will return the index j i.e. the partition index.
 
+![image](https://github.com/user-attachments/assets/6c4ead19-a2c0-4dd7-9de2-be91847884ff)
 
+Note: In the function, we have kept the elements equal to the pivot on the left side. If you choose to place them on the right, check 1 will be arr[i] < pivot and check 2 will be arr[j] >= pivot.
 
+**Time Complexity: O(N*logN)**, where N = size of the array.
 
+  - Reason: At each step, we divide the whole array, for that logN and n steps are taken for the partition() function, so overall time complexity will be N*logN.
 
+  - The following recurrence relation can be written for Quick sort : 
+
+  - F(n) = F(k) + F(n-1-k) 
+
+  - Here k is the number of elements smaller or equal to the pivot and n-1-k denotes elements greater than the pivot.
+
+  - There can be 2 cases :
+
+    - Worst Case – This case occurs when the pivot is the greatest or smallest element of the array. If the partition is done and the last element is the pivot, then the worst case would be either in the increasing order of the array or in the decreasing order of the array. 
+
+      - Recurrence:F(n) = F(0)+F(n-1)  or  F(n) = F(n-1) + F(0) 
+
+      - Worst Case Time complexity: O(n2) 
+
+    - Best Case – This case occurs when the pivot is the middle element or near to middle element of the array.
+        - Recurrence :F(n) = 2F(n/2)
+
+Time Complexity for the best and average case: O(N*logN)
+
+Space Complexity: O(1) + O(N) auxiliary stack space.
+
+```
+
+```
 
 # Hashing(do later) #
 
