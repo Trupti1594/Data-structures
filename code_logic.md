@@ -1145,7 +1145,7 @@ where low = leftmost index of the array, high = rightmost index of the array, an
     - Now, in order to complete the recursive function, we need to write the base case as well. We know from step 2.1, that our recursion ends when the array has only 1 element left. So, the leftmost index, low, and the rightmost index high become the same as they are pointing to a single element.
 Base Case: if(low >= high) return;
 
-**Pseudocode:**
+  **Pseudocode**
 
     ![image](https://github.com/user-attachments/assets/08e430d4-d60c-4174-a62b-511d7b777322)
 
