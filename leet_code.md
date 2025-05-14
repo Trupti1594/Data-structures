@@ -53,11 +53,26 @@ Given an integer array nums sorted in non-decreasing order, remove the duplicate
     - i + 1 is returned, representing the total number of unique elements (k) in nums.
       
 **Time Complexity**
-✔ O(n) → Since we loop through the array once.
-Space Complexity
-✔ O(1) → Works in-place without extra memory
+  - ✔ O(n) → Since we loop through the array once.
+**Space Complexity**
+  - ✔ O(1) → Works in-place without extra memory
 
+```
+int removeDuplicates(int* nums, int numsSize)
+{
 
+int i=0;
+for(int j=i+1;j<numsSize;j++)
+{
+    if(nums[i]!=nums[j])
+    {
+        nums[i+1]=nums[j];
+        i++;
+    }
+}
+return i+1;
+}
+```
 
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
