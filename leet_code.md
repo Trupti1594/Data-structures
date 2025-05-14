@@ -43,7 +43,7 @@ return i;
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
 
 **logic**
-**- Using Two Pointers approach(i and j)**
+  - **Using Two Pointers approach(i and j)**
     - i tracks the position where the next unique element should be stored.
     - j iterates through the array to find elements different from the last stored unique value (nums[i]).
   - When a Unique Element is Found
