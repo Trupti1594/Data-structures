@@ -7,10 +7,10 @@ https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
 **logic**
-**- Use two pointer approach**
-  - One pointer (i) keeps track of where the next valid element should be stored.
-  - The second pointer (j) scans the array looking for elements that should be kept.
-- wrong approach : Dont shift the elemnets of an array its tedious approach, instaead of shifting just play with array index.
+  - **Use two pointer approach**
+    - One pointer (i) keeps track of where the next valid element should be stored.
+    - The second pointer (j) scans the array looking for elements that should be kept.
+  -  wrong approach : Dont shift the elemnets of an array its tedious approach, instaead of shifting just play with array index.
 
 **code**
 - Step 1: Start with an empty position (i = 0)
