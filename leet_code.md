@@ -7,7 +7,7 @@ https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
 **logic**
-- Use two pointer approach
+**- Use two pointer approach**
   - One pointer (i) keeps track of where the next valid element should be stored.
   - The second pointer (j) scans the array looking for elements that should be kept.
 - wrong approach : Dont shift the elemnets of an array its tedious approach, instaead of shifting just play with array index.
@@ -37,6 +37,28 @@ for(int j=0;j<numsSize;j++)
 return i;
 }
 ```
+
+# 26. Remove Duplicates from Sorted Array #
+
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+
+**logic**
+**- 1️⃣ Using Two Pointers approach(i and j)**
+    - i tracks the position where the next unique element should be stored.
+    - j iterates through the array to find elements different from the last stored unique value (nums[i]).
+  - 2️⃣ When a Unique Element is Found
+    - If nums[j] is not a duplicate (nums[i] != nums[j]), copy nums[j] to nums[i + 1] (next available spot).
+    - Move i forward to reflect the new unique element count.
+  - 3️⃣ Return the Count of Unique Elements
+    - i + 1 is returned, representing the total number of unique elements (k) in nums.
+      
+**Time Complexity**
+✔ O(n) → Since we loop through the array once.
+Space Complexity
+✔ O(1) → Works in-place without extra memory
+
+
+
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
