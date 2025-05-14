@@ -10,8 +10,33 @@ Given an integer array nums and an integer val, remove all occurrences of val in
 - Use two pointer approach
   - One pointer (i) keeps track of where the next valid element should be stored.
   - The second pointer (j) scans the array looking for elements that should be kept.
-- wrong approach : after finding the val in tha array,Dont shift the elemnets of an array its tedious approach
+- wrong approach : Dont shift the elemnets of an array its tedious approach, instaead of shifting just play with array index.
 
+**code**
+- Step 1: Start with an empty position (i = 0)
+  - i represents the new size of the array (where valid elements will be stored).
+  - j moves through the array one element at a time to check each value.
+- Step 2: Process each element
+  - If nums[j] == val, we skip it (don’t copy it).
+  - If nums[j] != val, we copy it to nums[i], then move i forward.
+- Step 3: Return i as the new array size
+- After scanning all elements, i tells us how many valid elements remain.
+
+```
+int removeElement(int* nums, int numsSize, int val) {
+
+int i=0;
+for(int j=0;j<numsSize;j++)
+{
+    if(nums[j]!=val)
+    {
+        nums[i]=nums[j];
+        i++;
+    }
+}
+return i;
+}
+```
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
