@@ -1450,9 +1450,8 @@ for(int i=1;i<n;i++)
 # Find the 2nd Largest element in an array #
 
   - Their are 2 approches
-
-      1) use sorting to sort array , the last2nd element of an array will be the 2nd largest. Time complexity will be O(nlogn) if using merge or quick sort.
-      2) using 2 varibles "large" and "2ndlarge".Initially consider 2ndlarge element as -1 (if array contains only positive values) or "INT_MIN(defiend in <limits.h>)"if elments are negative. It is based on the logic that if a no. is greater than(NOTE: here dont take arr[current]as >=large just take arr[current]>large beacuse if you take = then we wont be able to find 2nd largest element) the no. stored in "large" then the no.stored in the "large" will go to "2ndlarge".
+    - use sorting to sort array , the last2nd element of an array will be the 2nd largest. Time complexity will be O(nlogn) if using merge or quick sort.
+    - using 2 varibles "large" and "2ndlarge".Initially consider 2ndlarge element as -1 (if array contains only positive values) or "INT_MIN(defiend in <limits.h>)"if elments are negative. It is based on the logic that if a no. is greater than(NOTE: here dont take arr[current]as >=large just take arr[current]>large beacuse if you take = then we wont be able to find 2nd largest element) the no. stored in "large" then the no.stored in the "large" will go to "2ndlarge".
         - If the current element is larger than ‘large’ then update "2ndlarge" with "large" and "large" with current element. 
         - Else if the current element is larger than "2ndlarge" but lesser then the "large" then we update the variable 2ndlarge with current element.
 
