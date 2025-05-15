@@ -1451,7 +1451,8 @@ for(int i=1;i<n;i++)
 
   - Their are 2 approches
     - use sorting to sort array , the last2nd element of an array will be the 2nd largest. Time complexity will be O(nlogn) if using merge or quick sort.
-    - using 2 varibles "large" and "2ndlarge".Initially consider 2ndlarge element as -1 (if array contains only positive values) or "INT_MIN(defiend in <limits.h>)"if elments are negative. It is based on the logic that if a no. is greater than(NOTE: here dont take arr[current]as >=large just take arr[current]>large beacuse if you take = then we wont be able to find 2nd largest element) the no. stored in "large" then the no.stored in the "large" will go to "2ndlarge".
+    - using 2 varibles "large" and "2ndlarge"Time Complexity: O(N), Single-pass solution
+and Space Complexity: O(1).Initially consider 2ndlarge element as -1 (if array contains only positive values) or "INT_MIN(defiend in <limits.h>)"if elments are negative. It is based on the logic that if a no. is greater than(NOTE: here dont take arr[current]as >=large just take arr[current]>large beacuse if you take = then we wont be able to find 2nd largest element) the no. stored in "large" then the no.stored in the "large" will go to "2ndlarge".
         - If the current element is larger than ‘large’ then update "2ndlarge" with "large" and "large" with current element. 
         - Else if the current element is larger than "2ndlarge" but lesser then the "large" then we update the variable 2ndlarge with current element.
 
@@ -1494,6 +1495,71 @@ for(int i=1;i<n;i++)
 }
 ```
 
+# Check if an Array is Sorted #
+
+**Logic**
+  - if the given array is sorted in ascending order then "descending" flag will be set to false and ascending flag will be set to true.
+  - if the given array is sorted in descending order then "ascending" flag will be set to false and descending flag will be set to true.
+  - As we know that for a sorted array the previous of every element is smaller than or equal to its current element.
+  - So, Through this, we can conclude that if the previous element is smaller than or equal to the current element then. Then we can say that the two elements are sorted. If the condition is true for the entire array then the array is sorted.
+  - We will check every element with its previous element if the previous element is smaller than or equal to the current element then we will move to the next index.
+  - If the whole array is traversed successfully or the size of the given array is zero or one (i.e N = 0 or N = 1). Then we will return True else return False.
+
+```
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <limits.h>
+#include <stdbool.h>
+
+bool checkarray(int arr[],int n)
+{
+bool ascending = true;
+bool descending = true;
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]>=arr[i-1])
+        {
+            descending = false;
+        }
+        if(arr[i]<=arr[i-1])
+        {
+            ascending = false;
+        }
+    }
+    if(ascending == true ||descending == true )
+    {
+        return true;
+    }
+    else
+        return false;
+}
+
+int main() {
+
+//int arr[] = {-13,-46,-24,-10,-20,-9,-1};
+int arr[] = {5,4,3,2,1};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("given array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+printf("\n");
+
+//array is sorted or not
+bool status=checkarray(arr,n);
+if(status == true)
+{
+    printf("array is sorted\n");
+}
+else
+{
+    printf("array is unsorted\n");
+}
+    return 0;
+}
+```
 # Hashing(do later) #
 
 **Theory**
