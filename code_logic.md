@@ -1151,7 +1151,7 @@ for(int i=0;i<n;i++)
 references : https://www.youtube.com/watch?v=jlHkDBEumP0
 - bubble,insertion,selcetion haave time worst case complexity O($n^2$).Merge sort is better then them as it has timecomplexity of O(nlogn) 
 - This is divide and merge algo.For dividing the array we will use recursion
-- Merge Sort is a divide and conquers algorithm, it divides the given array into equal parts     and then merges the 2 sorted parts. 
+- Merge Sort is a divide and conquers algorithm, it divides the given array into equal parts     and then merges the 2 sorted parts. here we need one extra array to store the sorted values.
 - There are 2 main functions :
   - merge(): This function is used to merge the 2 halves of the array. It assumes that both parts of the array are sorted and merges both of them.
   - mergeSort(): This function divides the array into 2 parts. low to mid and mid+1 to high where,
@@ -1428,11 +1428,29 @@ for(int i=0;i<size;i++)
 
 ```
 
+# Find the Largest element in an array #
+  - Their are 2 approches
+      1) use sorting to sort array , the last element of an array will be the largest. Time complexity will be O(nlogn) if using merge or quick sort.
+      2) using max variable. take 1st array index as max value and compare it will all the array elements if elemnt is greater than the max value replace the max value with that array element keep doing this till end of the array,at the end the max varibale will have largest value. This will have time complexity of O(n).
 
+```
 
+//finding largest element
+int max = arr[0];
+for(int i=1;i<n;i++)
+{
+    if(arr[i]>max)
+    {
+        max=arr[i];
+    }
+}
 
+```
 
-
+# Find the 2nd Largest element in an array #
+  - Their are 2 approches
+      1) use sorting to sort array , the last2nd element of an array will be the 2nd largest. Time complexity will be O(nlogn) if using merge or quick sort.
+      2) using max variable. take 1st array index as max value and compare it will all the array elements if elemnt is greater than the max value replace the max value with that array element keep doing this till end of the array,at the end the max varibale will have largest value. This will have time complexity of O(n).
 
 
 
