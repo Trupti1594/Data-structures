@@ -857,9 +857,9 @@ return 0;
 
 ```
 # selection sort #
-  - Select the minimum value in array and swap.
+  - Select the minimum value in array and swap that min value with the elemnet present at ith index.keep on repeating this till i<n-1(because in n-2 iteration your array is already sorted  )
     
-Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum element from the unsorted part of the array and swaps it with the first element of the unsorted section. sorted array is in ascending order**. It works by dividing the array into two parts: the sorted portion and the unsorted portion.
+Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum element from the  array and swaps it with the first element of the unsorted section. sorted array is in ascending order**. It works by dividing the array into two parts: the sorted portion and the unsorted portion.
 
 **How Selection Sort Works:**
   - First, we will select the range of the unsorted array using a loop (say i) that indicates the starting index of the range.The loop will run forward from 0 to n-1. The value i = 0 means the range is from 0 to n-1, and similarly, i = 1 means the range is from 1 to n-1, and so on.
