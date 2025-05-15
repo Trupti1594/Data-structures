@@ -1431,7 +1431,7 @@ for(int i=0;i<size;i++)
 # Find the Largest element in an array #
   - Their are 2 approches
       1) use sorting to sort array , the last element of an array will be the largest. Time complexity will be O(nlogn) if using merge or quick sort.
-      2) using max variable. take 1st array index as max value and compare it will all the array elements if elemnt is greater than the max value replace the max value with that array element keep doing this till end of the array,at the end the max varibale will have largest value. This will have time complexity of O(n).
+      2) using "max" variable. take 1st array index as "max value" and compare it will all the array elements if elemnt is "greater than the max value replace the max value" with that array element keep doing this till end of the array,at the end the max varibale will have largest value. This will have time complexity of O(n).
 
 ```
 
@@ -1450,9 +1450,48 @@ for(int i=1;i<n;i++)
 # Find the 2nd Largest element in an array #
   - Their are 2 approches
       1) use sorting to sort array , the last2nd element of an array will be the 2nd largest. Time complexity will be O(nlogn) if using merge or quick sort.
-      2) using max variable. take 1st array index as max value and compare it will all the array elements if elemnt is greater than the max value replace the max value with that array element keep doing this till end of the array,at the end the max varibale will have largest value. This will have time complexity of O(n).
+      2) using 2 varibles "large" and "2ndlarge".Initially consider 2ndlarge element as -1 (if array contains only positive values) or "INT_MIN(defiend in <limits.h>)"if elments are negative. It is based on the logic that if a no. is greater than(NOTE: here dont take arr[current]as >=large just take arr[current]>large beacuse if you take = then we wont be able to find 2nd largest element) the no. stored in "large" then the no.stored in the "large" will go to "2ndlarge".
+        - If the current element is larger than ‘large’ then update "2ndlarge" with "large" and "large" with current element. 
+        - Else if the current element is larger than "2ndlarge" but lesser then the "large" then we update the variable 2ndlarge with current element.
 
+```
+#include <stdio.h>
+#include <limits.h>
 
+int main() {
+
+int arr[] = {-13,-46,-24,-10,-20,-9,-1};
+//int arr[] = {5};
+int n = sizeof(arr)/sizeof(arr[0]);
+//print sorted  array
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+printf("\n");
+//finding largest element
+int large = arr[0];
+int secondlarge = INT_MIN;
+for(int i=1;i<n;i++)
+{
+    if(arr[i]>large)
+    {
+        secondlarge = large;
+        large=arr[i];
+    }
+    else
+    {
+        if(arr[i]<large && arr[i]>secondlarge)
+        {
+            secondlarge = arr[i];
+        }
+    }
+}
+    printf("2nd largest array element\n %d",secondlarge);
+    return 0;
+}
+```
 
 # Hashing(do later) #
 
