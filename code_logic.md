@@ -1504,6 +1504,8 @@ for(int i=1;i<n;i++)
   - So, Through this, we can conclude that if the previous element is smaller than or equal to the current element then. Then we can say that the two elements are sorted. If the condition is true for the entire array then the array is sorted.
   - We will check every element with its previous element if the previous element is smaller than or equal to the current element then we will move to the next index.
   - If the whole array is traversed successfully or the size of the given array is zero or one (i.e N = 0 or N = 1). Then we will return True else return False.
+  - Time Complexity: O(N)
+  - Space Complexity: O(1)
 
 ```
 // Online C compiler to run C program online
