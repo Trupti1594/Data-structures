@@ -862,10 +862,37 @@ return 0;
 Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum element from the unsorted part of the array and swaps it with the first element of the unsorted section. sorted array is in ascending order**. It works by dividing the array into two parts: the sorted portion and the unsorted portion.
 
 **How Selection Sort Works:**
-- Find the smallest element in the unsorted section.
-- Swap it with the first element of the unsorted section.
-- Move the boundary between sorted and unsorted sections one step forward.
-- Repeat until the entire array is sorted.
+  - First, we will select the range of the unsorted array using a loop (say i) that indicates the starting index of the range.The loop will run forward from 0 to n-1. The value i = 0 means the range is from 0 to n-1, and similarly, i = 1 means the range is from 1 to n-1, and so on.
+(Initially, the range will be the whole array starting from the first index.)
+  - Now, in each iteration, we will select the minimum element from the range of the unsorted array using an inner loop.
+  - After that, we will swap the minimum element with the first element of the selected range(in step 1). 
+  - Finally, after each iteration, we will find that the array is sorted up to the first index of the range. 
+  - Note: Here, after each iteration, the array becomes sorted up to the first index of the range. That is why the starting index of the range increases by 1 after each iteration. This increment is achieved by the outer loop and the starting index is represented by variable i in the following code. And the inner loop(i.e. j) helps to find the minimum element of the range [i…..n-1].
+
+**Dry run:**
+
+  - The following dry run will clarify the concepts:
+
+  - Assume the given array is: {7, 5, 9, 2, 8}
+
+  - Outer loop iteration 1:
+    - The range will be the whole array starting from the 1st index as this is the first iteration. The minimum element of this range is 2(found using the inner loop).
+    - ![image](https://github.com/user-attachments/assets/6bede632-f49b-4782-b9d5-b379f26230be)
+
+  - Outer loop iteration 2:
+    -  The range will be from the [2nd index to the last index] as the array is sorted up to the first index. The minimum element of this range is 5(found using the inner loop).
+    -  ![image](https://github.com/user-attachments/assets/6811bdfa-125f-42d2-9a22-3aae2ad2b0b5)
+
+  - Outer loop iteration 3:
+    - The range will be from the [3rd index to the last index]. The minimum element of this range is 7(found using the inner loop).
+    - ![image](https://github.com/user-attachments/assets/004d2180-05da-4be0-bdfb-c18c14359f32)
+
+  - Outer loop iteration 4:
+    - The range will be from the [4th index to the last index]. The minimum element of this range is 8(found using the inner loop).
+    - ![image](https://github.com/user-attachments/assets/8916ef4b-4ab4-4381-8dd3-e8768f0ba419)
+
+  - So, after 4 iterations(i.e. n-1 iterations where n = size of the array), the given array is sorted.
+
 
 **Step-by-Step Explanation of Your Selection Sort Logic**
   - ```for(int i=0; i<=n-2; i++)```
