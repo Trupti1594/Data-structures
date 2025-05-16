@@ -73,6 +73,74 @@ for(int j=i+1;j<numsSize;j++)
 return i+1;
 }
 ```
+# 80. Remove Duplicates from Sorted Array II #
+https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150
+
+Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
+
+**Logic**
+  - two-pointer approach
+    - 1️⃣ Initialize a pointer i = 1 → This pointer will track the last valid position in the modified array.
+    - 2️⃣ Iterate using j from index 2, checking if nums[j] is different from nums[i - 1].
+    - 3️⃣ If nums[j] is unique (beyond two occurrences), store it at nums[i] and move i forward.
+    - 4️⃣ Return i + 1, which represents the total count of valid elements (k)
+
+**Time Complexity**
+  - ✔ O(n) → Since we loop through the array once.
+**Space Complexity**
+  - ✔ O(1) → Works in-place without extra memory
+
+  
+```
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int removeDuplicates(int* nums, int numsSize)
+{
+    
+    if (numsSize <= 2) 
+    {
+        return numsSize; // If the array has 2 or fewer elements, return as is
+    }
+
+    int i = 1; // Pointer to track valid elements
+    int j= 2;
+    while(j<numsSize) 
+    {
+        // If the current number is not the same as the number two positions before
+        if (nums[j] != nums[i - 1]) {
+            i++; // Move the pointer for storing the valid element
+            nums[i] = nums[j]; // Store the unique element
+        }
+        j++;
+    }
+
+    return i + 1; // k = number of valid elements
+}
+
+int main()
+{
+
+//int arr[] = {1,2,3,3,5,5,5};
+int arr[] = {5,1};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+//remove duplicates elemets
+int index = removeDuplicates(arr,n);
+printf("\nfinal array\n");
+for(int i=0;i<index;i++)
+{
+    printf("%d\t",arr[i]);
+}
+
+    return 0;
+}
+```
 
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
