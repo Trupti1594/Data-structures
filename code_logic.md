@@ -1678,6 +1678,64 @@ for(int i=0;i<n;i++)
     return 0;
 }
 ```
+
+# Rotate array by K elements #
+
+  - **Approach 1 : Brute force**
+      - Uses an in-place shifting mechanism without extra space.
+      - It will be same as above mentioned logic for (rotate array left by 1).Just add 1 more while loop (i<=d) to rotate array by k times.
+      - **Time Complexity: O(n*k)**
+        - Each rotation takes O(n) time since it shifts all elements once.
+        - Since we rotate k times, the total complexity is O(n * k).
+        - **Space Complexity: O(1)**
+
+  - Approach 2 : Optimal Using "**Reversal Algorithm**"
+
+    
+```
+
+// Approach1 brute force
+#include <stdio.h>
+
+void rotate_array(int arr[],int n)
+{
+    int i=1,k=3;
+while(i<=k)
+{
+    int temp=arr[0],j=1;
+    while(j<n)
+    {
+        arr[j-1]=arr[j];
+            j++;
+    }
+    arr[j-1]=temp;
+    i++;
+}
+
+}
+int main() {
+
+int arr[] = {1,2,3,4,5,6,7};
+//int arr[] = {5,1};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+//remove duplicates elemets
+rotate_array(arr,n);
+printf("\nfinal array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+
+    return 0;
+}
+```
+
 # Hashing(do later) #
 
 **Theory**
