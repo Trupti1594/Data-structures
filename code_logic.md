@@ -1564,14 +1564,17 @@ else
 ```
 # Remove Duplicates in-place from Sorted Array #
   - Use 2 pointer approach.
+    
     - approach 1 : We can think of using two pointers ‘i’ and ‘j’, we move ‘i’ till we don't get a number arr[i-1] which is different from arr[i]. As we got a unique number we will update its arr[j] by arr[i-1] value and increase the j pointer 
       - Now when i reach the last element(i.e n-1 th element) at that time assign arr[i] value to  arr[j] to cover the last element as well.
+        
     - approach 2 : Another approch can be We can think of using two pointers ‘i’ and ‘j’, we move ‘j’ till we don't get a number arr[j] which is different from arr[i]. As we got a unique number we will increase the i pointer and update its value by arr[j].
       - Take a variable i as 0;
       - Use a for loop by using a variable ‘j’ from 1 to length of the array.
       - If arr[j] != arr[i], increase ‘i’ and update arr[i] == arr[j].
       - After completion of the loop return i+1, i.e size of the array of unique elements.
-
+        
+    - Both approach will take Time Complexity: O(N) and Space Complexity: O(1).
 ```
 \\Approach 1
 int remove_duplicates(int arr[],int n)
