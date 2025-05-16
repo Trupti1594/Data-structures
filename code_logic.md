@@ -1571,10 +1571,53 @@ else
       - Use a for loop by using a variable ‘j’ from 1 to length of the array.
       - If arr[j] != arr[i], increase ‘i’ and update arr[i] == arr[j].
       - After completion of the loop return i+1, i.e size of the array of unique elements.
-      ```
-      \\Approach 2
 
-      int removeDuplicates(int arr[], int n)
+```
+\\Approach 1
+int remove_duplicates(int arr[],int n)
+{
+    int i=1,j=0;
+    while(i<n)
+    {
+        if(arr[i]!=arr[i-1])
+        {
+            arr[j]=arr[i-1];
+            j++;
+        }
+        if(i==n-1)
+        {
+            arr[j]=arr[i];
+        }
+        i++;
+    }
+    return j;
+}
+int main() {
+
+int arr[] = {1,1,2,2,2,3,4};
+//int arr[] = {5};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+//remove duplicates elemets
+int index =remove_duplicates(arr,n);
+printf("\nfinal array\n");
+for(int i=0;i<=index;i++)
+{
+    printf("%d\t",arr[i]);
+}
+
+    return 0;
+}
+```
+```
+\\Approach 2
+
+int removeDuplicates(int arr[], int n)
 {
   int i = 0;
   for (int j = 1; j < n; j++) {
@@ -1585,7 +1628,9 @@ else
   }
   return i + 1;
 }
-      ```
+
+```
+
 # Hashing(do later) #
 
 **Theory**
