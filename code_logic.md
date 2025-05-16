@@ -1633,7 +1633,51 @@ int removeDuplicates(int arr[], int n)
 }
 
 ```
+# Left Rotate the Array by One # 
+  - At first, we have to shift the array towards the left so, we store the value of the first index in a variable (let it be temp).
+  - Then we iterate the array from the 1st index less then the nth index
+  - And then store the value present in the next index to the current index like this :arr[j] = arr[j-1]
+  - At last, put the value of variable x in the last index of the array.
+    ![image](https://github.com/user-attachments/assets/f0a041ae-21fa-4640-a330-bce7185f29d7)
 
+  - Time Complexity: O(n), as we iterate through the array only once.
+  - Space Complexity: O(1) as no extra space is used.
+    
+```
+#include <stdio.h>
+
+void rotate_array(int arr[],int n)
+{
+    int temp=arr[0],j=1;
+    while(j<n)
+    {
+        arr[j-1]=arr[j];
+            j++;
+    }
+    arr[j-1]=temp;
+}
+int main() {
+
+//int arr[] = {1,2,3,4,5,6,7};
+int arr[] = {5,1};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+//remove duplicates elemets
+rotate_array(arr,n);
+printf("\nfinal array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+
+    return 0;
+}
+```
 # Hashing(do later) #
 
 **Theory**
