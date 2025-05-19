@@ -1683,13 +1683,18 @@ for(int i=0;i<n;i++)
 
   - **Approach 1 : Brute force**
       - Uses an in-place shifting mechanism without extra space.
-      - It will be same as above mentioned logic for (rotate array left by 1).Just add 1 more while loop (i<=d) to rotate array by k times.
+      - It will be same as above mentioned logic for (rotate array left by 1).Just add 1 more while loop (i<=k) to rotate array by "k" times.
       - **Time Complexity: O(n*k)**
         - Each rotation takes O(n) time since it shifts all elements once.
-        - Since we rotate k times, the total complexity is O(n * k).
+        - Since we rotate k times, the total complexity is O(n * k)."n" is no. of array elments
         - **Space Complexity: O(1)**
 
-  - Approach 2 : Optimal Using "**Reversal Algorithm**"
+  - **Approach 2 : Optimal Using "**Reversal Algorithm**"**
+      - here we have to reverse the 1st k elements, then reverse the elemets form k+1 to n-1 and then reverse the entire array. this will give you the reverse array.
+      -  **Time Complexity: O(n)**
+        -  since we dont need to loop k times .reverse(arr,start,k-1) has time complexity of O(k),reverse(arr,k,n-1) has timecomplexity of O(n-k), reverse(arr,start,n-1) has timecomplexity of O(n). O(k+n-k+n)=O(2n) ~ O(n).
+        - **Space Complexity: O(1)**
+         - no extra array is needed.
 
     
 ```
@@ -1734,6 +1739,51 @@ for(int i=0;i<n;i++)
 
     return 0;
 }
+```
+
+```
+// Approach2 REVERSE approach
+
+#include <stdio.h>
+void reverse (int arr[],int start,int end)
+{
+    while(start<end)
+    {
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+    }
+}
+
+void rotate_array(int arr[],int n,int k)
+{
+    int start = 0;
+    reverse(arr,start,k-1); //time omp
+    reverse(arr,k,n-1);
+    reverse(arr,start,n-1);
+}
+int main() {
+ int arr[]  = {1,3,8,7,6,10};
+ int k;
+ int n = sizeof(arr)/sizeof(arr[0]);
+ printf("given array\n");
+ for(int i=0;i<n;i++)
+ {
+     printf("%d\t",arr[i]);
+ }
+ printf("\nenter the value by which array need to be rotated\n");
+ scanf("%d",&k);
+ rotate_array(arr,n,k);
+ printf("\nrotated array\n");
+  for(int i=0;i<n;i++)
+ {
+     printf("%d\t",arr[i]);
+ }
+    return 0;
+}
+
 ```
 
 # Hashing(do later) #
