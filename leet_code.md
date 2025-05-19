@@ -141,6 +141,104 @@ for(int i=0;i<index;i++)
     return 0;
 }
 ```
+# 169. Majority Element #
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+https://www.youtube.com/watch?v=_xqIp2rj8bo
+**Logic Moore's Voting Algorithm**
+  - Traverse thorugh the array from 1st element k/as candidte "element" and
+  - This algorithm works on the fact that if an element occurs more than N/2 times, it means that the remaining elements other than this would definitely be less than N/2. So let us check the proceeding of the algorithm.
+  - First, choose a "candidate" from the given set of array elements if on traversing array[i] it is the same as the candidate element, increase the "votes". Otherwise, decrease the votes if votes become 0, select another new element as the "candidate" element.
+  - Intuition Behind Working :
+    - When the elements are the same as the candidate element, votes are incremented whereas when some other element is found (not equal to the candidate element), we decreased the count. This actually means that we are decreasing the priority of winning ability of the selected candidate, since we know that if the candidate is in majority it occurs more than N/2 times and the remaining elements are less than N/2. We keep decreasing the votes since we found some different element(s) than the candidate element. When votes become 0, this actually means that there are the equal  number of votes for different elements, which should not be the case for the element to be the majority element. So the candidate element cannot be the majority and hence we choose the present element as the candidate and continue the same till all the elements get finished. The final candidate would be our majority element. We check using the 2nd traversal to see whether its count is greater than N/2. If it is true, we consider it as the majority element.
+      
+```
+int majorityElement(int* nums, int numsSize) {
+
+// Step 1: Find the candidate
+    int element/candidate = 0,freq/vote =0;
+    for(int i =0;i<numsSize;i++)
+    {
+        if(freq == 0)
+        {
+            element = nums[i];
+        }
+        if(element == nums[i])
+        {
+            freq++;
+        }
+        else
+        freq--;
+    }
+//Issue:
+//- The algorithm correctly finds a candidate for the majority element using Moore’s Voting Algorithm.
+//- However, it does not verify whether the candidate actually appears more than ⌊n/2⌋ times in the array.
+//- If the array does not contain a majority element, your function will still return a candidate, which may be incorrect.so step 2 is needed
+
+// Step 2: Verify the candidate has freq > n/2
+freq =0;
+for(int i =0;i<numsSize;i++)
+{
+    if(element == nums[i]);
+    {
+        freq++;
+    }
+}
+if(freq>(numsSize/2))
+{
+    return element;
+}
+else
+{
+    return -1;
+
+}
+
+```
+
+# 189. Rotate Array #
+
+  Given an integer array nums, rotate the array to the **right by k steps**, where k is non-negative.
+
+  - Step 1: Reverse the **last k elements** of the array
+  - Step 2: Reverse the **first n-k elements** of the array.
+  - Step 3: Reverse the whole array.
+  - Time Complexity: O(n) (since 3 * O(n) = O(n)).Since 3 times we are calling "reverse"
+  - Space Complexity: O(1).
+
+ ```
+void reverse(int nums[],int start,int end)
+{
+    while(start<end)
+    {
+        int temp = nums[end];
+        nums[end] = nums[start];
+        nums[start]= temp;
+        start++;
+        end--;
+    }
+}
+void rotate(int* nums, int numsSize, int k) {
+
+    //Note : To handle edge cases like when numsSize is leess then k we need to use this
+    //reference :time at 11.24 : https://www.youtube.com/watch?v=wvcQg43_V8U&t=61s
+    k=k%numsSize;
+
+    reverse(nums,0,numsSize-k-1);
+    reverse(nums,numsSize-k,numsSize-1);
+    reverse(nums,0,numsSize-1);
+
+}
+
+```
+
+
+
+
+
+
+
+
 
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
