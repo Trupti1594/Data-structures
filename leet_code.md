@@ -177,6 +177,7 @@ int majorityElement(int* nums, int numsSize) {
 
 // Step 2: Verify the candidate has freq > n/2
 freq =0;
+
 for(int i =0;i<numsSize;i++)
 {
     if(element == nums[i]);
@@ -231,8 +232,44 @@ void rotate(int* nums, int numsSize, int k) {
 }
 
 ```
+# 121. Best Time to Buy and Sell Stock #
 
+**problem statement :**
+  - You are given an array prices where prices[i] is the price of a given stock on the ith day.
+  - You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+  - Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
+**logic**
+  - Think of it like going to a market every day, and you want to buy something cheap and sell it when the price is highest to make the most money. So, you need to:
+    - Find the lowest price to buy.
+    - Check each day's price to see if selling gives a better profit than before.
+    - Keep updating the best profit you've found so far
+  - Breaking Down the Code
+```
+int min = prices[0];  // Assume the first day's price is the lowest for now
+int max = 0;          // Start with 0 profit (we haven't made a sale yet)
+ ```
+  - min keeps track of the cheapest stock price found so far.
+  - max keeps track of the best profit found so far
+
+```
+    
+int maxProfit(int* prices, int n) {
+    int min=prices[0]; // Assume the first day's price is the lowest for now
+    int max=0;          // Start with 0 profit (we haven't made a sale yet)
+    for(int i=0;i<n;i++){
+        if(prices[i]<min){
+            min=prices[i];
+        }
+        else{
+            if(max<(prices[i]-min)){
+                max=prices[i]-min;
+            }
+        }
+    }
+    return max;
+}
+```
 
 
 
