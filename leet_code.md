@@ -256,6 +256,31 @@ void rotate(int* nums, int numsSize, int k) {
     ```
       for (int i = 0; i < n; i++) {
      ```
+    - Start looking at each day's price one by one.
+  - Step 3: If we find a lower price, update "min"
+     ```
+      if (prices[i] < min) {
+    min = prices[i];  // If today's price is lower, update min
+}
+     ```
+    - If today's stock price is cheaper than the previous minimum, update min because now we have a better buying price.
+  - Step 4: If selling today gives a better profit, update "max"
+     ```
+else {
+    if (max < (prices[i] - min)) {
+        max = prices[i] - min;  // Update max if we get a better profit
+    }
+}
+     ```
+     - If today's price is higher than the lowest price we've seen, check the profit (prices[i] - min).
+     - If this profit is better than the previous max, update max
+  - Step 5: At the end, return the best profit found
+      ```
+      return max;
+      ```
+    - After checking all days, max will hold the highest profit we can make.
+    - If no profit is possible (prices just go down), max remains 0, and we return 0
+  
 ```
     
 int maxProfit(int* prices, int n) {
