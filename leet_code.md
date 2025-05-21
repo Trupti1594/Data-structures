@@ -245,12 +245,12 @@ void rotate(int* nums, int numsSize, int k) {
     - Check each day's price to see if selling gives a better profit than before.
     - Keep updating the best profit you've found so far
   - Breaking Down the Code
-```
-int min = prices[0];  // Assume the first day's price is the lowest for now
-int max = 0;          // Start with 0 profit (we haven't made a sale yet)
- ```
-  - min keeps track of the cheapest stock price found so far.
-  - max keeps track of the best profit found so far
+    ```
+      int min = prices[0];  // Assume the first day's price is the lowest for now
+      int max = 0;          // Start with 0 profit (we haven't made a sale yet)
+     ```
+    - min keeps track of the cheapest stock price found so far.
+    - max keeps track of the best profit found so far
 
 ```
     
