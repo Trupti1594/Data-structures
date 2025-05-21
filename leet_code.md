@@ -261,7 +261,7 @@ void rotate(int* nums, int numsSize, int k) {
      ```
       if (prices[i] < min) {
     min = prices[i];  // If today's price is lower, update min
-}
+      }
      ```
     - If today's stock price is cheaper than the previous minimum, update min because now we have a better buying price.
   - Step 4: If selling today gives a better profit, update max
