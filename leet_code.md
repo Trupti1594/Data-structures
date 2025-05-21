@@ -244,6 +244,8 @@ void rotate(int* nums, int numsSize, int k) {
     - Find the lowest price to buy.
     - Check each day's price to see if selling gives a better profit than before.
     - Keep updating the best profit you've found so far
+    - Time Complexity: O(n)
+    - Space Complexity: O(1).
 **Breaking Down the Code**
   - Step 1: Set up the lowest price and max profit
     ```
@@ -280,7 +282,15 @@ void rotate(int* nums, int numsSize, int k) {
       ```
     - After checking all days, max will hold the highest profit we can make.
     - If no profit is possible (prices just go down), max remains 0, and we return 0
-  
+
+**Key Takeaways**
+  - We track the lowest price (min) seen so far.
+  - We check each day's price to see if selling makes a bigger profit (max).
+  - At the end, max holds the best profit we can make.
+  - If prices always go down, max remains 0 (no profit possible)
+
+![image](https://github.com/user-attachments/assets/fb6e4c88-f60d-4fd4-9d5f-0bdb46f9e7d9)
+
 ```
     
 int maxProfit(int* prices, int n) {
