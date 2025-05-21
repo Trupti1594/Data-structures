@@ -246,6 +246,7 @@ void rotate(int* nums, int numsSize, int k) {
     - Keep updating the best profit you've found so far
     - Time Complexity: O(n)
     - Space Complexity: O(1).
+      
 **Breaking Down the Code**
   - Step 1: Set up the lowest price and max profit
     ```
