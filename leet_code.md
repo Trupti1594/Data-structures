@@ -325,18 +325,18 @@ int maxProfit(int* prices, int n) {
 
 
  - Approach 2: Optimal
-  - 1️⃣ Allocate Memory for result Array
-    - malloc() is used to dynamically allocate memory for storing the output.
-    - returnSize is set to numsSize, ensuring the returned array has the same size as nums.
-  - 2️⃣ Compute Prefix Products (Left to Right Pass)
-    - prefix tracks the cumulative product of elements before index i.
-    - Each result[i] stores the product of all previous elements.
-  - 3️⃣ Compute Suffix Products (Right to Left Pass)
-    - suffix tracks the cumulative product of elements after index i.
-    - Multiply result[i] by suffix, completing the product computation.
-  - ✅ Final Output:
-    - Each index i in result contains the product of all elements except nums[i], efficiently computed in two passes
-  - Time Complexity: O(n) → Two separate loops (prefix & suffix).
+    - 1️⃣ Allocate Memory for result Array
+      - malloc() is used to dynamically allocate memory for storing the output.
+      - returnSize is set to numsSize, ensuring the returned array has the same size as nums.
+    - 2️⃣ Compute Prefix Products (Left to Right Pass)
+      - prefix tracks the cumulative product of elements before index i.
+      - Each result[i] stores the product of all previous elements.
+    - 3️⃣ Compute Suffix Products (Right to Left Pass)
+      - suffix tracks the cumulative product of elements after index i.
+      - Multiply result[i] by suffix, completing the product computation.
+    - ✅ Final Output:
+      - Each index i in result contains the product of all elements except nums[i], efficiently computed in two passes
+    - Time Complexity: O(n) → Two separate loops (prefix & suffix).
 
 
 ```
