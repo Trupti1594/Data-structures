@@ -310,8 +310,84 @@ int maxProfit(int* prices, int n) {
     return max;
 }
 ```
+# 238. Product of Array Except Self #
+
+**logic**
+  - Approach 1: Brute force
+    - The given function calculates the product of all elements in an array except the current index using a nested loop approach.
+    - The result array is dynamically allocated using malloc().
+    - returnSize is set to numsSize.
+    - The outer loop iterates through each index i.
+    - The inner loop calculates the product of all elements except nums[i].
+    - A temporary variable temp stores the cumulative product, skipping the current index.
+    - After calculating the product (excluding the current element), store it in result[i].
+    - Time Complexity: O(n²) Nested loops lead to slow execution for large arrays
 
 
+ - Approach 2: Optimal
+  - 1️⃣ Allocate Memory for result Array
+    - malloc() is used to dynamically allocate memory for storing the output.
+    - returnSize is set to numsSize, ensuring the returned array has the same size as nums.
+  - 2️⃣ Compute Prefix Products (Left to Right Pass)
+    - prefix tracks the cumulative product of elements before index i.
+    - Each result[i] stores the product of all previous elements.
+  - 3️⃣ Compute Suffix Products (Right to Left Pass)
+    - suffix tracks the cumulative product of elements after index i.
+    - Multiply result[i] by suffix, completing the product computation.
+  - ✅ Final Output:
+    - Each index i in result contains the product of all elements except nums[i], efficiently computed in two passes
+  - Time Complexity: O(n) → Two separate loops (prefix & suffix).
+
+
+```
+//Approach 1 Brute force : this will time out for large arrays
+Time complexity: O($n^2$)
+
+int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
+    int* result =(int*)malloc(numsSize*sizeof(int));
+    *returnSize = numsSize;
+    for(int i=0;i<numsSize;i++)
+    {
+        int temp =1;
+        for(int j=0;j<numsSize;j++)
+        {
+            if(i!=j)
+            {
+                temp = temp * nums[j];
+            }
+        }
+        result[i]= temp;
+    }
+    return result;
+}
+```
+```
+//Approach 2: Optimal
+Iime Complexity: O(n)
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ reference : https://www.youtube.com/watch?v=TW2m8m_FNJE
+ */
+int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
+    int* result =(int*)malloc(numsSize*sizeof(int));
+    *returnSize = numsSize;
+
+    int prefix=1,suffix = 1;
+    //prefix calculation
+    for(int i=0;i<numsSize;i++)
+    {
+        result[i]= prefix;
+        prefix = prefix * nums[i];
+    }
+    //suffix calculation
+    for(int i=numsSize-1;i>=0;i--)
+    {
+        result[i]= result[i] * suffix;
+        suffix = suffix * nums[i];
+    }
+    return result;
+
+```
 
 
 
