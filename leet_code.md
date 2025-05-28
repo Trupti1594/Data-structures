@@ -388,7 +388,56 @@ int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
     return result;
 
 ```
+# 13. Roman to Integer #
 
+1️⃣ Mapping Roman Symbols to Values
+  - The roman[] array stores Roman numeral symbols (I, V, X, L, C, D, M).
+  - The value[] array stores their integer equivalents (1, 5, 10, 50, 100, 500, 1000).
+  - This allows us to easily find a numeral's value when processing the string.
+    
+2️⃣ Reverse Traversal (Right to Left)
+  - We iterate from the last character (strlen(s) - 1) backward to the first (i >= 0).
+  - This ensures that subtraction rules (IV = 4, XC = 90) are correctly applied.
+    
+3️⃣ Finding Corresponding Integer Values
+  - The inner loop (for j=0 to 6) scans roman[] to match s[i] with a value in value[].
+  - When a match is found, we check if it should be added or subtracted.
+    
+4️⃣ Applying Addition or Subtraction
+  - If value[j] < pre (smaller than previous numeral), subtract it (handles IV, IX).
+  - Otherwise, add it to result (normal cases like VI = 6, LX = 60).
+  - Update pre = value[j] to track previous numeral for the next iteration.
+- Time Complexity: O(n)
+- Space complexity: O(1)
+
+```
+int romanToInt(char* s) 
+{
+    int roman[7] = {'I','V','X','L','C','D','M'};
+    int value[7] = {1,5,10,50,100,500,1000};
+    int pre=0,result=0;
+    for(int i =strlen(s)-1;i>=0;i--)
+    {
+        for(int j=0;j<7;j++)
+        {
+            if(s[i]==roman[j])
+            {
+                if(value[j]<pre)
+                {
+                    result=result-value[j];
+                }
+                else
+                {
+                    result=result+value[j];
+                }
+                pre=value[j];
+
+            }
+        }
+    }
+    return result;
+}
+```
 
 
 
