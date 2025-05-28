@@ -438,8 +438,47 @@ int romanToInt(char* s)
     return result;
 }
 ```
+# 14. Longest Common Prefix #
+
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+**logic**
+  - The function iterates through each character of the first string, compares it with the corresponding characters of all other strings, and truncates the prefix at the first mismatch, ensuring the longest common prefix is returned.
+  - ✅ The function starts with the first word (strs[0]) as the initial prefix.
+  - ✅ length = strlen(first); → stores the length of this string for iteration.
+  - ✅ This loop runs from i = 0 to length - 1, checking each character position in the first string
+  - ✅ The inner loop compares each character (i) in all other strings (strs[j]).
+  - ✅ This ensures that the same character appears across all words in strs.
+  - ✅ If any word (strs[j]) has a different character at position i, we stop the search:
+    - Example: If strs[0] = "flower", strs[1] = "flow", strs[2] = "flight",
+    - When checking i = 2, "flow" and "flight" do not match "flower" → mismatch found.
+      - ✅ We cut off the prefix at that point (first[i] = '\0') and return the result
+  - ✅ If no mismatches occur, the full first string remains unchanged and is returned.
 
 
+
+```
+char* longestCommonPrefix(char** strs, int strsSize) {
+//Initialize the First Word as Prefix
+    char *first = strs[0];
+    int length = strlen(first);
+    
+    for(int i =0;i<length;i++) //Iterate Through Each Character Position
+    {
+        for(int j=1;j<strsSize;j++) //Compare with Remaining Word
+        {
+            if(strs[j][i]!=first[i]) //Check for a Mismatch
+            {
+                first[i]='\0';
+                return first;
+                
+            }
+        }
+    }
+    return first; //If No Mismatch, Return Full First String
+}
+```
 
 
 # 383. Ransom Note #
