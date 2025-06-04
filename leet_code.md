@@ -480,7 +480,66 @@ char* longestCommonPrefix(char** strs, int strsSize) {
 }
 ```
 
+# 141. Linked List Cycle #
 
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+Return true if there is a cycle in the linked list. Otherwise, return false.
+
+**logic**
+
+- A cycle occurs if a node points back to a previous node, forming a loop instead of ending at NULL.
+- If slow and fast meet at the same node, it means the list is looping back (cycle exists).
+- slow moves one step forward.
+- fast moves two steps forward.
+- 💡 Floyd’s Cycle Detection Algorithm uses two pointers (slow & fast) to efficiently detect cycles.
+    - Initialize Two Pointers:
+      - slow moves one step at a time.
+      - fast moves two steps at a time.
+    -  Loop Through the List:
+      - If there is no cycle, fast will eventually reach NULL, meaning the list does not loop.
+      - If there is a cycle, fast will eventually meet slow, proving the list loops back.
+    - Cycle Detected:
+      - If slow == fast at some point, a cycle exists, and the function returns true.
+      - If fast reaches NULL, the list has no cycle, and the function returns false.
+    - Efficiency
+      - Uses constant space (O(1)) → No extra memory needed.
+      - Time Complexity is O(n) → Fast pointer moves quickly, detecting cycles efficiently.
+      - Doesn’t modify the list → Works by just checking pointers, avoiding structural changes.
+
+- 💡 Fast Pointer moves faster, ensuring that if a cycle exists, slow eventually meets fast.
+- 💡 If fast reaches NULL, there is no cycle and the function safely exits
+
+
+```
+//reference : https://www.youtube.com/watch?v=-1E8ZMS0gSs
+//fast->next!=NULL if liked list conatins odd no. of elements then this is used to avoid wrong memory access
+//fast!=NULL if liked list conatins even no. of elements then this is used to avoid wrong memory access
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+bool hasCycle(struct ListNode *head) {
+    struct ListNode *slow =head;
+    struct ListNode *fast =head;
+    while(fast!=NULL && fast->next!=NULL )
+    {
+        slow = slow->next;   //move slow pointer by 1 
+        fast=fast->next->next; // move fast pointer by 2 step
+        
+        if(slow==fast)
+        {
+            return true;
+        }
+    }
+        return false;
+}
+```
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
