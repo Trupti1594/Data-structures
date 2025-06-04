@@ -1,6 +1,7 @@
 - [TimeComplexity](#TimeComplexity)
 - [SpaceComplexity](#SpaceComplexity)
 - [NestedLoops](#NestedLoops)
+- [LinkedLists](#LinkedLists)
 
 
 # Data-structures #
