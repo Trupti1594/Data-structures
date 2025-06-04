@@ -218,7 +218,9 @@ Would you like an example with recursion instead of loops?
 
 # LinkedLists #
 
-
-
+- Array stores the elements in contigious memeory location and are of ifxed size.
+- Linked list elements are stored in heap memory but not in contigious location.
+- 1st element in linked list is called "head".
+- stack and queue is the data structure where LL is used because as we inserrt eleemnt their size increases and when we remove element their size decreases.
 
 
