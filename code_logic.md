@@ -1785,7 +1785,97 @@ int main() {
 }
 
 ```
+# single linked list  #
 
+```
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    
+    int data;
+    struct node *next;
+};
+
+//reverse linkled list
+struct node* reversell(struct node *head1)
+{
+    struct node* curr = head1;
+    struct node* prev = NULL;
+    struct node* next = curr->next;
+    
+    while(curr!=NULL)
+    {
+        next= curr->next;
+        curr->next = prev;
+        prev=curr;
+        curr=next;
+    }
+    head1 = prev;
+    return head1;
+}
+
+//display linked list
+void display(struct node*head1)
+{
+    struct node*p = head1;
+    while(p!=NULL)
+    {
+        printf("%d\t",p->data);
+        p=p->next;
+    }
+}
+
+//crete node and add elements at the end of list
+struct node* createnode1(struct node *head1)
+{
+    struct node *temp = head1;
+    struct node *new_add = (struct node *)malloc(sizeof(struct node));
+    printf("enter the value\n");
+    scanf("%d",&new_add->data);
+    new_add->next = NULL;
+    if(head1==NULL)
+    {
+        head1 = new_add;
+    }
+    else
+    {
+        while(temp->next!=NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = new_add;
+    }
+    return head1;
+}
+
+int main() {
+
+struct node *head1 = NULL;
+//struct node *head2 = NULL;
+
+//create node
+for(int i=0;i<5;i++)
+{
+    head1 = createnode1(head1);
+}
+
+//print list1
+printf("\nlist 1 data :");
+display(head1);
+
+
+//reverse the LL
+head1 = reversell(head1);
+printf("\nreverse list1 data :");
+
+//print reverse ll
+display(head1);
+    return 0;
+}
+```
 # Hashing(do later) #
 
 **Theory**
