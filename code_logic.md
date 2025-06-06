@@ -1789,7 +1789,6 @@ int main() {
 
 ```
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1800,6 +1799,7 @@ struct node{
 };
 
 //reverse linkled list
+reference : https://www.youtube.com/watch?v=eB1G2QtcOyM
 struct node* reversell(struct node *head1)
 {
     struct node* curr = head1;
