@@ -540,6 +540,70 @@ bool hasCycle(struct ListNode *head) {
         return false;
 }
 ```
+
+# 2. Add Two Numbers #
+
+  - If the linked list is not reversed reverse it first 
+  - when we do sum of 2 no's we start addition from right to left and carry also propogate from right to left, so in the question whatever input user is giving while storing in the linked list it is stored in reverse order eg : i/p = 2,4,3 storage = 3,4,2. since in LL both input nad output is stored in reverse order its input's head will be pointing to the last node so that when we do add we will start form right to left. also when we send output head it will be reversed while storing giving proper vales in sum calculation . so it is imp to reverse a list first then start the summation.
+  - time and space complexity = O(n) (if given list is reversed)
+
+```
+reference : https://www.youtube.com/watch?v=XmRrGzR6udg&t=319s
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+struct ListNode* createNode(int value)
+{
+     struct ListNode* new_node = (struct ListNode*)malloc(sizeof(struct ListNode));
+     new_node->val = value;
+     new_node->next = NULL;
+     return new_node;
+}
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+    
+    struct ListNode* temp1 = l1; //used to traverse list1
+    struct ListNode* temp2 = l2; //used to traverse list2
+    int carry = 0; //stores carry value
+    struct ListNode* dummynode = createNode(0);  //this is needed beacuse when we return the output linked list we should have head pointer . dummynode->next will store the head of our output linked list.
+    struct ListNode* curr = dummynode;  //curr is used to traverse output linked list
+
+    while(temp1!=NULL || temp2 !=NULL)
+    {
+        int sum = carry; //start the sumition from carry value 
+        if(temp1!=NULL)
+        {
+            sum = sum + temp1->val; // sum = carry + temp1->val
+        }
+        if(temp2!=NULL)
+        {
+            sum = sum + temp2->val; // sum = carry + temp1->val + temp2->val
+        }
+        curr->next = createNode(sum%10); //store the 0th place value in sum in the output linked list 
+        curr = curr->next;
+        carry = sum/10; //extract the carry value from sum (remember logic to get carry)
+        if(temp1!=NULL)
+        {
+            temp1 = temp1->next;
+        }
+        if(temp2!=NULL)
+        {
+            temp2 = temp2->next;
+        }
+
+    }
+    if(carry!=0) //if there is extra carry left after iterating both the list
+    {
+        curr->next = createNode(carry);
+    }
+    return dummynode->next; //return head of the output linked list
+}
+```
+
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
