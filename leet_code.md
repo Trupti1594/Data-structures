@@ -620,6 +620,7 @@ You are given the heads of two sorted linked lists list1 and list2.Merge the two
 - Space Complexity: O(N + M) (Uses extra memory for a new list).
 
 ```
+reference : https://www.youtube.com/watch?v=jXu-H7XuClE&t=398s
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -719,8 +720,62 @@ int main() {
 }
 
 ```
+**optimal approach**
+- Create a dummy node to track the merged list.
+- Traverse both lists while both have elements:
+  - Compare current nodes.
+  - Attach the smaller node to the merged list.
+  - Move the pointer forward in the list where the smaller node was found.
+- Attach remaining nodes if one list ends before the other.
+- Return new_node->next, excluding the dummy node.
+- TimeComplexity : O(n + m) (Each node is visited once).
+- Space complexity : O(1) (Modifies nodes instead of creating extra memory)
 
+```
+//reference : https://www.youtube.com/watch?v=jXu-H7XuClE&t=398s
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
+    
+    struct ListNode* temp1 = list1;
+    struct ListNode* temp2 = list2;
 
+    struct ListNode* new_node = (struct ListNode*)malloc(sizeof(struct ListNode));
+    new_node->val = 0;
+    new_node->next = NULL;
+    struct ListNode* temp = new_node;
+
+    while(temp1!=NULL && temp2!=NULL)
+    {
+        if(temp1->val < temp2->val)
+        {
+            temp->next = temp1;
+            temp = temp1;
+            temp1= temp1->next;
+        }
+        else
+        {
+            temp->next = temp2;
+            temp = temp2;
+            temp2= temp2->next;
+        }
+    }
+    if(temp1!=NULL)
+    {
+        temp->next=temp1;
+    }
+    else
+    {
+        temp->next=temp2;
+    }
+return new_node->next;
+}
+```
 
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
