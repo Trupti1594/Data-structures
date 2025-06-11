@@ -604,6 +604,124 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
 }
 ```
 
+# 21. Merge Two Sorted Lists  #
+
+You are given the heads of two sorted linked lists list1 and list2.Merge the two lists into     one sorted list. The list should be made by splicing together the nodes of the first two       lists.Return the head of the merged linked list.
+
+**Brut force approach**
+
+- Extract all elements from both linked lists into a temporary list.
+- Sort the temporary linked list 
+- Return the head of the newly sorted temporrary list merged list.
+- Time Complexity
+  - O(N + M + (N+M) log(N+M))
+    - O(N + M): Copying elements.
+    - O((N+M) log(N+M)): Sorting (if needed).
+- Space Complexity: O(N + M) (Uses extra memory for a new list).
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to insert a node into a linked list
+void insertNode(struct Node** head, int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+
+    struct Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+}
+
+// Function to merge two sorted linked lists using brute force
+struct Node* mergeBruteForce(struct Node* l1, struct Node* l2) {
+    struct Node* mergedHead = NULL;
+    struct Node* temp1 = l1;
+    struct Node* temp2 = l2;
+
+    // Traverse both lists and copy elements to a new linked list
+    while (temp1 != NULL) {
+        insertNode(&mergedHead, temp1->data);
+        temp1 = temp1->next;
+    }
+    while (temp2 != NULL) {
+        insertNode(&mergedHead, temp2->data);
+        temp2 = temp2->next;
+    }
+
+    // Sorting step (not required if lists are already sorted)
+    struct Node* current = mergedHead;
+    struct Node* index = NULL;
+    int temp;
+    
+    while (current != NULL) {
+        index = current->next;
+        while (index != NULL) {
+            if (current->data > index->data) {
+                temp = current->data;
+                current->data = index->data;
+                index->data = temp;
+            }
+            index = index->next;
+        }
+        current = current->next;
+    }
+
+    return mergedHead;
+}
+
+// Function to print the linked list
+void printList(struct Node* head) {
+    while (head != NULL) {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node* l1 = NULL;
+    struct Node* l2 = NULL;
+
+    insertNode(&l1, 1);
+    insertNode(&l1, 3);
+    insertNode(&l1, 5);
+
+    insertNode(&l2, 2);
+    insertNode(&l2, 4);
+    insertNode(&l2, 6);
+
+    printf("List 1: ");
+    printList(l1);
+
+    printf("List 2: ");
+    printList(l2);
+
+    struct Node* mergedHead = mergeBruteForce(l1, l2);
+
+    printf("Merged List (Brute Force): ");
+    printList(mergedHead);
+
+    return 0;
+}
+
+```
+
+
+
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
