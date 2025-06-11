@@ -1802,6 +1802,19 @@ int main() {
       ```
       - next temporarily stores the next node in the original list.
       - Without this step, we'd lose track of the rest of the list when we reverse the pointer.
+  4)  ```
+      current->next = prev;    // Step 2: Reverse current node's pointer
+      ```
+      - We reverse the link of the current node by making it point to prev, which initially is NULL (for the first node)
+        
+  5) ```
+     prev = current;          // Step 3: Move prev forward
+     current = next;          // Step 4: Move current forward
+     return prev;
+     ```
+     - Move prev forward to track the last processed node (the new head of the reversed list).
+     - Move current forward to continue processing the next node.
+     - Once the loop finishes, prev holds the new head of the reversed linked list
 
 ```
 
