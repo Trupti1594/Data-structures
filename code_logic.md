@@ -1787,6 +1787,22 @@ int main() {
 ```
 # single linked list  #
 
+**Reverse linked list logic**
+  1) Initialize Pointers
+    - prev: Keeps track of the previous node. Initially, it's NULL because the first node will become the last one in the reversed list.
+    - current: Points to the current node in the linked list. Starts at head.
+    - next: A temporary pointer to store the next node while we modify the links.
+  2) Traverse the Linked List
+     ```
+     while (current != NULL) {    // Traverse until the end
+     ```
+     - The loop runs until current becomes NULL, meaning we have processed all nodes.
+  3)  ```
+      next = current->next;    // Step 1: Store next node
+      ```
+      - next temporarily stores the next node in the original list.
+      - Without this step, we'd lose track of the rest of the list when we reverse the pointer.
+
 ```
 
 #include <stdio.h>
