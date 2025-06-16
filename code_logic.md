@@ -149,7 +149,7 @@ To check if a number is an armstrong number, we can use the algorithm created in
 
 An Armstrong number, also known as a narcissistic number or plenary number, is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
 
-Number of digits: 3, 153 = $1^3$+$5^3$+$3^3$
+Number of digits: 3, 153 = $1^3$ + $5^3$ + $3^3$
 
 We extract the digits of the number, raise each digit to the power of the total number of digits in the number. Sum up all the results obtained and check if the sum equals to the original number.
 
