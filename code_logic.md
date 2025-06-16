@@ -270,10 +270,10 @@ for(i =1;**i*i<=n**;i++)  **//i*i<=n shows squareroot(36) ie 6 <= n**
  if(n%i == 0)
  {
     printf("%d\t",i);
- }
- if((n/i)!=i)
- {
+    if((n/i)!=i)
+    {
      printf("%d\t",n/i);
+    }
  }
 }
     return 0;
