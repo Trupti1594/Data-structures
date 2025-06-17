@@ -223,4 +223,18 @@ Would you like an example with recursion instead of loops?
 - 1st element in linked list is called "head".
 - stack and queue is the data structure where LL is used because as we inserrt eleemnt their size increases and when we remove element their size decreases.
 
+# Stack #
+- Data structure that hol;ds a certain type of data
+- LIFO(last in first out)
+- functions implemented: push(n),pop(),top(),size()
+- pop() : always take out last element from stack
+- top() : will give you the topmost elemnt value present in stack
+- intially take top = -1.Top will behave as index of array. If top = -1 then there are no elemnts in an array
+- size = top+1
 
+# Queue #
+- FIFO(first in first out)
+- functions implemented: push(n),pop(),top(),size()
+- we have 3 variables : start = -1,end = -1,current_size = 0;
+- if its 1st element insertion the always start and end will be ++;
+- start is used fro deleletion and end is used for insertion
