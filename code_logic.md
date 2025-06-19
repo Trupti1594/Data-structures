@@ -2143,7 +2143,7 @@ int front2 = -1, rear2 = -1;
       printf("popped element %d\n", q1[front1]);
       front1++;
   ```
-    Removes the element at the front (which is the top of the stack). Efficient: O(1).
+  - Removes the element at the front (which is the top of the stack). Efficient: O(1).
 If the stack becomes empty after popping, the condition resets both pointers to -1.
 
 
