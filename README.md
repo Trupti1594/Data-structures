@@ -226,11 +226,16 @@ Would you like an example with recursion instead of loops?
 # Stack #
 - Data structure that hol;ds a certain type of data
 - LIFO(last in first out)
+- insertion and deletion can happen only from 1 end
 - functions implemented: push(n),pop(),top(),size()
-- pop() : always take out last element from stack
+- pop() : always pop out top element from stack
 - top() : will give you the topmost elemnt value present in stack
 - intially take top = -1.Top will behave as index of array. If top = -1 then there are no elemnts in an array
 - size = top+1
+- memeory can be allocated for stack using 2 ways:
+  - static : using arrays
+  - Dynamic: using linked list
+    
 
 # Queue #
 - FIFO(first in first out)
