@@ -2090,6 +2090,26 @@ while(1)
 ```
 # Implementation of stack using queue(normal queue) #
 
+  - You’re implementing a stack (LIFO) using two queues (FIFO). This trick is common in interviews — and this code uses the approach where push() is costly to ensure pop() and peek() are fast.
+  - here push() is costly to ensure pop() and peek() are fast.
+  - Concept Recap
+    - A stack works on Last In, First Out:
+    - push(x) → adds to the top
+    - pop() → removes from the top
+    - peek() → looks at the top
+    - But queues work on First In, First Out. So to simulate stack behavior using queues, we manipulate how and where we insert elements.
+    - This solution makes push() costly by ensuring the newest element always ends up at the front of the main queue (q1), making pop() and peek() easy.
+
+```
+int q1[NUM], q2[NUM];
+int front1 = -1, rear1 = -1;
+int front2 = -1, rear2 = -1;
+
+```
+- q1 is the main queue that simulates the stack.
+- q2 is a temporary queue used during push().
+- front and rear pointers track where the queue starts and ends. A -1 means the queue is empty.
+
 ```
 reference: https://www.youtube.com/watch?v=sFvP5Ois0CE
 // Implementing stack using queueu
