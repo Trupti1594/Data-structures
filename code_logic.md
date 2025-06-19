@@ -2110,6 +2110,52 @@ int front2 = -1, rear2 = -1;
 - q2 is a temporary queue used during push().
 - front and rear pointers track where the queue starts and ends. A -1 means the queue is empty.
 
+**push() Logic**
+
+  - Step 1: Copy all elements from q1 to q2
+    ```
+      while (front1 != -1 && front1 <= rear1)
+      {
+        ...
+        q2[++rear2] = q1[front1++];
+      }
+    ```
+  - Step 2: Add new element to q1: We reset q1 and insert the new element first — because that’s how stacks work (new element is always on top).
+
+    ```
+      front1 = 0;
+      rear1 = 0;
+      q1[rear1] = num;
+    ```
+  - Step 3: Copy old elements back to q1: We move everything back from q2 to q1. Now the new element is at the front of the queue — perfect for pop().
+    ```
+      while (front2 != -1 && front2 <= rear2) 
+      {
+        q1[++rear1] = q2[front2++];
+      }
+    ```
+  - Final step: Reset q2 for next use
+
+**pop() Logic**
+  ```
+    if (front1 == -1 || front1 > rear1)
+    //Checks if the queue is empty.  
+      printf("popped element %d\n", q1[front1]);
+      front1++;
+  ```
+    Removes the element at the front (which is the top of the stack). Efficient: O(1).
+If the stack becomes empty after popping, the condition resets both pointers to -1.
+
+
+![image](https://github.com/user-attachments/assets/02093805-f675-4041-93bb-17f3e54862b4)
+
+
+
+
+
+
+
+
 ```
 reference: https://www.youtube.com/watch?v=sFvP5Ois0CE
 // Implementing stack using queueu
