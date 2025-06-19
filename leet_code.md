@@ -776,7 +776,51 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
 return new_node->next;
 }
 ```
+# 21. Merge Two Sorted Lists  #
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
+✅ Logic
+- Create a stack (array) to store opening brackets.
+- Traverse the string:
+- If you see an opening bracket ((, {, [), push it onto the stack.
+- If you see a closing bracket (), }, ]):
+- Check if the stack is empty → invalid.
+- Check if the top of the stack matches the corresponding opening bracket → if not, invalid.
+- If it matches, pop the top.
+- After the loop, if the stack is empty → valid. Otherwise → invalid.
+
+```
+bool isValid(char* s) {
+    
+    char stack[strlen(s)];
+    int top =-1;
+    for(int i=0;s[i]!='\0';i++)
+    {
+        if(s[i]=='('|| s[i]=='[' ||s[i]=='{')
+        {
+            stack[++top] = s[i];
+        }
+        else
+        {
+            if(top == -1)
+            {
+                return false;
+            }
+            else
+            {
+                if(stack[top]=='('&&s[i]==')'||stack[top]=='{'&&s[i]=='}'||stack[top]=='['&&s[i]==']')
+                {
+                    top--;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return (top ==-1);
+```
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
@@ -820,6 +864,8 @@ bool canConstruct(char* ransomNote, char* magazine)
     
 }
 ```
+
+
 **algo using Hashing**
 
 Your algorithm efficiently checks whether ransomNote can be constructed using letters from magazine, ensuring each letter is used only once. It uses hashing via an array (freq[26]) to store character frequencies efficiently
