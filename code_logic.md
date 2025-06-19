@@ -1908,6 +1908,7 @@ display(head1);
 # Implementation of stack using array #
 
 ```
+reference : https://www.youtube.com/watch?v=VmsTAVpz0xo&list=PLcFL7FQZfCUl-Qprn5QKv3YSsejh5NXT-&index=2
 // Online C compiler to run C program online
 #include <stdio.h>
 #define N 5
@@ -1998,6 +1999,7 @@ while(1)
 ![image](https://github.com/user-attachments/assets/543a1206-8ca8-4ec9-866b-26f381bab9b2)
 
 ```
+reference : https://www.youtube.com/watch?v=T_UXDTy23DQ&list=PLcFL7FQZfCUl-Qprn5QKv3YSsejh5NXT-&index=3
 // Online C compiler to run C program online
 #include <stdio.h>
 #include <stdlib.h>
@@ -2080,6 +2082,122 @@ while(1)
         case 3: peek();
                break;
         case 4: display(top);
+               break;
+    }
+}
+    return 0;
+}
+```
+# Implementation of stack using queue(normal queue) #
+
+```
+reference: https://www.youtube.com/watch?v=sFvP5Ois0CE
+// Implementing stack using queueu
+#include <stdio.h>
+#include <stdlib.h>
+
+#define NUM 6
+int q1[NUM];
+int q2[NUM];
+int front1 = -1,rear1 = -1; 
+int front2 = -1,rear2 = -1; 
+
+void push()
+{
+    int num;
+    printf("enter the element to push\n");
+    scanf("%d",&num);
+    //copy all q1 elemts to q2
+    while(front1 !=-1 && front1<=rear1)
+    {
+        if(rear2 == NUM-1)
+        {
+            printf("q2 overflow\n");
+            return;
+        }
+        if(front2 ==-1)
+        {
+            front2 =0;
+        }
+        q2[++rear2] = q1[front1++];
+    }
+    //enter elements at 0th index of q1
+    if (rear1 == NUM - 1) 
+    {
+        printf("q1 Overflow\n");
+        return;
+    }
+
+    front1 =0;
+    rear1=0;
+    q1[rear1] = num;
+    //copy all q2 elemts to q1
+    while(front2 !=-1 && front2<=rear2)
+    {
+        q1[++rear1] = q2[front2++];
+
+    }
+    //reset the q2
+    rear2=front2=-1;
+}
+
+void pop()
+{
+    if(front1==-1 || front1>rear1)
+    {
+        printf("q1 is empty nothing to pop\n");
+        front1=rear1=-1;
+    }
+    else
+    {
+        printf("poped element %d\n",q1[front1]);
+        front1++;
+    }
+
+}
+
+void peek()
+{
+    if(front1==-1 || front1>rear1)
+    {
+        printf("q1 is empty nothing to peek\n");
+    }
+    else
+    {
+        printf("peek element is : %d\n",q1[front1]);
+    }
+}
+ 
+void display()  
+{
+    if(front1==-1 || front1>rear1)
+    {
+        printf("q1 is empty nothing to dispaly\n");
+    }
+    else
+    {
+        for(int i = front1;i<=rear1;i++)
+        {
+            printf("stack elemets are : %d\n",q1[i]);
+        }
+    }
+}
+int main() {
+int choice;
+while(1)
+{
+    printf("enter the choice : 1)push 2)pop 3)peek 4)display\n");
+    scanf("%d",&choice);
+    
+    switch(choice)
+    {
+        case 1: push();
+               break;
+        case 2: pop();
+               break;
+        case 3: peek();
+               break;
+        case 4: display();
                break;
     }
 }
