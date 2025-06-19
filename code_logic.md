@@ -1991,9 +1991,101 @@ while(1)
     return 0;
 }
 ```
+# Implementation of stack using linked list #
 
+  - top in stack wil be the head of the linked list(top = head), so whenever we add a new node in the list it will be from the front not from the end.
 
+![image](https://github.com/user-attachments/assets/543a1206-8ca8-4ec9-866b-26f381bab9b2)
 
+```
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+struct node *top = NULL;
+
+void push()
+{
+    //add elements at the front of linked list so that time complexity will be O(1) if it is at end then time complexity for push(),pop,peek will be O(N)
+    int num;
+    printf("enter the element to push\n");
+    scanf("%d",&num);
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->data = num;
+    new_node->next = top;
+    top = new_node;
+}
+
+void pop()
+{
+    struct node *temp = top;
+    if(top == NULL)
+    {
+        printf("no elements to pop\n");
+    }
+    else
+    {
+        printf("popped node = %d\n",top->data);
+        top = top->next;
+        free(temp);
+    }
+}
+
+void peek()
+{
+    if(top == NULL)
+    {
+        printf("stack is emmpty\n");
+    }
+    else
+    {
+        printf("peek element = %d\n",top->data);
+    }
+}
+ 
+void display(struct node *top)  
+{
+     struct node *temp = top;
+    if(top == NULL)
+    {
+        printf("stack is empty no items to dispaly\n");
+    }
+    else
+    {
+        while(temp!=NULL)
+        {
+            printf("data = %d\n",temp->data);
+            temp = temp->next;
+        }
+    }
+}
+int main() {
+int choice;
+while(1)
+{
+    printf("enter the choice : 1)push 2)pop 3)peek 4)display\n");
+    scanf("%d",&choice);
+    
+    switch(choice)
+    {
+        case 1: push();
+               break;
+        case 2: pop();
+               break;
+        case 3: peek();
+               break;
+        case 4: display(top);
+               break;
+    }
+}
+    return 0;
+}
+```
 # Hashing(do later) #
 
 **Theory**
