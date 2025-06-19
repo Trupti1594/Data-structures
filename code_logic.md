@@ -1905,6 +1905,95 @@ display(head1);
     return 0;
 }
 ```
+# Implementation of stack using array #
+
+```
+// Online C compiler to run C program online
+#include <stdio.h>
+#define N 5
+int stack[N];
+int top =-1;
+
+void push()
+{
+    int num;
+    printf("enter the element to push\n");
+    scanf("%d",&num);
+    if(top == N-1)
+    {
+        printf("stack overflow\n");
+    }
+    else
+    {
+        top++;
+        stack[top] = num;
+    }
+}
+
+void pop()
+{
+    if(top == -1)
+    {
+        printf("stack underflow\n");
+    }
+    else
+    {
+        printf("element poped from stack %d\n",stack[top]);
+        top--;
+    }
+}
+
+void peek()
+{
+    if(top == -1)
+    {
+        printf("no peak\n");
+    }
+    else
+    {
+        printf("peek: %d\n",stack[top]);
+    }
+}
+ 
+void display()  
+{
+    if(top == -1)
+    {
+        printf("stack is empty\n");
+    }
+    else
+    {
+        for(int i =top;i>=0;i--)
+        {
+            printf("stack[%d] = %d\n",i,stack[i]);
+        }
+    }
+}
+int main() {
+int choice;
+while(1)
+{
+    printf("enter the choice : 1)push 2)pop 3)peek 4)display\n");
+    scanf("%d",&choice);
+    
+    switch(choice)
+    {
+        case 1: push();
+               break;
+        case 2: pop();
+               break;
+        case 3: peek();
+               break;
+        case 4: display();
+               break;
+    }
+}
+    return 0;
+}
+```
+
+
+
 # Hashing(do later) #
 
 **Theory**
