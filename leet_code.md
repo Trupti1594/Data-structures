@@ -808,7 +808,7 @@ bool isValid(char* s) {
             }
             else
             {
-                if(stack[top]=='('&&s[i]==')'||stack[top]=='{'&&s[i]=='}'||stack[top]=='['&&s[i]==']')
+                              if(stack[top]=='('&&s[i]==')'||stack[top]=='{'&&s[i]=='}'||stack[top]=='['&&s[i]==']')
                 {
                     top--;
                 }
