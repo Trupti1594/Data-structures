@@ -821,6 +821,18 @@ bool isValid(char* s) {
     }
     return (top ==-1);
 ```
+
+
+# 73. Set Matrix Zeroes #
+
+- Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.(You must do it in place i.e space compleity O(1))
+
+
+```
+reference
+  - https://www.youtube.com/watch?v=N0MgLvceX7M
+  - https://www.youtube.com/watch?v=dSxt3ZCbIqA
+```
 # 383. Ransom Note #
 https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
   - few test case are not getting passed try WITHOUT HASHING in free time
