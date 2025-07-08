@@ -4,7 +4,7 @@ Absolutely, Trupti! Here's a **targeted interview question set** covering **arra
 
 ## 🔢 **Arrays**
 
-1. Rotate an array of size `n` to the right by `k` positions in-place.
+1. Rotate an array of size `n` to the right by `k` positions in-place. -> practise optimal approach, brutforce is given below
 2. Find the subarray with the maximum sum (Kadane’s Algorithm).
 3. Remove duplicates from a sorted array in-place.
 4. Merge two sorted arrays without using extra space.
@@ -62,4 +62,56 @@ Absolutely, Trupti! Here's a **targeted interview question set** covering **arra
 
 ---
 
-Would you like me to turn this into a printable PDF workbook or simulate a mock round with 2–3 questions from each topic? I can also add Qualcomm-style follow-ups and edge cases to test your thinking under pressure 💡🔥
+Would you like me to turn this into a printable PDF workbook or simulate a mock round with 2–3 questions from each topic? I can also add Qualcomm-style follow-ups and edge cases to test your thinking under 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+**Rotate an array of size `n` to the right by `k` positions in-place**
+```
+
+// Approach1 brute force
+#include <stdio.h>
+
+void rotate_array(int arr[],int n,int k)
+{
+    //rotate array right by k times
+    int i=1;
+    while(i<=k)
+    {
+        int temp = arr[n-1];
+        int j = n-1;
+        
+        while(j>0)
+        {
+            arr[j]= arr[j-1];
+            j--;
+        }
+        arr[j]=temp;
+        i++;
+    }
+}
+
+
+int main() {
+
+int arr[] = {1,2,3,4,5,6,7};
+int k;
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("unsorted array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+printf("\nRatate the array by how many times to right\n");
+scanf("%d",&k);
+rotate_array(arr,n,k);
+printf("\nfinal array\n");
+for(int i=0;i<n;i++)
+{
+    printf("%d\t",arr[i]);
+}
+
+    return 0;
+}
+```
