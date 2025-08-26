@@ -80,6 +80,7 @@ printf("output number %d\n",output);
 ```
 
 # swap even and odd bits of num using bitwise #
+
 ```
 logic:
 
