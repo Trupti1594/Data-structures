@@ -1,4 +1,4 @@
-# clear bits from m to n position using bitwise operatpors #
+# clear bits from m to n position using bitwise operatpors(left and right position inclusive) #
 
 ```
 //clear bits between left and right position using bitwise operator
@@ -35,4 +35,46 @@ printf("output number %d\n",output);
 
 
 }
+```
+
+# clear bits from left to right position using bitwise operatpors(left and right position inclusive) #
+
+```
+//set bits between left and right position using bitwise operator
+/*
+logic : 
+1) (left - right + 1)-> This will give the length of the block we need with all 1's .
+2) (1U << (left - right + 1))-> this will give a "point" before which all bits will be 1 after doing "-1"
+3) (1U << (left - right + 1))-1 -> this will make allthe bits before "point" as 1 and "point"bit =0;
+4) now you got the band of 1's with the length you need .
+5) shift the band leftside with "right" value
+*/
+#include <stdio.h>
+
+int main() {
+
+int num,left,right;
+printf("enter the number\n");
+scanf("%d",&num);
+
+printf("enter the right position\n");
+scanf("%d",&right);
+
+printf("enter the left position \n");
+scanf("%d",&left);
+
+
+//Combine left and right masks
+    unsigned int mask = ((1<<((left-right)+1))-1)<<right;
+
+//Clear bits in range [left, right]
+    unsigned int output = num | mask;
+
+printf("output number %d\n",output);    
+    return 0;
+
+
+
+}
+
 ```
