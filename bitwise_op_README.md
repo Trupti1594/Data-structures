@@ -78,3 +78,46 @@ printf("output number %d\n",output);
 }
 
 ```
+
+# swap even and odd bits of num using bitwise #
+```
+logic:
+
+Mask out even bits → using 0xAAAAAAAA
+
+In binary (32-bit): 101010...10
+
+This picks up bits at odd positions (since we start from LSB=0).
+
+Mask out odd bits → using 0x55555555
+
+In binary: 010101...01
+
+This picks up bits at even positions.
+
+Shift them:
+
+Right shift odd-positioned bits → even_bits >> 1
+
+Left shift even-positioned bits → odd_bits << 1
+
+Combine (OR) → final swapped number.
+
+
+int main() {
+    unsigned int num;
+    printf("Enter a number: ");
+    scanf("%u", &num);
+
+    unsigned int even_bits = num & 0xAAAAAAAA; // mask odd positions
+    unsigned int odd_bits  = num & 0x55555555; // mask even positions
+
+    even_bits >>= 1; // shift odd-positioned bits to even
+    odd_bits  <<= 1; // shift even-positioned bits to odd
+
+    result = even_bits | odd_bits ;
+    printf("After swapping even and odd bits: %u\n", result);
+
+    return 0;
+}
+```
