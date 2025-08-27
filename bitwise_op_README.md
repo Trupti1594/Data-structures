@@ -122,3 +122,33 @@ int main() {
     return 0;
 }
 ```
+
+# multiply 2 numbers using bitwise #
+
+```
+
+// Multiply 2 no's suing bit wise operators
+#include <stdio.h>
+
+int main() 
+{
+int a,b,result=0;
+printf("enter the 1st number\n");
+scanf("%d",&a);
+
+printf("enter the 2nd position\n");
+scanf("%d",&b);
+
+while(b>0)
+{
+    if(b&1)
+    {
+        result = result +a;
+    }
+    a = a<<1;
+    b = b>>1;
+}
+printf("result %d\n",result);
+    return 0;
+}
+```
