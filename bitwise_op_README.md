@@ -110,13 +110,13 @@ int main() {
     printf("Enter a number: ");
     scanf("%u", &num);
 
-    unsigned int even_bits = num & 0xAAAAAAAA; // mask odd positions
-    unsigned int odd_bits  = num & 0x55555555; // mask even positions
+    unsigned int mask_even_bits = num & 0xAAAAAAAA; // mask even bits and get the odd position bits
+    unsigned int mask_odd_bits  = num & 0x55555555; // mask odd bits and get the even position bits
 
-    even_bits >>= 1; // shift odd-positioned bits to even
-    odd_bits  <<= 1; // shift even-positioned bits to odd
+    mask_even_bits >>= 1; // shift odd-positioned bits to even
+    mask_odd_bits  <<= 1; // shift even-positioned bits to odd
 
-    result = even_bits | odd_bits ;
+    result = mask_even_bits | mask_odd_bits ;
     printf("After swapping even and odd bits: %u\n", result);
 
     return 0;
