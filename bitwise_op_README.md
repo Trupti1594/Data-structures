@@ -1,4 +1,4 @@
-# clear bits from m to n position using bitwise operatpors(left and right position inclusive) #
+# clear bits from left to right position using bitwise operatpors(left and right position inclusive) #
 
 ```
 //clear bits between left and right position using bitwise operator
