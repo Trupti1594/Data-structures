@@ -37,7 +37,7 @@ printf("output number %d\n",output);
 }
 ```
 
-# clear bits from left to right position using bitwise operatpors(left and right position inclusive) #
+# set bits from left to right position using bitwise operatpors(left and right position inclusive) #
 
 ```
 //set bits between left and right position using bitwise operator
