@@ -2270,6 +2270,65 @@ while(1)
     return 0;
 }
 ```
+# find and Remove duplicates from string #
+```
+// find and Remove duplicates from string
+#include <stdio.h>
+#include <string.h>
+
+void find_duplicates(char *str)
+{
+    int i=0;
+    char count[256] = {0};
+    while(str[i]!='\0')
+    {
+        count[str[i]]++;
+        i++;
+    }
+    for(int j=0;j<256;j++)
+    {
+        if(count[j]>1)
+        {
+            printf("repeated characters are %c\n",j);
+        }
+    }
+    
+}
+void remove_duplicates(char* str)
+{
+    int i=0,k=0;
+    char count[256] = {0};
+    while(str[i]!='\0')
+    {
+        if(count[str[i]]==0)
+        {
+            str[k]= str[i];
+            count[str[i]]++;
+            k++;
+        }
+        
+        i++;
+        
+    }
+    str[k]='\0';
+}
+
+int main() 
+{
+char str[] = "helloo";
+printf("%s\n",str);
+find_duplicates(str);
+remove_duplicates(str);
+printf("%s",str);
+return 0;
+}
+
+```
+
+
+
+
+
 # Hashing(do later) #
 
 **Theory**
