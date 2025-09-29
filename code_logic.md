@@ -2271,7 +2271,10 @@ while(1)
 }
 ```
 # find and Remove duplicates from string #
+
 ```
+
+
 // find and Remove duplicates from string
 #include <stdio.h>
 #include <string.h>
@@ -2324,7 +2327,91 @@ return 0;
 }
 
 ```
+# sort array of strings using quick sort #
 
+- Space: O(1) (in-place)
+- Time (average): O(n log n × m)
+- Why m factor appears?
+  - Each comparison between two strings is not O(1) like comparing integers.
+  - Comparing two strings takes O(m) time in the worst case, because you may have to check all characters until you find a difference (or reach the end).
+  - n = number of strings in the array
+  - m = average length of each string
+    
+```
+#include <stdio.h>
+
+// Custom string compare: like strcmp, returns +ve, -ve or 0
+int stringCompare(char *s1, char *s2) {
+    while (*s1 && *s2) {
+        if (*s1 != *s2) {
+            return (*s1 - *s2);
+        }
+        s1++;
+        s2++;
+    }
+    return (*s1 - *s2);
+}
+
+// Swap two string pointers
+void swap(char **a, char **b) {
+    char *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Partition function using your logic
+int partition(char *arr[], int low, int high) {
+    int i = low;
+    int j = high;
+    char *pivot = arr[low];
+
+    while (i < j) {
+        while (stringCompare(arr[i], pivot) <= 0 && i <= high) {
+            i++;
+        }
+        while (stringCompare(arr[j], pivot) > 0 && j >= low) {
+            j--;
+        }
+        if (i < j) {
+            swap(&arr[i], &arr[j]);
+        }
+    }
+
+    swap(&arr[j], &arr[low]);  // Final pivot placement
+    return j;
+}
+
+// Recursive quick sort
+void quick_sort(char *arr[], int low, int high) {
+    if (low < high) {
+        int p = partition(arr, low, high);
+        quick_sort(arr, low, p);
+        quick_sort(arr, p + 1, high);
+    }
+}
+
+int main() {
+    char *arr[] = { "banana", "apple", "grape", "cherry", "orange" };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int low = 0;
+    int high = size - 1;
+
+    printf("Unsorted strings:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%s\n", arr[i]);
+    }
+
+    quick_sort(arr, low, high);
+
+    printf("\nSorted strings:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%s\n", arr[i]);
+    }
+
+    return 0;
+}
+
+```
 
 
 
