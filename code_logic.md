@@ -1,4 +1,11 @@
 - [Count_digits_in_a_number](#Count_digits_in_a_number)
+- [Reverse_the_number](#Reverse_the_number)
+
+
+
+
+
+
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
 
@@ -56,7 +63,7 @@ printf("count = %d",count);
 
 **Time Complexity:** whenever no. of iteration depends on division then we can see logarithmic time complexity at that time O(log10N + 1)
 
-# 2) reverse the number #
+# 2) Reverse_the_number #
 
 **Algorithm**
 
