@@ -1,9 +1,10 @@
+- [Count_digits_in_a_number](#Count_digits_in_a_number)
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
-- [Count digits in a number](#Count digits in a number)
+
 # BasicMaths #
 
-# 1) Count digits in a number #
+# Count_digits_in_a_number #
 
 **logic**
 
