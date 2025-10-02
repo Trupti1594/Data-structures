@@ -31,6 +31,8 @@
 - [find_and_Remove_duplicates_from_string](#find_and_Remove_duplicates_from_string)
 - [sort_array_of_strings_using_quick_sort](#sort_array_of_strings_using_quick_sort)
 - [insert_element_in_singlle_ll_front_position_end](#insert_element_in_singlle_ll_front_position_end)
+- [Delete_element_in_single_ll_front_position_end](#Delete_element_in_single_ll_front_position_end)
+
 
 
 
@@ -2625,7 +2627,187 @@ free_list(&head);
 return 0;
 }
 ```
+# Delete_element_in_single_ll_front_position_end #
 
+```
+//Delete_element_in_single_ll_front_position_end
+
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct node{
+	int data;
+	struct node *next;
+
+};
+
+void display(struct node **head)
+{
+    if(*head == NULL)
+    {
+        printf("linked list is empty\n");
+        return;
+    }
+    struct node *temp = *head;
+    printf("linked list elements: \n");
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+
+}
+
+int free_list(struct node **head)
+{
+    if(*head == NULL)
+    {
+        printf("empty linked list\n");
+        return 0;
+    }
+    struct node *current = *head;
+    struct node *temp = NULL;
+    while(current!=NULL)
+    {
+        temp = current->next;
+        free(current);
+        current = temp;
+    }
+    *head = NULL;
+    return 0;
+}
+int delete_at_end(struct node **head)
+{
+    if(*head == NULL)
+    {
+        printf("empty linked list\n");
+        return 0;
+    }
+    if((*head)->next == NULL)
+    {
+        printf("deleted element is : %d\n", (*head)->data); 
+        free(*head);
+        *head = NULL;
+        return 0;
+    }
+    struct node *temp = *head;
+    struct node *temp2 = NULL;
+    while(temp->next->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    temp2 = temp->next;
+    printf("deleted element is : %d\n", temp2->data); 
+    temp->next = temp2->next;
+    free(temp2);
+    return 0;
+    
+}
+int delete_at_front(struct node **head)
+{
+    if(*head == NULL)
+    {
+        printf("empty linked list\n");
+        return 0;
+    }
+    struct node *temp = *head;
+    *head = temp->next;
+    printf("deleted element is : %d\n",temp->data);
+    free(temp);
+    temp = NULL;
+return 0;
+}
+int delete_at_position(struct node **head,int position)
+{
+    if(*head == NULL)
+    {
+        printf("empty linked list\n");
+        return 0;
+    }
+    if(position<0)
+    {
+        printf("enter positive position avlue\n");
+        return -1;
+    }
+    if(position == 0)
+    {
+         struct node *temp = *head;
+         *head = temp->next;
+         free(temp);
+         temp = NULL;
+         return 0;
+    }
+    struct node *temp = *head;
+    struct node *temp2 = NULL;
+    for(int i=0;i<(position-1)&&(temp!=NULL);i++)
+    {
+        temp = temp->next;
+    }
+    if((temp == NULL)||(temp->next == NULL))
+    {
+        printf("out of bound index\n");
+        return -1;
+    }
+    temp2 = temp->next;
+    printf("deleted element is : %d\n", temp2->data);  
+    temp->next = temp->next->next;
+    free(temp2);
+    temp2 = NULL;
+    return 0;
+}
+
+int insert_at_end(struct node **head,int value)
+{
+
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+	if(new_node == NULL)
+	{
+	    printf("memory not allocated for new_node\n");
+	    return -1;
+	}
+	new_node->data = value;
+	new_node->next = NULL;
+	
+	if(*head == NULL)
+	{
+	    *head=new_node;
+	    return 0;
+	}
+	struct node *temp = *head;
+	while(temp->next!=NULL)
+	{
+	    temp = temp->next;
+	}
+    temp->next = new_node;
+
+return 0;
+}
+
+int main()
+{
+struct node *head = NULL;
+
+
+insert_at_end(&head,10);
+insert_at_end(&head,20);
+insert_at_end(&head,30);
+insert_at_end(&head,40);
+insert_at_end(&head,50);
+display(&head);
+//delete_at_front(&head);
+//delete_at_position(&head,4);
+delete_at_end(&head);
+delete_at_end(&head);
+delete_at_end(&head);
+delete_at_end(&head);
+delete_at_end(&head);
+display(&head);
+free_list(&head);
+}
+
+
+```
 
 
 # Hashing(do later) #
