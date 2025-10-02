@@ -1,5 +1,35 @@
 - [Count_digits_in_a_number](#Count_digits_in_a_number)
 - [Reverse_the_number](#Reverse_the_number)
+- [Check_if_a_number_is_Palindrome_or_Not](#Check_if_a_number_is_Palindrome_or_Not)
+- [Armstrong_Number_or_not](#Armstrong_Number_or_not)
+- [Print_all_Divisors_of_a_given_Number](#Print_all_Divisors_of_a_given_Number)
+- [Check_if_a_number_is_prime_or_not](#Check_if_a_number_is_prime_or_not)
+- [Print_Name_N_times_using_Recursion](#Print_Name_N_times_using_Recursion)
+- [Print_1_to_N_using_Recursion](#Print_1_to_N_using_Recursion)
+- [Print_N_to_1_using_Recursion](#Print_N_to_1_using_Recursion)
+- [Sum_of_first_N_Natural_Numbers](#Sum_of_first_N_Natural_Numbers)
+- [Factorial_of_a_Number_using_Recursive](#Factorial_of_a_Number_using_Recursive)
+- [Reverse_a_given_Array](#Reverse_a_given_Array)
+- [using_recursion_Check_if_the_given_String_is_Palindrome_or_not](#using_recursion_Check_if_the_given_String_is_Palindrome_or_not)
+- [Print_Fibonacci_Series_up_to_Nth_term_without_recursion](#Print_Fibonacci_Series_up_to_Nth_term_without_recursion)
+- [Print_Fibonacci_Series_up_to_Nth_term_with_recursion](#Print_Fibonacci_Series_up_to_Nth_term_with_recursion)
+- [Selection_sort](#Selection_sort)
+- [Bubble_sort](#Bubble_sort)
+- [Insertion_sort](#Insertion_sort)
+- [Merge_sort](#Merge_sort)
+- [Quick_sort](#Quick_sort)
+- [Find_the_Largest_element_in_an_array](#Find_the_Largest_element_in_an_array)
+- [Find_the_2nd_Largest_element_in_an_array](#Find_the_2nd_Largest_element_in_an_array)
+- [Check_if_an_Array_is_Sorted](#Check_if_an_Array_is_Sorted)
+- [Remove_Duplicates_in_place_from_Sorted_Array](#Remove_Duplicates_in_place_from_Sorted_Array)
+- [Left_Rotate_the_Array_by_One](#Left_Rotate_the_Array_by_One)
+- [Rotate_array_by_K_elements](#Rotate_array_by_K_elements)
+- [Reverse_linked_list](#Reverse_linked_list)
+- [Implementation_of_stack_using_array](#Implementation_of_stack_using_array)
+- [Implementation_of_stack_using_linked_list](#Implementation_of_stack_using_linked_list)
+- [Implementation_of_stack_using_queue](#Implementation_of_stack_using_queue)
+- [find_and_Remove_duplicates_from_string](#find_and_Remove_duplicates_from_string)
+- [sort_array_of_strings_using_quick_sort](#sort_array_of_strings_using_quick_sort)
 
 
 
@@ -63,7 +93,7 @@ printf("count = %d",count);
 
 **Time Complexity:** whenever no. of iteration depends on division then we can see logarithmic time complexity at that time O(log10N + 1)
 
-# 2) Reverse_the_number #
+# Reverse_the_number #
 
 **Algorithm**
 
@@ -98,7 +128,7 @@ printf("reverse = %d",reverse);
     return 0;
 }
 ```
-# 3) Check if a number is Palindrome or Not #
+# Check_if_a_number_is_Palindrome_or_Not #
 
 - A palindrome is a number that reads the same backward as forward. For example, 121, 1331, and 4554 are palindromes because they remain the same when their digits are reversed.
   
@@ -150,7 +180,7 @@ else
 }
 ```
 
-# 4) Armstrong Number or not #
+# Armstrong_Number_or_not #
 
 **logic**
 
@@ -215,7 +245,7 @@ else
 
 ```
 
-# 5) Print all Divisors of a given Number #
+# 5) Print_all_Divisors_of_a_given_Number #
 
 - A divisor of an integer N is a positive integer that divides N without leaving a remainder. In other words, if N is divisible by another integer without any remainder, then that integer is considered a divisor of N.
 
@@ -290,7 +320,7 @@ for(i =1;**i*i<=n**;i++)  **//i*i<=n shows squareroot(36) ie 6 <= n**
 
 ```
 
-# 6) Check if a number is prime or not #
+# 6) Check_if_a_number_is_prime_or_not #
 
   - A prime number is a number that exactly has 2 factors i.e 1 and itself.
 
@@ -393,7 +423,7 @@ printf("number is not prime");
 # Recursion #
   - when a funtion calls itself until a specific condition is met
 
-# 1) Print Name N times using Recursion #
+# Print_Name_N_times_using_Recursion #
 
 **Algorithm**
 
@@ -432,7 +462,7 @@ print_name(n,i);
 
 ```
 
-# 2) Print 1 to N using Recursion #
+# Print_1_to_N_using_Recursion #
 
 **Algorithm**
 
@@ -465,7 +495,7 @@ return 0;
 
 ```
 
-# 3) Print N to 1 using Recursion #
+# Print_N_to_1_using_Recursion #
 
 **Algorithm**
 
@@ -534,7 +564,7 @@ return 0;
 }
 ```
 
-# 4) Sum of first N Natural Numbers #
+# Sum_of_first_N_Natural_Numbers #
 
 **1) Algorithm using recursion but printing in recursion function and recursive function not returning sum**
 
@@ -608,7 +638,7 @@ We can use the formula for the sum of N numbers, i.e N(N+1)/2.
   - Space Complexity: O(1)
 
 
-# 4) Factorial of a Number using Recursive #
+# Factorial_of_a_Number_using_Recursive #
 
 **Algorithm**
 
@@ -645,7 +675,7 @@ return 0;
 
 ```
 
-# 5) Reverse a given Array using recursion#
+# Reverse_a_given_Array #
   - methods
     - using recursion
     - using 2 pointers
@@ -707,7 +737,7 @@ return 0;
 }
 ```
 
-# 6) using recursion Check if the given String is Palindrome or not #
+# using_recursion_Check_if_the_given_String_is_Palindrome_or_not #
 
 **Algorithm**
 
@@ -757,7 +787,7 @@ return 0;
 
 ```
 
-# 7) Print Fibonacci Series up to Nth term without recursion #
+# Print_Fibonacci_Series_up_to_Nth_term_without_recursion #
 
 **Algorithm**
 
@@ -790,7 +820,7 @@ return 0;
 }
 ```
 
-# 8) Print Fibonacci Series up to Nth term with recursion #
+# Print_Fibonacci_Series_up_to_Nth_term_with_recursion #
 
 **Time Complexity**: O($2^N$) { This problem involves two function calls for each iteration which further expands to 4 function calls and so on which makes worst-case time complexity to be exponential in nature }.
 
@@ -865,7 +895,7 @@ return 0;
 }
 
 ```
-# selection sort #
+# Selection_sort #
   - Select the minimum value in array and swap that min value with the elemnet present at ith index.keep on repeating this till i<n-1(because in n-2 iteration your array is already sorted  )
     
 Selection Sort is a simple sorting algorithm that repeatedly **finds the minimum element from the  array and swaps it with the first element of the unsorted section. sorted array is in ascending order**. It works by dividing the array into two parts: the sorted portion and the unsorted portion.
@@ -970,7 +1000,7 @@ for(int i=0;i<n;i++)
 }
 
 ```
-# bubble sort #
+# Bubble_sort #
 
 - Push maximum value to the last by adjacent swaps.
   
@@ -1068,7 +1098,7 @@ for(int i=0;i<n;i++)
     return 0;
 }
 ```
-# Insertion sort #
+# Insertion_sort #
 
 **How Insertion Sort Works:**
 - Takes an element and places at its correct position.
@@ -1156,7 +1186,7 @@ for(int i=0;i<n;i++)
 
 ```
 
-# Merge sort #
+# Merge_sort #
 references : https://www.youtube.com/watch?v=jlHkDBEumP0
 - bubble,insertion,selcetion haave time worst case complexity O($n^2$).Merge sort is better then them as it has timecomplexity of O(nlogn) 
 - This is divide and merge algo.For dividing the array we will use recursion
@@ -1288,7 +1318,7 @@ for(int i=0;i<size;i++)
 }
 ```
 
-# Quick sort #
+# Quick_sort #
 
 - has time complexity of O(nlogn), but space complexity of O(1) as it doesn't need extra temp array like merge sort.
 - Quick Sort is a divide-and-conquer algorithm like the Merge Sort. But unlike Merge sort, this algorithm does not use any extra array for sorting(though it uses an auxiliary stack space). So, from that perspective, Quick sort is slightly better than Merge sort.
@@ -1437,7 +1467,7 @@ for(int i=0;i<size;i++)
 
 ```
 
-# Find the Largest element in an array #
+# Find_the_Largest_element_in_an_array #
   - Their are 2 approches
       1) use sorting to sort array , the last element of an array will be the largest. Time complexity will be O(nlogn) if using merge or quick sort.
       2) using "max" variable. take 1st array index as "max value" and compare it will all the array elements if elemnt is "greater than the max value replace the max value" with that array element keep doing this till end of the array,at the end the max varibale will have largest value. This will have time complexity of O(n).
@@ -1456,7 +1486,7 @@ for(int i=1;i<n;i++)
 
 ```
 
-# Find the 2nd Largest element in an array #
+# Find_the_2nd_Largest_element_in_an_array #
 
   - Their are 2 approches
     - use sorting to sort array , the last2nd element of an array will be the 2nd largest. Time complexity will be O(nlogn) if using merge or quick sort.
@@ -1504,7 +1534,7 @@ for(int i=1;i<n;i++)
 }
 ```
 
-# Check if an Array is Sorted #
+# Check_if_an_Array_is_Sorted #
 
 **Logic**
   - if the given array is sorted in ascending order then "descending" flag will be set to false and ascending flag will be set to true.
@@ -1571,7 +1601,7 @@ else
     return 0;
 }
 ```
-# Remove Duplicates in-place from Sorted Array #
+# Remove_Duplicates_in_place_from_Sorted_Array #
   - Use 2 pointer approach.
     
     - approach 1 : We can think of using two pointers ‘i’ and ‘j’, we move ‘i’ till we don't get a number arr[i-1] which is different from arr[i]. As we got a unique number we will update its arr[j] by arr[i-1] value and increase the j pointer 
@@ -1642,7 +1672,7 @@ int removeDuplicates(int arr[], int n)
 }
 
 ```
-# Left Rotate the Array by One # 
+# Left_Rotate_the_Array_by_One # 
   - At first, we have to shift the array towards the left so, we store the value of the first index in a variable (let it be temp).
   - Then we iterate the array from the 1st index less then the nth index
   - And then store the value present in the next index to the current index like this :arr[j] = arr[j-1]
@@ -1688,7 +1718,7 @@ for(int i=0;i<n;i++)
 }
 ```
 
-# Rotate array by K elements #
+# Rotate_array_by_K_elements #
 
   - **Approach 1 : Brute force**
       - Uses an in-place shifting mechanism without extra space.
@@ -1796,7 +1826,7 @@ int main() {
 ```
 # single linked list  #
 
-**Reverse linked list logic**
+# Reverse_linked_list #
   1) Initialize Pointers
     - prev: Keeps track of the previous node. Initially, it's NULL because the first node will become the last one in the reversed list.
     - current: Points to the current node in the linked list. Starts at head.
@@ -1914,7 +1944,7 @@ display(head1);
     return 0;
 }
 ```
-# Implementation of stack using array #
+# Implementation_of_stack_using_array #
 
 ```
 reference : https://www.youtube.com/watch?v=VmsTAVpz0xo&list=PLcFL7FQZfCUl-Qprn5QKv3YSsejh5NXT-&index=2
@@ -2001,7 +2031,7 @@ while(1)
     return 0;
 }
 ```
-# Implementation of stack using linked list #
+# Implementation_of_stack_using_linked_list #
 
   - top in stack wil be the head of the linked list(top = head), so whenever we add a new node in the list it will be from the front not from the end.
 
@@ -2097,7 +2127,7 @@ while(1)
     return 0;
 }
 ```
-# Implementation of stack using queue(normal queue) #
+# Implementation_of_stack_using_queue #
 
   - You’re implementing a stack (LIFO) using two queues (FIFO). This trick is common in interviews — and this code uses the approach where push() is costly to ensure pop() and peek() are fast.
   - here push() is costly to ensure pop() and peek() are fast.
@@ -2279,7 +2309,7 @@ while(1)
     return 0;
 }
 ```
-# find and Remove duplicates from string #
+# find_and_Remove_duplicates_from_string #
 
 ```
 
@@ -2336,7 +2366,7 @@ return 0;
 }
 
 ```
-# sort array of strings using quick sort #
+# sort_array_of_strings_using_quick_sort #
 
 - Space: O(1) (in-place)
 - Time (average): O(n log n × m)
