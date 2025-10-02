@@ -30,6 +30,7 @@
 - [Implementation_of_stack_using_queue](#Implementation_of_stack_using_queue)
 - [find_and_Remove_duplicates_from_string](#find_and_Remove_duplicates_from_string)
 - [sort_array_of_strings_using_quick_sort](#sort_array_of_strings_using_quick_sort)
+- [insert_element_in_singlle_ll_front_position_end](#insert_element_in_singlle_ll_front_position_end)
 
 
 
@@ -2450,8 +2451,180 @@ int main() {
     return 0;
 }
 
+
+```
+# insert_element_in_singlle_ll_front_position_end #
 ```
 
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct node{
+	int data;
+	struct node *next;
+
+};
+
+
+
+void display(struct node **head)
+{
+	if(*head == NULL)
+	{
+		printf("linked list is empty\n");
+		return;
+	}
+	else
+	{
+		struct node *temp = *head;
+		printf("linked list elements : \n");
+		while(temp!=NULL)
+		{
+			printf("%d\n",temp->data);
+			temp = temp->next;
+		}
+	}
+
+
+}
+
+int free_list(struct node **head)
+{
+    struct node *current = *head;
+    struct node *temp = NULL;
+	if(*head == NULL)
+	{
+		printf("linked list is empty\n");
+		return -1;
+	}
+    while(current!=NULL)
+    {
+        temp = current->next;
+        free(current);
+        current = temp;
+    }
+    *head = NULL;
+    return 0;
+}
+int insert_at_front(struct node **head,int value)
+{
+
+	struct node *new_node = (struct node*)malloc(sizeof(struct node));
+	if(new_node == NULL)
+	{
+	    printf("memory not allocated for new_node\n");
+	    return -1;
+	}
+	new_node->data = value;
+	new_node->next = NULL;
+
+	new_node->next = *head;
+	*head = new_node;
+
+
+return 0;
+}
+
+int insert_at_position(struct node **head,int value,int position)
+{
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+	if(new_node == NULL)
+	{
+	    printf("memory not allocated for new_node\n");
+	    return -1;
+	}
+	new_node->data = value;
+	new_node->next = NULL;
+    
+    if(position < 0)
+    {
+        printf("position is negative\n");
+        free(new_node);
+        return -1;
+    }
+    if(position == 0)
+    {
+        new_node->next = *head;
+        *head = new_node;
+        return 0;
+    }
+
+     struct node *temp = *head;   
+        for(int i=0;i<(position - 1) && (temp!=NULL);i++)
+        {
+            temp = temp->next;
+        }
+        if(temp == NULL)
+        {
+            printf("out of bound index\n");
+            free(new_node);
+            return -1;
+        }
+        new_node->next = temp->next;
+        temp->next = new_node;
+        
+        return 0;
+}
+
+int insert_at_end(struct node **head,int value)
+{
+
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+	if(new_node == NULL)
+	{
+	    printf("memory not allocated for new_node\n");
+	    return -1;
+	}
+	new_node->data = value;
+	new_node->next = NULL;
+	
+	if(*head == NULL)
+	{
+	    *head=new_node;
+	    return 0;
+	}
+	struct node *temp = *head;
+	while(temp->next!=NULL)
+	{
+	    temp = temp->next;
+	}
+    temp->next = new_node;
+
+return 0;
+}
+
+int main()
+{
+struct node *head = NULL;
+
+//insert_at_front(&head,10);
+//insert_at_front(&head,20);
+//insert_at_front(&head,30);
+//insert_at_front(&head,40);
+
+//insert_at_position(&head,10,0);
+//insert_at_position(&head,20,1);
+//insert_at_position(&head,30,2);
+//insert_at_position(&head,40,3);
+
+//display(&head);
+//insert_at_position(&head,50,4);
+//display(&head);
+//insert_at_position(&head,50,-1);
+
+insert_at_end(&head,10);
+insert_at_end(&head,20);
+insert_at_end(&head,30);
+insert_at_end(&head,40);
+display(&head);
+insert_at_end(&head,50);
+display(&head);
+free_list(&head);
+
+return 0;
+}
+```
 
 
 
