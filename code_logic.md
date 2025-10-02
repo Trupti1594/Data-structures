@@ -1,5 +1,6 @@
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
+- [Count digits in a number](#Count digits in a number)
 # BasicMaths #
 
 # 1) Count digits in a number #
