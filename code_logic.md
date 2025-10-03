@@ -32,8 +32,7 @@
 - [sort_array_of_strings_using_quick_sort](#sort_array_of_strings_using_quick_sort)
 - [insert_element_in_singlle_ll_front_position_end](#insert_element_in_singlle_ll_front_position_end)
 - [Delete_element_in_single_ll_front_position_end](#Delete_element_in_single_ll_front_position_end)
-
-
+- [Implement_stack_using_array](#Implement_stack_using_array)
 
 
 
@@ -2806,10 +2805,94 @@ display(&head);
 free_list(&head);
 }
 
+```
+# Implement_stack_using_array #
 
 ```
+//Implement stack using array
 
+#include<stdio.h>
+#include<stdlib.h>
 
+#define SIZE 5
+
+int stack[SIZE];
+int top =-1;
+
+int is_full()
+{
+    return(top == SIZE -1);
+}
+
+int is_empty()
+{
+    return(top ==-1);
+}
+
+int push(int data)
+{
+   if(is_full())
+   {
+       printf("stack is full\n");
+       return -1;
+   }
+   top++;
+   stack[top]=data;
+   //printf("in push %d %d\n",top,stack[top]);
+   return 0;
+}
+int pop()
+{
+    if(is_empty())
+    {
+        printf("stack is empty\n");
+        return -1;
+    }
+    printf("popped element is %d\n",stack[top]);
+    top--;
+    return 0;
+    
+}
+int peek()
+{
+    if(is_empty())
+    {
+        printf("stack is empty\n");
+        return -1;
+    }
+    printf("top element is %d\n",stack[top]);  
+    return 0;
+}
+int display()
+{
+    if(is_empty())
+    {
+        printf("stack is empty\n");
+        return -1;
+    }
+    printf("stack elements are :\n");
+    for(int i = top;i>=0;i--)
+    {
+        printf("%d\n",stack[i]);
+    }
+    return 0;
+}
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+    push(40);
+    push(50);
+    push(60);
+    display();
+    peek();
+    pop();
+    
+    return 0;
+}
+
+```
 # Hashing(do later) #
 
 **Theory**
