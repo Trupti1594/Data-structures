@@ -34,8 +34,7 @@
 - [Delete_element_in_single_ll_front_position_end](#Delete_element_in_single_ll_front_position_end)
 - [Implement_stack_using_array](#Implement_stack_using_array)
 - [Implement_stack_using_linked_list](#Implement_stack_using_linked_list)
-
-
+- [Implement_linear_queue_using_array](#Implement_linear_queue_using_array)
 
 
 
