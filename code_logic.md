@@ -2997,6 +2997,104 @@ int main()
 }
 
 ```
+# Implement_linear_queue_using_array #
+```
+//Implement_linear_queue_using_array
+
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 5
+
+int queue[SIZE];
+int front = -1;
+int rear = -1;
+
+int is_empty()
+{
+    return(front==-1);
+}
+
+int is_full()
+{
+    return(rear==(SIZE-1));
+}
+int enqueue(int value)
+{
+    if(is_full())
+    {
+        printf("queue is full\n");
+        return -1;
+    }
+    if(front == -1 && rear == -1)
+    {
+        front =0;
+        rear =0;
+    }
+    else
+    {
+        rear++;
+    }
+    queue[rear]=value;
+    return 0;
+
+}
+int dequeue(int *value)
+{
+    if(is_empty())
+    {
+        printf("queue is empty\n");
+        return -1;
+    }
+
+    *value = queue[front];
+    front++;
+    if(front>rear)
+    {
+        front = -1;
+        rear = -1;
+    }
+    return 0;
+}
+
+int display()
+{
+    if(is_empty())
+    {
+        printf("queue is empty\n");
+        return 0;
+    }
+    printf("elements in queue are: \n");
+    for(int i = front;i<=rear;i++)
+    {
+        printf("%d\n",queue[i]);
+    }
+    return 0;
+}
+
+int main()
+{
+    int value;
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    enqueue(50);
+    enqueue(60);
+    display();
+    if(dequeue(&value)==0)
+    {
+        printf("dequeued element is : %d\n",value);
+    }
+    
+    if(dequeue(&value)==0)
+    {
+        printf("dequeued element is : %d\n",value);
+    }
+ 
+    return 0;
+}
+
+```
 # Hashing(do later) #
 
 **Theory**
