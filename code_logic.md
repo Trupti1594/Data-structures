@@ -35,6 +35,7 @@
 - [Implement_stack_using_array](#Implement_stack_using_array)
 - [Implement_stack_using_linked_list](#Implement_stack_using_linked_list)
 - [Implement_linear_queue_using_array](#Implement_linear_queue_using_array)
+- [Implement_linear_queue_using_linked_list](#Implement_linear_queue_using_linked_list)
 
 
 
@@ -3093,6 +3094,124 @@ int main()
     return 0;
 }
 
+```
+
+# Implement_linear_queue_using_linked_list #
+```
+// Implement_linear_queue_using_linked_list
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+  int data;
+  struct node *next;
+};
+
+struct node *front = NULL;
+struct node *rear = NULL;
+
+//add at end O(1) as rear pointer is there
+int enqueue(int val)
+{
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    if(new_node == NULL)
+    {
+        printf("memeory allocation failed\n");
+        return -1;
+    }
+    new_node->data = val;
+    new_node->next = NULL;
+    
+    if((rear == NULL) && (front == NULL))
+    {
+        rear = new_node;
+        front = new_node;
+    }
+    else
+    {
+       rear->next=new_node;
+       rear = new_node;
+    }
+    
+    return 0;
+}
+//remove from front
+int dequeue(int *dequeue_value)
+{
+    if(front == NULL)
+    {
+        printf("queue is empty\n");
+        return -1;
+    }
+    struct node *temp = front;
+    *dequeue_value = front->data;
+    front = front->next;
+    
+    if(front == NULL)
+    {
+        rear = NULL;
+    }
+    free(temp);
+    return 0;
+}
+
+int free_list()
+{
+    if(front == NULL)
+    {
+        printf("queue is empty\n");
+        return -1;
+    }
+    struct node *temp = NULL;
+    while(front!=NULL)
+    {
+        temp = front;
+        front=front->next;
+        free(temp);
+    }
+    rear = NULL;
+    return 0;
+}
+int display()
+{
+    if(front == NULL)
+    {
+        printf("queue is empty\n");
+    }
+    else
+    {
+        struct node *temp = front;
+        printf("elements in queue are : \n");
+        while(temp!=NULL)
+        {
+            printf("%d\n",temp->data);
+            temp = temp->next;
+        }
+    }
+    return 0;
+}
+int main() 
+{
+    int dequeue_value;
+enqueue(10);
+enqueue(20);
+enqueue(30);
+display();
+if(dequeue(&dequeue_value)==0)
+{
+    printf("dequeue_value = %d\n",dequeue_value);
+}
+if(dequeue(&dequeue_value)==0)
+{
+    printf("dequeue_value = %d\n",dequeue_value);
+}
+//dequeue(&dequeue_value);
+display();
+//printf("dequeue_value = %d\n",dequeue_value);
+//dequeue(&dequeue_value);
+//printf("dequeue_value = %d\n",dequeue_value);
+
+    return 0;
+}
 ```
 # Hashing(do later) #
 
