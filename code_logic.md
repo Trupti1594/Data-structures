@@ -33,6 +33,7 @@
 - [insert_element_in_singlle_ll_front_position_end](#insert_element_in_singlle_ll_front_position_end)
 - [Delete_element_in_single_ll_front_position_end](#Delete_element_in_single_ll_front_position_end)
 - [Implement_stack_using_array](#Implement_stack_using_array)
+- [Implement_stack_using_linked_list](#Implement_stack_using_linked_list)
 
 
 
@@ -2888,6 +2889,109 @@ int main()
     display();
     peek();
     pop();
+    
+    return 0;
+}
+
+```
+# Implement_stack_using_linked_list #
+```
+//Implement_stack_using_linked_list
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+  int data;
+  struct node *next;
+    
+};
+// Push value onto stack (at front of linked list)
+int push(struct node **head,int val)
+{
+    //add at front
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    if(new_node == NULL)
+    {
+        printf("memeory not allocated\n");
+        return -1;
+    }
+    new_node->data = val;
+    new_node->next = *head;
+    *head = new_node;
+    return 0;
+}
+// Pop value from stack (from front)
+int pop(struct node **head,int *popvalue)
+{
+    //remove from front
+    if(*head == NULL)
+    {
+        printf("stack is empty\n");
+        return -1;
+    }
+    struct node *temp = *head;
+    *popvalue = temp->data;
+    *head = temp->next;
+    free(temp);
+    temp = NULL;
+    return 0;
+}
+// Display stack elements from top to bottom
+int display(struct node *head)
+{
+    if(head == NULL)
+    {
+        printf("stack is empty\n");
+        return -1;
+    }
+    struct node *temp = head;
+    printf("stack elements : \n");
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp = temp->next;
+    }
+    return 0;
+}
+
+int free_stack(struct node **head)
+{
+    if(*head == NULL)
+    {
+        printf("stack is empty\n");
+        return -1;
+    }
+    struct node *current = *head;
+    struct node *temp = NULL;
+    while(current!=NULL)
+    {
+        printf("freed element %d\n",current->data);
+        temp = current->next;
+        free(current);
+        current = temp;
+    }
+    *head = NULL;
+    return 0;
+}
+int main()
+{
+    int val;
+    int popvalue;
+    struct node *head = NULL;
+    push(&head,10);
+    push(&head,20);
+    push(&head,30);
+    push(&head,40);
+    display(head);
+    if (pop(&head, &popvalue) == 0)
+        printf("Popped element is: %d\n", popvalue);
+    if (pop(&head, &popvalue) == 0)
+        printf("Popped element is: %d\n", popvalue);
+    if (pop(&head, &popvalue) == 0)
+        printf("Popped element is: %d\n", popvalue);
+    display(head);
+    free_stack(&head);
     
     return 0;
 }
