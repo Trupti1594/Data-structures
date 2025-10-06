@@ -37,8 +37,9 @@
 - [Implement_linear_queue_using_array](#Implement_linear_queue_using_array)
 - [Implement_linear_queue_using_linked_list](#Implement_linear_queue_using_linked_list)
 - [Implement_circular_queue_using_array_or_ring_buffer](#Implement_circular_queue_using_array_or_ring_buffer)
+- [implement_circular_linked_list](#implement_circular_linked_list)
 
-
+implement_circular_linked_list
 
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
@@ -3330,9 +3331,138 @@ int main()
 
     return 0;
 }
-
-
 ```
+# implement_circular_linked_list #
+```
+// implement_circular_linked_list
+//add_at_end
+//delete_from_front
+
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    
+    int data;
+    struct node *next;
+};
+
+int remove_from_end(struct node **head)
+{
+    struct node *temp = *head;
+    struct node *prev = NULL;
+    if(*head == NULL)
+    {
+        return -1;
+    }
+    if(temp->next == *head) //if only one node
+    {
+        printf("element remove from list is: %d\n",temp->data);
+        free(temp);
+        *head = NULL;
+        return 0;
+    }
+    while(temp->next != *head) //more than 1 node
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+    prev->next = temp->next;
+    printf("element remove from list is: %d\n",temp->data);
+    free(temp);
+    return 0;
+}
+
+
+
+int add_at_end(struct node **head,int val)
+{
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    if(new_node == NULL)
+    {
+        printf("couln't allocate memory\n");
+        return -1;
+    }
+    new_node->data = val;
+    new_node->next = NULL;
+    if(*head == NULL)
+    {
+        *head = new_node;
+        new_node->next = new_node;
+        return 0;
+    }
+    struct node *temp = *head;
+    while(temp->next!=(*head))
+    {
+        temp=temp->next;
+    }
+    new_node->next = temp->next;
+    temp->next = new_node;
+    
+    return 0;
+}
+
+void display(struct node *head)
+{
+    if(head == NULL)
+    {
+        printf("empty list\n");
+    }
+    else
+    {
+    struct node *temp = head;
+    printf("elements in linked list are: \n");
+    do
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }while(temp!=head);
+    }
+}
+
+int free_list(struct node **head)
+{
+    struct node *current = *head;
+    struct node *temp = NULL;
+    if(*head == NULL)
+    {
+        return -1;
+    }
+    if(current->next == *head) //if only 1 node is there
+    {
+        free(current);
+        current = NULL;
+        *head = NULL;
+        return 0;
+    }
+    while(current->next!=*head)
+    {
+        temp = current;
+        current = current->next;
+        free(temp);
+    }
+    free(current);
+    current = NULL;
+    *head = NULL;
+    return 0;
+}
+int main() {
+
+struct node *head = NULL;
+add_at_end(&head,10);
+add_at_end(&head,20);
+add_at_end(&head,30);
+//add_at_end(&head,40);
+display(head);
+remove_from_end(&head);
+remove_from_end(&head);
+remove_from_end(&head);
+display(head);
+free_list(&head);
+    return 0;
+}
+```
+
+
 # Hashing(do later) #
 
 **Theory**
