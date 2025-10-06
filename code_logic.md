@@ -36,6 +36,7 @@
 - [Implement_stack_using_linked_list](#Implement_stack_using_linked_list)
 - [Implement_linear_queue_using_array](#Implement_linear_queue_using_array)
 - [Implement_linear_queue_using_linked_list](#Implement_linear_queue_using_linked_list)
+- [Implement_circular_queue_using_array_or_ring_buffer](#Implement_circular_queue_using_array_or_ring_buffer)
 
 
 
@@ -3212,6 +3213,125 @@ display();
 
     return 0;
 }
+
+```
+# Implement_circular_queue_using_array_or_ring_buffer #
+
+```
+// Implement_circular_queue_or_ring_buffer
+//ring buffer (also known as a circular buffer) is essentially a circular queue implemented using an array.
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 5
+int circular_queue[SIZE];
+int front = -1;
+int rear = -1;
+
+int is_full()
+{
+    return(((rear+1)%SIZE)==front);
+}
+int is_empty()
+{
+    return (front == -1);
+}
+int enqueue(int val)
+{
+    if(is_full())
+    {
+        printf("queue is overflow\n");
+        return -1;
+    }
+    if((front == -1)&&(rear == -1 ))
+    {
+        front = 0;
+        rear = 0;
+    }
+    else
+    {
+        rear = (rear+1)%SIZE;
+    }
+    circular_queue[rear] = val;
+    return 0;
+}
+
+int dequeue(int *dequeue_value)
+{
+    if(is_empty())
+    {
+        return -1;
+    }
+    *dequeue_value = circular_queue[front];
+    if(front == rear)
+    {
+        front = -1;
+        rear = -1;
+    }
+    else
+    {
+        front = (front+1)%SIZE;
+    }
+    return 0;
+}
+
+void display()
+{
+    if(is_empty())
+    {
+        printf("queue is empty nothing to dispaly\n");
+    }
+    else
+    {
+        printf("elements in queue are : \n");
+        int i= front;
+        while(1)
+        {
+         printf("%d\n",circular_queue[i]);
+         if(i==rear)
+         {
+             break;
+         }
+          i=(i+1)%SIZE;
+        }
+    }
+}
+int main() 
+{
+    int dequeue_value;
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    enqueue(50);
+    display();
+    //enqueue(60);
+    
+    if(dequeue(&dequeue_value)==0)
+    {
+        printf("dequeud element is : %d\n",dequeue_value);
+    }
+        if(dequeue(&dequeue_value)==0)
+    {
+        printf("dequeud element is : %d\n",dequeue_value);
+    }
+        if(dequeue(&dequeue_value)==0)
+    {
+        printf("dequeud element is : %d\n",dequeue_value);
+    }
+        if(dequeue(&dequeue_value)==0)
+    {
+        printf("dequeud element is : %d\n",dequeue_value);
+    }    
+    if(dequeue(&dequeue_value)==0)
+    {
+        printf("dequeud element is : %d\n",dequeue_value);
+    }
+    display();
+
+    return 0;
+}
+
+
 ```
 # Hashing(do later) #
 
