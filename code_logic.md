@@ -39,8 +39,6 @@
 - [Implement_circular_queue_using_array_or_ring_buffer](#Implement_circular_queue_using_array_or_ring_buffer)
 - [implement_circular_linked_list](#implement_circular_linked_list)
 
-implement_circular_linked_list
-
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
 
