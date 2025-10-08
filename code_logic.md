@@ -38,6 +38,7 @@
 - [Implement_linear_queue_using_linked_list](#Implement_linear_queue_using_linked_list)
 - [Implement_circular_queue_using_array_or_ring_buffer](#Implement_circular_queue_using_array_or_ring_buffer)
 - [implement_circular_linked_list](#implement_circular_linked_list)
+- [reverse_a_number_handle_edge_cases](#reverse_a_number_handle_edge_cases)
 
 Reference : https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
 
@@ -3459,8 +3460,36 @@ free_list(&head);
     return 0;
 }
 ```
+# reverse_a_number_handle_edge_cases #
+```
+#include <stdio.h>
+#include <limits.h>
 
+int reverse(int x) {
+    int result = 0;
 
+    while (x != 0) {
+        int digit = x % 10;
+        x /= 10;
+
+        // Check for overflow before multiplying
+        if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > 7)) return 0;
+        if (result < INT_MIN / 10 || (result == INT_MIN / 10 && digit < -8)) return 0;
+
+        result = result * 10 + digit;
+    }
+
+    return result;
+}
+
+int main() {
+    int x = -12345;
+    int reversed = reverse(x);
+    printf("Reversed: %d\n", reversed);
+    return 0;
+}
+
+```
 # Hashing(do later) #
 
 **Theory**
